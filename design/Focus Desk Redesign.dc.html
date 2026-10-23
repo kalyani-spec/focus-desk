@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<style>
+body{margin:0;background:#d9d8df;font-family:Poppins,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#5b5bd6;text-decoration:none}a:hover{color:#3f3fb0}
+button{font-family:inherit}
+</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:32px;font-family:Poppins,system-ui,sans-serif">
+  <div style="display:flex;flex-direction:column;gap:6px;max-width:900px">
+    <div style="font-size:13px;font-weight:500;color:#5b5bd6">Turn 1 · Today screen</div>
+    <div style="font-size:30px;font-weight:600;color:#17161d;letter-spacing:-0.01em">Three moody, dark-first directions</div>
+    <div style="font-size:15px;color:#4a4954;line-height:1.6;text-wrap:pretty">Same content and top-bar + three-card layout, indigo #5b5bd6 accent, Poppins throughout, ring and big numbers together. The timer runs live in all three. <a href="#1a">1a</a> glassy and glowing · <a href="#1b">1b</a> soft and dreamy · <a href="#1c">1c</a> calm and Notion-like.</div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+
+    <!-- 1a Midnight Glass -->
+    <div id="1a" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:12px"><span style="background:#17161d;color:#fff;font-size:13px;font-weight:600;padding:4px 10px;border-radius:8px">1a</span><span style="font-size:16px;font-weight:600;color:#17161d">Midnight Glass</span><span style="font-size:14px;color:#5d5c68">Frosted panels over a deep night sky, the timer glows</span></div>
+      <div data-screen-label="1a Midnight Glass" style="width:1440px;height:900px;border-radius:20px;overflow:hidden;position:relative;background:#08080f;color:#ecebf5;box-shadow:0 30px 80px rgba(10,10,30,.35)">
+        <div style="position:absolute;left:-120px;top:120px;width:720px;height:620px;border-radius:50%;background:radial-gradient(closest-side,rgba(91,91,214,.42),rgba(91,91,214,0));pointer-events:none"></div>
+        <div style="position:absolute;right:-160px;bottom:-200px;width:700px;height:600px;border-radius:50%;background:radial-gradient(closest-side,rgba(150,90,220,.22),rgba(150,90,220,0));pointer-events:none"></div>
+        <div style="position:relative;display:flex;flex-direction:column;height:100%;padding:0 40px 36px;box-sizing:border-box;gap:28px">
+          <div style="height:76px;display:flex;align-items:center;gap:36px">
+            <div style="display:flex;align-items:center;gap:10px"><i class="ph-duotone ph-coffee" style="font-size:24px;color:#a5a5ff"></i><span style="font-size:17px;font-weight:600">Focus Desk</span></div>
+            <div style="display:flex;gap:4px;padding:4px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)">
+              <span style="padding:7px 16px;border-radius:10px;background:rgba(91,91,214,.28);color:#e2e2ff;font-size:14px;font-weight:500">Today</span>
+              <span style="padding:7px 16px;border-radius:10px;color:#9d9cb3;font-size:14px">Projects</span>
+              <span style="padding:7px 16px;border-radius:10px;color:#9d9cb3;font-size:14px">Timesheet</span>
+              <span style="padding:7px 16px;border-radius:10px;color:#9d9cb3;font-size:14px">Settings</span>
+            </div>
+            <div style="margin-left:auto;display:flex;align-items:center;gap:14px">
+              <span style="display:flex;align-items:center;gap:8px;font-size:13px;color:#b9b8cc"><span style="width:8px;height:8px;border-radius:50%;background:#7cf0b8;box-shadow:0 0 10px #7cf0b8"></span>In since 9:42 AM</span>
+              <button style="height:36px;padding:0 16px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#ecebf5;font-size:13px;cursor:pointer">Clock out</button>
+              <span style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#5b5bd6,#9a6be0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">K</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+            <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:15px;color:#9d9cb3">Good afternoon, Kalyani</span><span style="font-size:34px;font-weight:600;letter-spacing:-0.02em">Thursday, 22 October</span></div>
+            <div style="display:flex;gap:10px">
+              <span style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(240,200,110,.12);border:1px solid rgba(240,200,110,.22);color:#f2d68f;font-size:13px"><i class="ph-duotone ph-confetti"></i>Dussehra tomorrow</span>
+              <span style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#cfcee0;font-size:13px"><i class="ph-duotone ph-flag" style="color:#a5a5ff"></i>QA kick-off · Mon 26 Oct</span>
+              <span style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#cfcee0;font-size:13px"><i class="ph-duotone ph-file-dashed" style="color:#ff8fb8"></i>UAT sign-off due</span>
+            </div>
+          </div>
+          <div style="flex:1;min-height:0;display:grid;grid-template-columns:1.05fr 1fr 0.85fr;gap:20px">
+            <div style="border-radius:28px;padding:28px;display:flex;flex-direction:column;align-items:center;gap:22px;background:linear-gradient(180deg,rgba(91,91,214,.2),rgba(91,91,214,.05));border:1px solid rgba(140,140,255,.28);box-shadow:0 0 90px rgba(91,91,214,.22),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(24px)">
+              <div style="align-self:stretch;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;font-weight:500;color:#c4c4ff">Focus · Session 3 of 4</span>
+                <div style="display:flex;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#a5a5ff"></span><span style="width:8px;height:8px;border-radius:50%;background:#a5a5ff"></span><span style="width:8px;height:8px;border-radius:50%;border:2px solid #a5a5ff;box-sizing:border-box"></span><span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15)"></span></div></div>
+              <div style="position:relative;width:260px;height:260px;margin-top:6px">
+                <svg width="260" height="260" style="transform:rotate(-90deg);overflow:visible"><circle cx="130" cy="130" r="118" style="fill:none;stroke:rgba(255,255,255,.08);stroke-width:10"></circle><circle cx="130" cy="130" r="118" style="fill:none;stroke:#7b7bf0;stroke-width:10;stroke-linecap:round;stroke-dasharray:741.4;stroke-dashoffset:{{ offA }};filter:drop-shadow(0 0 10px rgba(123,123,240,.9));transition:stroke-dashoffset 1s linear"></circle></svg>
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px"><span style="font-size:64px;font-weight:300;letter-spacing:-0.03em;font-variant-numeric:tabular-nums;text-shadow:0 0 30px rgba(140,140,255,.55)">{{ time }}</span><span style="font-size:13px;color:#9d9cb3">of 25 min</span></div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center"><span style="font-size:18px;font-weight:500">Write PRD for onboarding flow</span><span style="font-size:13px;color:#a5a5ff">FaithFlow</span></div>
+              <div style="display:flex;gap:12px;align-items:center;margin-top:auto">
+                <button title="End session" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#ecebf5;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center"><i class="ph ph-stop"></i></button>
+                <button onClick="{{ toggle }}" title="Play / pause" style="width:64px;height:64px;border-radius:50%;border:none;background:#5b5bd6;color:#fff;font-size:26px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(91,91,214,.7)"><i class="ph-fill {{ runIcon }}"></i></button>
+                <button title="Focus mode" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#ecebf5;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center"><i class="ph ph-arrows-out-simple"></i></button>
+              </div>
+            </div>
+            <div style="border-radius:28px;padding:26px 24px;display:flex;flex-direction:column;gap:18px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);backdrop-filter:blur(24px);overflow:hidden">
+              <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:17px;font-weight:600">Today's tasks</span><span style="font-size:13px;color:#9d9cb3">{{ openCount }} open</span></div>
+              <sc-for list="{{ groupsA }}" as="g" hint-placeholder-count="4">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:#9d9cb3"><span style="width:8px;height:8px;border-radius:3px;background:{{ g.color }};box-shadow:0 0 8px {{ g.color }}"></span>{{ g.name }}</div>
+                  <sc-for list="{{ g.tasks }}" as="t" hint-placeholder-count="2">
+                    <div onClick="{{ t.toggle }}" style="display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:12px;cursor:pointer;background:{{ t.bgA }};opacity:{{ t.op }}" style-hover="background:rgba(255,255,255,.05)">
+                      <span style="width:18px;height:18px;border-radius:6px;border:1.5px solid {{ t.boxA }};background:{{ t.fillA }};display:flex;align-items:center;justify-content:center;flex:none"><sc-if value="{{ t.done }}" hint-placeholder-val="{{ false }}"><i class="ph ph-check" style="font-size:12px;color:#fff"></i></sc-if></span>
+                      <span style="flex:1;font-size:14px;text-decoration:{{ t.deco }}">{{ t.t }}</span>
+                      <sc-if value="{{ t.now }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:500;color:#c4c4ff;padding:2px 8px;border-radius:999px;background:rgba(91,91,214,.3)">now</span></sc-if>
+                      <span style="font-size:12px;color:#7f7e95">{{ t.est }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-for>
+              <div style="margin-top:auto;display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;border:1px dashed rgba(255,255,255,.14);color:#7f7e95;font-size:14px"><i class="ph ph-plus"></i>Add a task</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:20px;min-height:0">
+              <div style="border-radius:28px;padding:22px 24px;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)">
+                <span style="font-size:13px;color:#9d9cb3">Up next</span>
+                <span style="font-size:16px;font-weight:500">Map admin roles &amp; permissions</span>
+                <span style="font-size:13px;color:#6fa8ff">Mantralok Admin Portal · 1h</span>
+              </div>
+              <div style="flex:1;border-radius:28px;padding:22px 24px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)">
+                <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:17px;font-weight:600">Today's rhythm</span><span style="font-size:13px;color:#9d9cb3">1h 15m focused</span></div>
+                <sc-for list="{{ logA }}" as="l" hint-placeholder-count="4">
+                  <div style="display:flex;gap:14px;align-items:stretch">
+                    <span style="width:46px;font-size:12px;color:#7f7e95;font-variant-numeric:tabular-nums;padding-top:2px">{{ l.from }}</span>
+                    <span style="width:3px;border-radius:3px;background:{{ l.color }};box-shadow:0 0 8px {{ l.color }}"></span>
+                    <div style="display:flex;flex-direction:column;gap:2px;flex:1"><span style="font-size:14px;color:{{ l.ink }}">{{ l.t }}</span><span style="font-size:12px;color:#7f7e95">{{ l.meta }}</span></div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1b Dusk Dream -->
+    <div id="1b" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:12px"><span style="background:#17161d;color:#fff;font-size:13px;font-weight:600;padding:4px 10px;border-radius:8px">1b</span><span style="font-size:16px;font-weight:600;color:#17161d">Dusk Dream</span><span style="font-size:14px;color:#5d5c68">Soft violet dusk, pillowy cards, pastel project colours</span></div>
+      <div data-screen-label="1b Dusk Dream" style="width:1440px;height:900px;border-radius:20px;overflow:hidden;position:relative;background:linear-gradient(170deg,#1c1830 0%,#13111d 55%,#100e17 100%);color:#f1eefa;box-shadow:0 30px 80px rgba(10,10,30,.35)">
+        <div style="position:absolute;right:120px;top:-220px;width:760px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(180,160,255,.16),rgba(180,160,255,0));pointer-events:none"></div>
+        <div style="position:relative;display:flex;flex-direction:column;height:100%;padding:0 44px 40px;box-sizing:border-box;gap:30px">
+          <div style="height:80px;display:flex;align-items:center;gap:40px">
+            <div style="display:flex;align-items:center;gap:10px"><span style="width:34px;height:34px;border-radius:12px;background:#5b5bd6;display:flex;align-items:center;justify-content:center"><i class="ph-duotone ph-moon-stars" style="font-size:19px;color:#fff"></i></span><span style="font-size:17px;font-weight:600">Focus Desk</span></div>
+            <div style="display:flex;gap:28px;font-size:14px">
+              <span style="color:#f1eefa;font-weight:500;padding-bottom:4px;border-bottom:2px solid #b4b0ff">Today</span><span style="color:#a39fbb">Projects</span><span style="color:#a39fbb">Timesheet</span><span style="color:#a39fbb">Settings</span>
+            </div>
+            <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
+              <span style="font-size:13px;color:#a39fbb">In since 9:42</span>
+              <button style="height:38px;padding:0 18px;border-radius:999px;border:none;background:#262139;color:#f1eefa;font-size:13px;cursor:pointer">Clock out</button>
+              <span style="width:38px;height:38px;border-radius:50%;background:#262139;display:flex;align-items:center;justify-content:center"><i class="ph-duotone ph-sun" style="font-size:18px;color:#e9d58f"></i></span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:38px;font-weight:300;letter-spacing:-0.02em">Good afternoon, <span style="font-weight:500;color:#cfcbff">Kalyani</span></span>
+            <span style="font-size:15px;color:#a39fbb">Thursday, 22 October · 6 tasks left · Dussehra tomorrow, enjoy the long weekend</span>
+          </div>
+          <div style="flex:1;min-height:0;display:grid;grid-template-columns:1fr 1.05fr 0.9fr;gap:22px">
+            <div style="border-radius:36px;padding:30px;display:flex;flex-direction:column;align-items:center;gap:20px;position:relative;overflow:hidden;background:linear-gradient(160deg,#6a63e6 0%,#5b5bd6 45%,#4a3fb8 100%);box-shadow:0 24px 60px rgba(91,91,214,.4)">
+              <div style="position:absolute;left:-80px;bottom:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,190,230,.35),rgba(255,190,230,0))"></div>
+              <div style="position:relative;align-self:stretch;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.16)">Session 3 of 4</span><i class="ph ph-arrows-out-simple" style="font-size:20px;color:rgba(255,255,255,.85)"></i></div>
+              <div style="position:relative;width:250px;height:250px">
+                <svg width="250" height="250" style="transform:rotate(-90deg)"><circle cx="125" cy="125" r="116" style="fill:none;stroke:rgba(255,255,255,.18);stroke-width:4"></circle><circle cx="125" cy="125" r="116" style="fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-dasharray:728.8;stroke-dashoffset:{{ offB }};filter:drop-shadow(0 0 6px rgba(255,255,255,.8));transition:stroke-dashoffset 1s linear"></circle></svg>
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font-size:72px;font-weight:300;letter-spacing:-0.03em;font-variant-numeric:tabular-nums;color:#fff">{{ time }}</span><span style="font-size:13px;color:rgba(255,255,255,.8)">deep focus</span></div>
+              </div>
+              <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center"><span style="font-size:18px;font-weight:500;color:#fff">Write PRD for onboarding flow</span><span style="font-size:13px;color:rgba(255,255,255,.8)">FaithFlow</span></div>
+              <div style="position:relative;display:flex;gap:10px;margin-top:auto;align-self:stretch">
+                <button onClick="{{ toggle }}" style="flex:1;height:52px;border-radius:999px;border:none;background:#fff;color:#3c34a8;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px"><i class="ph-fill {{ runIcon }}"></i>{{ runLabel }}</button>
+                <button style="width:52px;height:52px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center"><i class="ph ph-stop"></i></button>
+              </div>
+            </div>
+            <div style="border-radius:36px;padding:28px 26px;display:flex;flex-direction:column;gap:12px;background:#1c1929;box-shadow:0 20px 50px rgba(0,0,0,.3);overflow:hidden">
+              <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:18px;font-weight:600">Your day</span><span style="display:flex;align-items:center;gap:6px;font-size:13px;color:#a39fbb"><i class="ph ph-plus-circle" style="font-size:18px;color:#b4b0ff"></i>Add</span></div>
+              <sc-for list="{{ groupsB }}" as="g" hint-placeholder-count="4">
+                <sc-for list="{{ g.tasks }}" as="t" hint-placeholder-count="2">
+                  <div onClick="{{ t.toggle }}" style="display:flex;align-items:center;gap:14px;padding:8px 14px;border-radius:20px;cursor:pointer;background:{{ t.bgB }};opacity:{{ t.op }}" style-hover="background:#24203a">
+                    <span style="width:38px;height:38px;border-radius:14px;background:{{ g.tint }};display:flex;align-items:center;justify-content:center;flex:none"><i class="ph-duotone {{ g.icon }}" style="font-size:19px;color:{{ g.color }}"></i></span>
+                    <div style="flex:1;display:flex;flex-direction:column;gap:1px;min-width:0"><span style="font-size:14px;font-weight:500;text-decoration:{{ t.deco }}">{{ t.t }}</span><span style="font-size:12px;color:#a39fbb">{{ g.name }} · {{ t.est }}</span></div>
+                    <span style="width:24px;height:24px;border-radius:50%;border:2px solid {{ t.boxB }};background:{{ t.fillB }};display:flex;align-items:center;justify-content:center;flex:none;box-sizing:border-box"><sc-if value="{{ t.done }}" hint-placeholder-val="{{ false }}"><i class="ph ph-check" style="font-size:13px;color:#1c1929"></i></sc-if></span>
+                  </div>
+                </sc-for>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:22px;min-height:0">
+              <div style="border-radius:36px;padding:24px 26px;display:grid;grid-template-columns:1fr 1fr;gap:14px;background:#1c1929;box-shadow:0 20px 50px rgba(0,0,0,.3)">
+                <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:28px;font-weight:500">1h 15m</span><span style="font-size:13px;color:#a39fbb">focused today</span></div>
+                <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:28px;font-weight:500">3</span><span style="font-size:13px;color:#a39fbb">sessions</span></div>
+              </div>
+              <div style="flex:1;border-radius:36px;padding:24px 26px;display:flex;flex-direction:column;gap:14px;background:#1c1929;box-shadow:0 20px 50px rgba(0,0,0,.3)">
+                <span style="font-size:18px;font-weight:600">Coming up</span>
+                <div style="display:flex;gap:14px;align-items:center"><span style="width:44px;height:44px;border-radius:14px;background:rgba(233,213,143,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none"><span style="font-size:15px;font-weight:600;color:#e9d58f;line-height:1">23</span><span style="font-size:10px;color:#e9d58f">Oct</span></span><div style="display:flex;flex-direction:column"><span style="font-size:14px;font-weight:500">Dussehra</span><span style="font-size:12px;color:#a39fbb">Holiday · tomorrow</span></div></div>
+                <div style="display:flex;gap:14px;align-items:center"><span style="width:44px;height:44px;border-radius:14px;background:rgba(180,176,255,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none"><span style="font-size:15px;font-weight:600;color:#cfcbff;line-height:1">26</span><span style="font-size:10px;color:#cfcbff">Oct</span></span><div style="display:flex;flex-direction:column"><span style="font-size:14px;font-weight:500">QA kick-off</span><span style="font-size:12px;color:#a39fbb">FaithFlow · in 4 days</span></div></div>
+                <div style="display:flex;gap:14px;align-items:center"><span style="width:44px;height:44px;border-radius:14px;background:rgba(245,184,160,.14);display:flex;align-items:center;justify-content:center;flex:none"><i class="ph-duotone ph-file-dashed" style="font-size:20px;color:#f5b8a0"></i></span><div style="display:flex;flex-direction:column"><span style="font-size:14px;font-weight:500">UAT sign-off doc</span><span style="font-size:12px;color:#f5b8a0">Missing · due 28 Oct</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1c Studio Mono -->
+    <div id="1c" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:12px"><span style="background:#17161d;color:#fff;font-size:13px;font-weight:600;padding:4px 10px;border-radius:8px">1c</span><span style="font-size:16px;font-weight:600;color:#17161d">Studio Mono</span><span style="font-size:14px;color:#5d5c68">Quiet, flat, Notion-calm; indigo only where your focus is</span></div>
+      <div data-screen-label="1c Studio Mono" style="width:1440px;height:900px;border-radius:20px;overflow:hidden;position:relative;background:#0e0e10;color:#ececef;box-shadow:0 30px 80px rgba(10,10,30,.35)">
+        <div style="display:flex;flex-direction:column;height:100%;padding:0 40px 32px;box-sizing:border-box;gap:26px">
+          <div style="height:64px;display:flex;align-items:center;gap:28px;border-bottom:1px solid #1f1f23;margin:0 -40px;padding:0 40px">
+            <div style="display:flex;align-items:center;gap:10px"><i class="ph-duotone ph-coffee" style="font-size:22px;color:#8f8ff5"></i><span style="font-size:15px;font-weight:600">Focus Desk</span></div>
+            <div style="display:flex;gap:2px;font-size:14px">
+              <span style="padding:6px 12px;border-radius:8px;background:#1c1c20;color:#ececef">Today</span><span style="padding:6px 12px;color:#8b8b94">Projects</span><span style="padding:6px 12px;color:#8b8b94">Timesheet</span><span style="padding:6px 12px;color:#8b8b94">Settings</span>
+            </div>
+            <div style="margin-left:auto;display:flex;align-items:center;gap:10px;font-size:13px;color:#8b8b94"><span>In since 9:42 AM</span><span style="width:1px;height:18px;background:#26262b"></span><button style="height:32px;padding:0 12px;border-radius:8px;border:1px solid #2a2a30;background:transparent;color:#ececef;font-size:13px;cursor:pointer">Clock out</button><i class="ph ph-moon" style="font-size:18px"></i></div>
+          </div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between">
+            <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:30px;font-weight:600;letter-spacing:-0.02em">Thursday, 22 October</span><span style="font-size:14px;color:#8b8b94">Good afternoon, Kalyani. 1h 15m focused across 3 sessions.</span></div>
+            <div style="display:flex;gap:8px;font-size:13px">
+              <span style="display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;background:#1a1810;color:#e5cd85"><i class="ph ph-confetti"></i>Dussehra · tomorrow</span>
+              <span style="display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;background:#18181b;color:#b8b8c0"><i class="ph ph-flag"></i>QA kick-off · Mon</span>
+            </div>
+          </div>
+          <div style="flex:1;min-height:0;display:grid;grid-template-columns:0.95fr 1.1fr 0.9fr;gap:16px">
+            <div style="border-radius:16px;padding:26px;display:flex;flex-direction:column;align-items:center;gap:22px;background:#141416;border:1px solid #232327;position:relative;overflow:hidden">
+              <div style="position:absolute;left:50%;top:44%;width:420px;height:420px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(91,91,214,.22),rgba(91,91,214,0))"></div>
+              <div style="position:relative;align-self:stretch;display:flex;justify-content:space-between;font-size:13px;color:#8b8b94"><span>Focus</span><span style="font-variant-numeric:tabular-nums">3 / 4</span></div>
+              <div style="position:relative;width:240px;height:240px;margin-top:10px">
+                <svg width="240" height="240" style="transform:rotate(-90deg);overflow:visible"><circle cx="120" cy="120" r="112" style="fill:none;stroke:#222226;stroke-width:6"></circle><circle cx="120" cy="120" r="112" style="fill:none;stroke:#5b5bd6;stroke-width:6;stroke-linecap:round;stroke-dasharray:703.7;stroke-dashoffset:{{ offC }};filter:drop-shadow(0 0 8px rgba(91,91,214,.85));transition:stroke-dashoffset 1s linear"></circle></svg>
+                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:60px;font-weight:500;letter-spacing:-0.03em;font-variant-numeric:tabular-nums">{{ time }}</span></div>
+              </div>
+              <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center"><span style="font-size:16px;font-weight:500">Write PRD for onboarding flow</span><span style="font-size:13px;color:#8b8b94">FaithFlow · 2 of 4 subtasks</span></div>
+              <div style="position:relative;display:flex;gap:8px;margin-top:auto;align-self:stretch">
+                <button onClick="{{ toggle }}" style="flex:1;height:42px;border-radius:10px;border:none;background:#5b5bd6;color:#fff;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px"><i class="ph-fill {{ runIcon }}"></i>{{ runLabel }}</button>
+                <button style="height:42px;padding:0 14px;border-radius:10px;border:1px solid #2a2a30;background:transparent;color:#ececef;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:6px"><i class="ph ph-arrows-out-simple"></i>Focus mode</button>
+              </div>
+            </div>
+            <div style="border-radius:16px;padding:22px 22px;display:flex;flex-direction:column;gap:16px;background:#141416;border:1px solid #232327;overflow:hidden">
+              <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:15px;font-weight:600">To-do</span><span style="font-size:13px;color:#8b8b94">{{ openCount }} open · {{ doneCount }} done</span></div>
+              <sc-for list="{{ groupsC }}" as="g" hint-placeholder-count="4">
+                <div style="display:flex;flex-direction:column">
+                  <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#8b8b94;padding:4px 0 6px"><span style="width:7px;height:7px;border-radius:2px;background:{{ g.color }}"></span>{{ g.name }}</div>
+                  <sc-for list="{{ g.tasks }}" as="t" hint-placeholder-count="2">
+                    <div onClick="{{ t.toggle }}" style="display:flex;align-items:center;gap:12px;padding:8px 8px;border-radius:8px;cursor:pointer;opacity:{{ t.op }};background:{{ t.bgC }}" style-hover="background:#1b1b1f">
+                      <span style="width:16px;height:16px;border-radius:4px;border:1.5px solid {{ t.boxC }};background:{{ t.fillC }};display:flex;align-items:center;justify-content:center;flex:none;box-sizing:border-box"><sc-if value="{{ t.done }}" hint-placeholder-val="{{ false }}"><i class="ph ph-check" style="font-size:11px;color:#fff"></i></sc-if></span>
+                      <span style="flex:1;font-size:14px;text-decoration:{{ t.deco }}">{{ t.t }}</span>
+                      <span style="font-size:12px;color:#8b8b94;padding:2px 8px;border-radius:6px;background:#1c1c20">{{ t.est }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+            <div style="border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;background:#141416;border:1px solid #232327;overflow:hidden">
+              <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:15px;font-weight:600">Session log</span><span style="font-size:13px;color:#8b8b94">9 AM – 6 PM</span></div>
+              <div style="position:relative;flex:1;display:flex;flex-direction:column">
+                <sc-for list="{{ hours }}" as="h" hint-placeholder-count="9">
+                  <div style="flex:1;display:flex;gap:10px;border-top:1px solid #1d1d21;font-size:11px;color:#5f5f68;padding-top:3px"><span style="width:34px">{{ h }}</span></div>
+                </sc-for>
+                <sc-for list="{{ logC }}" as="l" hint-placeholder-count="4">
+                  <div style="position:absolute;left:46px;right:0;top:{{ l.top }};height:{{ l.h }};border-radius:6px;padding:5px 10px;box-sizing:border-box;overflow:hidden;background:{{ l.bg }};border:{{ l.border }};font-size:12px;color:{{ l.ink }};display:flex;justify-content:space-between;gap:8px"><span>{{ l.t }}</span><span style="color:#8b8b94">{{ l.dur }}</span></div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    rem: 1122, running: true,
+    tasks: [
+      { id: 1, t: 'Write PRD for onboarding flow', p: 'ff', est: '50m', now: true },
+      { id: 2, t: 'Review QA test cases with Arjun', p: 'ff', est: '25m' },
+      { id: 3, t: 'Reply to client on Diwali release', p: 'ff', est: '10m', done: true },
+      { id: 4, t: 'Map admin roles & permissions', p: 'ml', est: '1h' },
+      { id: 5, t: 'Draft UAT sign-off doc', p: 'ml', est: '30m' },
+      { id: 6, t: 'Prioritise sprint 14 backlog', p: 'st', est: '25m' },
+      { id: 7, t: 'Submit weekly timesheet', p: 'sv', est: '5m' }
+    ]
+  };
+  componentDidMount() {
+    this.iv = setInterval(() => { if (this.state.running) this.setState(s => ({ rem: s.rem > 0 ? s.rem - 1 : 1500 })); }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.iv); }
+  renderVals() {
+    const { rem, running, tasks } = this.state;
+    const p = 1 - rem / 1500;
+    const names = { ff: 'FaithFlow', ml: 'Mantralok Admin Portal', st: 'STAX', sv: 'Surviant – General' };
+    const pal = {
+      A: { ff: '#8b8bf0', ml: '#6fa8ff', st: '#c08bf0', sv: '#8a8aa3' },
+      B: { ff: '#b4b0ff', ml: '#f5b8a0', st: '#9fd8c4', sv: '#e9d58f' },
+      C: { ff: '#7b7bea', ml: '#5fa3e8', st: '#a77be6', sv: '#6d6d76' }
+    };
+    const icons = { ff: 'ph-hands-praying', ml: 'ph-squares-four', st: 'ph-stack', sv: 'ph-briefcase' };
+    const toggle = id => () => this.setState(s => ({ tasks: s.tasks.map(t => t.id === id ? { ...t, done: !t.done } : t) }));
+    const groups = k => ['ff', 'ml', 'st', 'sv'].map(g => {
+      const c = pal[k][g];
+      return {
+        name: names[g], color: c, tint: c + '24', icon: icons[g],
+        tasks: tasks.filter(t => t.p === g).map(t => ({
+          ...t, toggle: toggle(t.id), deco: t.done ? 'line-through' : 'none', op: t.done ? 0.45 : 1,
+          bgA: t.now ? 'rgba(91,91,214,.14)' : 'transparent', boxA: t.done ? '#5b5bd6' : 'rgba(255,255,255,.28)', fillA: t.done ? '#5b5bd6' : 'transparent',
+          bgB: t.now ? '#262139' : 'transparent', boxB: t.done ? c : '#3a3452', fillB: t.done ? c : 'transparent',
+          bgC: t.now ? '#1a1a22' : 'transparent', boxC: t.done ? '#5b5bd6' : '#3a3a42', fillC: t.done ? '#5b5bd6' : 'transparent'
+        }))
+      };
+    });
+    const log = [
+      { from: '9:42', to: '10:07', t: 'Competitor onboarding teardown', p: 'ff' },
+      { from: '10:15', to: '10:40', t: 'Map admin roles & permissions', p: 'ml' },
+      { from: '11:30', to: '12:05', t: 'Untracked gap · 35m', gap: true },
+      { from: '12:10', to: '12:35', t: 'Write PRD for onboarding flow', p: 'ff' },
+      { from: '14:20', to: 'now', t: 'Write PRD for onboarding flow', p: 'ff', live: true }
+    ];
+    const toMin = s => { if (s === 'now') return 14 * 60 + 20 + Math.round(p * 25); const [h, m] = s.split(':').map(Number); return h * 60 + m; };
+    const span = 9 * 60;
+    const fmt = s => { const [h, m] = s.split(':').map(Number); return s === 'now' ? 'now' : `${h > 12 ? h - 12 : h}:${String(m).padStart(2, '0')}`; };
+    const mm = String(Math.floor(rem / 60)).padStart(2, '0'), ss = String(rem % 60).padStart(2, '0');
+    return {
+      time: `${mm}:${ss}`, runIcon: running ? 'ph-pause' : 'ph-play', runLabel: running ? 'Pause' : 'Resume',
+      toggle: () => this.setState(s => ({ running: !s.running })),
+      offA: 741.4 * (1 - p), offB: 728.8 * (1 - p), offC: 703.7 * (1 - p),
+      openCount: tasks.filter(t => !t.done).length, doneCount: tasks.filter(t => t.done).length,
+      groupsA: groups('A'), groupsB: groups('B'), groupsC: groups('C'),
+      logA: log.map(l => ({ from: fmt(l.from), t: l.t, color: l.gap ? 'rgba(255,255,255,.15)' : pal.A[l.p], ink: l.gap ? '#ff9cc0' : '#ecebf5',
+        meta: l.gap ? 'Tap to log it' : `${names[l.p]} · ${l.live ? 'in progress' : (toMin(l.to) - toMin(l.from)) + 'm'}` })),
+      hours: ['9 AM', '10', '11', '12 PM', '1', '2', '3', '4', '5'],
+      logC: log.map(l => {
+        const a = toMin(l.from) - 540, b = toMin(l.to) - 540;
+        return { t: l.gap ? 'Untracked · log it' : l.t, dur: l.live ? 'live' : (b - a) + 'm',
+          top: (a / span * 100) + '%', h: `max(26px, ${((b - a) / span * 100)}%)`,
+          bg: l.gap ? 'repeating-linear-gradient(135deg,#1a1a1e 0 6px,#141416 6px 12px)' : pal.C[l.p] + '2e',
+          border: l.gap ? '1px dashed #3a3a42' : `1px solid ${pal.C[l.p]}55`, ink: l.gap ? '#e78fb3' : '#ececef' };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

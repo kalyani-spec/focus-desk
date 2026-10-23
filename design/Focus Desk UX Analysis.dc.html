@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/broadsheet-d63c6cc3-be31-45af-9598-144018467245/styles.css">
+<script src="_ds/broadsheet-d63c6cc3-be31-45af-9598-144018467245/_ds_bundle.js"></script>
+<style>body{margin:0;background:#f3f2f2}a{color:#1c3566}a:hover{color:#0f1f40}</style>
+</helmet>
+<article style="max-width:860px;margin:0 auto;padding:64px 40px 96px;display:flex;flex-direction:column;gap:48px;color:var(--color-text);font-family:var(--font-body)">
+
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#152a54">Focus Desk · UX analysis · 22 Oct 2026</span>
+    <h1 style="margin:0;font-size:44px;text-wrap:balance">What works, what will break, and what to fix first</h1>
+    <p style="margin:0;font-size:18px;line-height:1.6;text-wrap:pretty;color:var(--color-neutral-800)">A review of the hi-fi prototype (<a href="Focus Desk Prototype.dc.html">Focus Desk Prototype</a>) against one person’s working day: a product manager running four projects, logging her own time, and protecting focus. Findings use Nielsen’s heuristics plus a walk-through of the five core flows.</p>
+  </header>
+
+  <section style="display:flex;flex-direction:column;gap:16px">
+    <h2 style="margin:0;font-size:28px">The verdict</h2>
+    <p style="margin:0;font-size:16px;line-height:1.7;text-wrap:pretty">The core loop — <em>pick a task → focus → session logs itself → timesheet fills itself</em> — is strong and rare. Most tools make you choose between a to-do app and a time tracker; this one makes tracking a by-product of focusing. The main risks are not visual. They are <b>data trust</b> (are my hours right?), <b>scope creep in Projects</b> (checklists, documents and dates are three overlapping lists), and <b>timer edge cases</b> (what happens when I forget, switch tasks, or get interrupted).</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding-top:8px">
+      <div style="padding:20px;border-radius:16px;background:#eef2f8;display:flex;flex-direction:column;gap:4px"><span style="font-size:32px;font-weight:600;color:#0f1f40">5</span><span style="font-size:14px;line-height:1.4">strengths worth protecting</span></div>
+      <div style="padding:20px;border-radius:16px;background:#fff1f4;display:flex;flex-direction:column;gap:4px"><span style="font-size:32px;font-weight:600;color:#790e3d">4</span><span style="font-size:14px;line-height:1.4">high-severity issues before v1</span></div>
+      <div style="padding:20px;border-radius:16px;background:var(--color-neutral-200);display:flex;flex-direction:column;gap:4px"><span style="font-size:32px;font-weight:600">9</span><span style="font-size:14px;line-height:1.4">medium / low refinements</span></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:16px">
+    <h2 style="margin:0;font-size:28px">Who it’s for, and the jobs it must do</h2>
+    <div style="display:flex;flex-direction:column;gap:12px;font-size:16px;line-height:1.6">
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:20px"><b>Protect deep work</b><span>Start a focused block in one click, from anywhere, and not be pulled out of it.</span></div>
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:20px"><b>Know what’s next</b><span>See today’s few tasks across four projects without project-switching tools.</span></div>
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:20px"><b>Account for time</b><span>Produce an honest weekly timesheet with near-zero manual entry.</span></div>
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:20px"><b>Keep projects healthy</b><span>Spot slipping phases, missing sign-offs and clashes with holidays before a client does.</span></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:16px">
+    <h2 style="margin:0;font-size:28px">Strengths to protect</h2>
+    <ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:12px;font-size:16px;line-height:1.6">
+      <li><b>Time tracking as a side effect.</b> Ending a focus session writes the log entry. This is the product’s moat; never make logging a separate chore.</li>
+      <li><b>One hero per screen.</b> Today leads with the timer; Projects with health; Timesheet with the grid. Hierarchy is clear at a glance.</li>
+      <li><b>Progressive disclosure.</b> Done tasks hide behind “+ 2 done”, task details open in a drawer, checklist phases collapse except the current one.</li>
+      <li><b>Recovery paths.</b> “Forgot to start? Log time”, gap detection in Day view, and the clock-out review all catch missing time before it hits the timesheet.</li>
+      <li><b>Holidays as first-class data.</b> One list drives timeline shading, timesheet targets, milestone warnings and date pickers — no double entry.</li>
+    </ol>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:20px">
+    <h2 style="margin:0;font-size:28px">Issues, by severity</h2>
+
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-accent-2" style="border-radius:999px">High</span><h4 style="margin:0">H1 · Switching task mid-session is undefined</h4></div>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:var(--color-neutral-800)">Clicking “Focus on this task” while a session runs silently restarts the timer, and the time already spent is lost. <b>Fix:</b> ask “Log 12m to <i>PRD: recurring giving</i> and switch?” with Switch / Cancel; default to logging. <span style="color:var(--color-neutral-600)">Heuristic: error prevention.</span></p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-accent-2" style="border-radius:999px">High</span><h4 style="margin:0">H2 · No way to edit or delete a logged session</h4></div>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:var(--color-neutral-800)">The session log and Day view are read-only. One wrong project tag and the timesheet is wrong forever. <b>Fix:</b> click a session → inline edit (times, project, task), split, delete with undo toast. This is what makes users trust auto-logged hours. <span style="color:var(--color-neutral-600)">User control & freedom.</span></p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-accent-2" style="border-radius:999px">High</span><h4 style="margin:0">H3 · Checklist, documents and dates overlap</h4></div>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:var(--color-neutral-800)">“Design sign-off” can be a checklist item, a document and a date. Users won’t know where to put it, and counts drift. <b>Fix:</b> one rule — <i>checklist = things you do, documents = artefacts that need approval, dates = calendar events</i>. Let a checklist item link to a document (“needs doc”) and a due date, instead of duplicating. Show the rule as helper text in each empty state. <span style="color:var(--color-neutral-600)">Consistency & standards; recognition over recall.</span></p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-accent-2" style="border-radius:999px">High</span><h4 style="margin:0">H4 · Destructive actions have no undo</h4></div>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:var(--color-neutral-800)">The ✕ on checklist items, documents, dates and holidays deletes instantly. <b>Fix:</b> remove + “Undo” in the existing toast for 5 seconds. Cheap, and covers every list. <span style="color:var(--color-neutral-600)">User control & freedom.</span></p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-accent" style="border-radius:999px">Medium</span><h4 style="margin:0">M1 · Today still asks a lot of the eye</h4></div>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:var(--color-neutral-800)">Coming-up chips, timer, My day, quick-add, From earlier, four project cards and a session log compete. <b>Fix:</b> collapse the session log by default to its last 3 entries; merge “From earlier” into the morning triage (wireframe 2f) so it’s usually empty by mid-morning.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-accent" style="border-radius:999px">Medium</span><h4 style="margin:0">M2 · Quick-add can’t set priority, estimate or date</h4></div>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:var(--color-neutral-800)">Every new task is “Medium · 30m · Today”. <b>Fix:</b> reuse the checklist syntax from the wireframes — <code>!high</code>, <code>~1h</code>, <code>@fri</code>, <code>#stax</code> — parsed into chips as you type. One grammar across the app.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-accent" style="border-radius:999px">Medium</span><h4 style="margin:0">M3 · Interruptions aren’t modelled</h4></div>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:var(--color-neutral-800)">A PM gets pulled into calls. Pause works, but the paused minutes vanish from the record. <b>Fix:</b> on resume, offer “Log the 15m pause as <i>Meeting · Surviant – General</i>?”. Over a week this is the difference between 72% and a believable focus ratio.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-accent" style="border-radius:999px">Medium</span><h4 style="margin:0">M4 · Timeline is view-only</h4></div>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:var(--color-neutral-800)">The ⚠ “QA starts on Diwali” warning has no action. <b>Fix:</b> click a milestone → move to next working day, with a preview of what shifts.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-accent" style="border-radius:999px">Medium</span><h4 style="margin:0">M5 · Status pills on documents cycle blindly</h4></div>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:var(--color-neutral-800)">Click-to-advance is fast but you can’t go back a step without looping through Missing. <b>Fix:</b> small menu on click (Missing / Draft / In review / Approved) with the next state pre-highlighted.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px"><span class="tag tag-neutral" style="border-radius:999px">Low</span><h4 style="margin:0">Smaller refinements</h4></div>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--color-neutral-800)">
+        <li>Handwritten Kalam on task titles is charming but slower to scan at 15+ items; keep it, but offer a “plain font” toggle in Appearance.</li>
+        <li>Priority is a 6px dot only; add a text label on hover and in the drawer header for colour-blind users.</li>
+        <li>Keyboard: add <code>N</code> new task, <code>F</code> focus, <code>Space</code> pause, <code>L</code> log time. Esc is the only shortcut today.</li>
+        <li>Browser tab title should show the countdown so focus survives tab switching.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:16px">
+    <h2 style="margin:0;font-size:28px">Flow walk-throughs</h2>
+    <div style="display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.65">
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:20px"><b>Start a focus block</b><span>2 clicks from Today, 1 from the sidebar mini-timer. Good. Missing: picking the task <i>inside</i> focus mode when the current one is wrong.</span></div>
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:20px"><b>Finish a session</b><span>End → break screen → rating → next. Clear and calm. The rating needs a visible payoff (e.g. “Deep focus mornings: 4 this week”) or users will stop answering.</span></div>
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:20px"><b>Fix missing time</b><span>Three entry points (link, Day-view gap, clock-out review) all open the same dialog with the gap pre-filled. Strong. Add validation for overlaps with existing sessions.</span></div>
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:20px"><b>Check a project</b><span>Card → Overview answers “are we OK?” in one screen. Tabs give depth. The card should surface the single worst thing (e.g. “UAT sign-off missing”) rather than four equal numbers.</span></div>
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:20px"><b>Plan a day off</b><span>Add day off → clash warning → shows everywhere. Missing: one-click “move clashing items to next working day”.</span></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:16px">
+    <h2 style="margin:0;font-size:28px">Accessibility check</h2>
+    <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6">
+      <li>Navy on paper and periwinkle on charcoal both clear 4.5:1 for body text; the light accent-400 priority dot does not — fine as a non-text mark only.</li>
+      <li>Drawer and dialogs close on Esc and backdrop; they still need focus trapping and focus return to the trigger.</li>
+      <li>Timer countdown needs <code>aria-live="polite"</code> on minute changes only, never every second.</li>
+      <li>Holiday amber relies on colour plus a label — keep both.</li>
+    </ul>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:16px">
+    <h2 style="margin:0;font-size:28px">Recommended order of work</h2>
+    <ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:16px;line-height:1.6">
+      <li><b>Trust in hours:</b> H2 edit sessions, H1 safe task-switch, M3 interruptions.</li>
+      <li><b>Safety net:</b> H4 undo everywhere.</li>
+      <li><b>Project model:</b> H3 the checklist / document / date rule and linking.</li>
+      <li><b>Speed:</b> M2 quick-add grammar, keyboard shortcuts.</li>
+      <li><b>Calm:</b> M1 Today reduction and morning triage.</li>
+    </ol>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:16px">
+    <h2 style="margin:0;font-size:28px">What to measure</h2>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.6">
+      <div style="display:grid;grid-template-columns:240px 1fr;gap:20px"><b>Auto-logged share</b><span>% of timesheet minutes from sessions vs manual. Target: above 80%.</span></div>
+      <div style="display:grid;grid-template-columns:240px 1fr;gap:20px"><b>Edits per logged hour</b><span>High numbers mean the auto-log is wrong, not that users are diligent.</span></div>
+      <div style="display:grid;grid-template-columns:240px 1fr;gap:20px"><b>Sessions started from Today</b><span>vs. from the drawer or project page — tells you where planning really happens.</span></div>
+      <div style="display:grid;grid-template-columns:240px 1fr;gap:20px"><b>Week submitted on time</b><span>The outcome the whole product exists to make painless.</span></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:12px">
+    <h2 style="margin:0;font-size:28px">Open questions</h2>
+    <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6">
+      <li>Is the timesheet for you only, or submitted to someone who approves it? Approval changes the edit rules after submit.</li>
+      <li>Do tasks come from Jira or another tracker? If so, the to-do list should mirror, not duplicate.</li>
+      <li>Is “day span” used for anything formal (attendance, payroll), or is it a personal signal?</li>
+    </ul>
+  </section>
+</article>
+</x-dc>
+</body>
+</html>

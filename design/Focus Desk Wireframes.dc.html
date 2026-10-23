@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap">
+<style>body{margin:0;background:#f0eee9;font-family:'Kalam',cursive;color:#222}a{color:#24427a}a:hover{color:#0f1f40}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-card *{box-sizing:border-box}.dv-card span[style*="border-radius:5px"],.dv-card span[style*="border-radius:6px"],.dv-card span[style*="border-radius:99px"],.dv-card span[style*="border-radius:4px"],.dv-card a[style*="border-radius:8px"]{white-space:nowrap}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style>
+</helmet>
+
+<section class="dv-turn" id="t4">
+  <div class="dv-thd"><a class="dv-tid" href="#t4">4</a><span class="dv-tname">Dark mode + holidays & leave</span></div>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="4a">
+      <div class="dv-olabel"><a class="dv-oid" href="#4a">4a</a>Today · dark</div>
+      <div class="dv-card" style="width:720px;background:#1b1d22;border-color:#333">
+        <div style="height:450px;display:grid;grid-template-columns:110px 1fr 150px;font-size:13px;color:#e6e6e6">
+          <div style="border-right:1.5px solid #555;padding:12px 10px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-weight:700;font-size:15px;padding-bottom:8px">☕ Focus Desk</div>
+            <div style="padding:3px 8px;border-radius:5px;background:#2a3550;color:#b8c7e0;font-weight:700">Today</div>
+            <div style="padding:3px 8px">Projects</div><div style="padding:3px 8px">Timesheet</div><div style="padding:3px 8px">Settings</div>
+            <div style="margin-top:auto;font-size:11px;color:#999">☾ Dark · ☀ Light</div>
+          </div>
+          <div style="padding:12px 14px;display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div><div style="font-size:11px;color:#999">Good evening</div><div style="font-weight:700;font-size:18px;line-height:1">Thu, 22 Oct</div></div>
+              <div style="border:1.5px solid #888;border-radius:6px;padding:2px 10px;white-space:nowrap">● Clock out</div>
+            </div>
+            <div style="background:#2b2410;border:1.5px solid #6b5a20;border-radius:8px;padding:3px 10px;font-size:12px;color:#f0d98a">🎉 Tomorrow: Dussehra (holiday) · 2 tasks due then → move?</div>
+            <div style="display:grid;grid-template-columns:1fr 92px;gap:8px">
+              <div style="border:1.5px solid #8aa0c8;background:#222b3d;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:4px">
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:#b8c7e0"><span>FOCUSING · 4 of 4</span><span>● ● ● ○</span></div>
+                <div style="display:flex;align-items:flex-end;gap:10px"><span style="font-size:38px;font-weight:700;line-height:1;color:#dbe3f0">18:42</span><span style="line-height:1.2">PRD: recurring giving<br><span style="font-size:11px;color:#999">FaithFlow</span></span></div>
+                <div style="height:4px;background:#3a4560;border-radius:4px"><div style="width:25%;height:100%;background:#8aa0c8;border-radius:4px"></div></div>
+                <div style="display:flex;gap:5px;align-items:center"><span style="background:#8aa0c8;color:#111;border-radius:5px;padding:0 8px;white-space:nowrap">⤢ Focus</span><span style="border:1.5px solid #888;border-radius:5px;padding:0 6px">❚❚</span><span style="border:1.5px solid #888;border-radius:5px;padding:0 6px">■</span></div>
+              </div>
+              <div style="border:1.5px dashed #777;border-radius:10px;padding:8px;font-size:12px;display:flex;flex-direction:column;gap:2px"><b>My day</b><span>3h 25m</span><span>5h 10m</span><span>7 sessions</span></div>
+            </div>
+            <div style="border:1.5px solid #555;border-radius:8px;padding:3px 10px;color:#888">+ Add a task for today…</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px">
+              <div style="border:1.5px solid #555;background:#23262c;border-radius:8px;padding:6px 8px;display:flex;flex-direction:column;gap:2px"><b>FaithFlow</b><span>○ PRD recurring giving [major]</span><span>○ Reply on onboarding copy</span></div>
+              <div style="border:1.5px solid #555;background:#23262c;border-radius:8px;padding:6px 8px;display:flex;flex-direction:column;gap:2px"><b>Mantralok</b><span>○ Role permissions spec</span></div>
+              <div style="border:1.5px solid #555;background:#23262c;border-radius:8px;padding:6px 8px;display:flex;flex-direction:column;gap:2px"><b>STAX</b><span>○ Q4 roadmap one-pager</span></div>
+              <div style="border:1.5px solid #555;background:#23262c;border-radius:8px;padding:6px 8px;display:flex;flex-direction:column;gap:2px"><b>Surviant</b><span>○ Submit timesheet</span></div>
+            </div>
+          </div>
+          <div style="border-left:1.5px solid #555;padding:12px 10px;background:#202328;display:flex;flex-direction:column;gap:7px;font-size:12px">
+            <b style="font-size:14px">Session log</b>
+            <span style="color:#b8c7e0">● 2:46 – now</span><span>○ 2:25–2:45 · 20m</span><span>○ 1:55–2:20 · 25m</span><span>○ 1:00–1:45 · 45m</span>
+          </div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Dark = warm charcoal, not pure black. Navy lifts to a soft periwinkle for contrast. Holiday notice in a muted amber.</div>
+    </div>
+
+    <div class="dv-opt" id="4b">
+      <div class="dv-olabel"><a class="dv-oid" href="#4b">4b</a>Focus mode · dark (default at night)</div>
+      <div class="dv-card" style="width:520px;background:#121418;border-color:#333">
+        <div style="height:330px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#e6e6e6;font-size:13px">
+          <span style="border-radius:99px;background:#2a3550;color:#b8c7e0;padding:0 10px;font-size:12px">FaithFlow</span>
+          <b style="font-size:20px">Write PRD: recurring giving</b>
+          <span style="font-size:96px;font-weight:700;line-height:0.9;color:#dbe3f0">18:42</span>
+          <div style="width:220px;height:4px;background:#333;border-radius:4px"><div style="width:25%;height:100%;background:#8aa0c8"></div></div>
+          <div style="display:flex;gap:8px"><span style="background:#8aa0c8;color:#111;border-radius:6px;padding:2px 18px;white-space:nowrap">❚❚ Pause</span><span style="border:1.5px solid #888;border-radius:6px;padding:2px 12px;white-space:nowrap">■ Stop</span></div>
+        </div>
+      </div>
+      <div style="width:520px;font-size:13px;line-height:1.4;color:#555">Option in Settings: "Focus mode always dark".</div>
+    </div>
+
+    <div class="dv-opt" id="4c">
+      <div class="dv-olabel"><a class="dv-oid" href="#4c">4c</a>Settings · Appearance + Holidays & leave</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;display:grid;grid-template-columns:150px 1fr;font-size:13px">
+          <div style="border-right:1.5px solid #222;padding:14px 12px;display:flex;flex-direction:column;gap:6px"><b style="font-size:18px;padding-bottom:6px">Settings</b><span style="padding:0 8px">Timer</span><span style="padding:0 8px">Work day</span><span style="padding:0 8px">Appearance</span><span style="background:#dbe3f0;color:#24427a;border-radius:5px;padding:0 8px;font-weight:700">Holidays & leave</span><span style="padding:0 8px">Projects & phases</span><span style="padding:0 8px">Timesheet</span><span style="padding:0 8px">Integrations</span></div>
+          <div style="padding:14px 18px;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:16px">Holidays & leave · 2026</b><span style="background:#24427a;color:#fff;border-radius:6px;padding:0 10px">+ Add</span></div>
+            <div style="display:flex;gap:8px;font-size:12px;align-items:center"><span style="color:#777">Holiday calendar</span><span style="border:1.5px solid #222;border-radius:6px;padding:0 8px">India · Surviant office ▾</span><span style="border:1.5px solid #222;border-radius:6px;padding:0 8px">⇪ Import .ics</span></div>
+            <div style="display:flex;gap:10px;font-size:12px"><span style="border:1.5px dashed #222;border-radius:8px;padding:2px 10px">Leave balance: <b>9 of 18</b> days left</span><span style="border:1.5px dashed #222;border-radius:8px;padding:2px 10px">Next off: <b>Fri 23 Oct</b> · Dussehra</span></div>
+            <div style="display:flex;flex-direction:column;gap:3px;font-size:12px">
+              <span style="color:#777">UPCOMING</span>
+              <div style="display:grid;grid-template-columns:90px 1fr 110px 30px;gap:8px;padding:3px 0;border-bottom:1px solid #ddd"><b>Fri 23 Oct</b><span>Dussehra</span><span style="background:#fdf1c7;border-radius:99px;padding:0 6px;text-align:center">Public holiday</span><span>✕</span></div>
+              <div style="display:grid;grid-template-columns:90px 1fr 110px 30px;gap:8px;padding:3px 0;border-bottom:1px solid #ddd"><b>9–10 Nov</b><span>Diwali</span><span style="background:#fdf1c7;border-radius:99px;padding:0 6px;text-align:center">Public holiday</span><span>✕</span></div>
+              <div style="display:grid;grid-template-columns:90px 1fr 110px 30px;gap:8px;padding:3px 0;border-bottom:1px solid #ddd"><b>20 Nov</b><span>Personal day</span><span style="background:#dbe3f0;border-radius:99px;padding:0 6px;text-align:center">Leave · full</span><span>✕</span></div>
+              <div style="display:grid;grid-template-columns:90px 1fr 110px 30px;gap:8px;padding:3px 0;border-bottom:1px solid #ddd"><b>4 Dec</b><span>Doctor</span><span style="background:#dbe3f0;border-radius:99px;padding:0 6px;text-align:center">Leave · half (PM)</span><span>✕</span></div>
+              <div style="display:grid;grid-template-columns:90px 1fr 110px 30px;gap:8px;padding:3px 0"><b>25 Dec</b><span>Christmas</span><span style="background:#fdf1c7;border-radius:99px;padding:0 6px;text-align:center">Public holiday</span><span>✕</span></div>
+            </div>
+            <div style="border-top:1.5px dashed #bbb;padding-top:8px;font-size:12px;display:flex;flex-direction:column;gap:3px">
+              <b>Appearance</b><span>Theme: ( ☀ Light ) ( ☾ Dark ) ( <b>◐ System</b> )   ☐ Focus mode always dark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Public holidays come from a calendar; leave is added by you (full / half day). Both feed Today, Timesheet and project Dates.</div>
+    </div>
+
+    <div class="dv-opt" id="4d">
+      <div class="dv-olabel"><a class="dv-oid" href="#4d">4d</a>Add holiday / leave</div>
+      <div class="dv-card" style="width:340px">
+        <div style="padding:16px;display:flex;flex-direction:column;gap:7px;font-size:13px">
+          <b style="font-size:18px">Add day off</b>
+          <span style="font-size:12px">( Public holiday ) ( <b>Leave</b> ) ( Company off )</span>
+          <div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px;color:#999">Label e.g. Personal day</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px">📅 20 Nov</div><div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px">→ 20 Nov</div></div>
+          <span style="font-size:12px">( <b>Full day</b> ) ( AM half ) ( PM half )</span>
+          <span style="font-size:12px;color:#24427a">⚠ 2 tasks and 1 client meeting fall on this day → review</span>
+          <span style="font-size:12px">☑ Exclude from timesheet target · ☑ Show on project timelines</span>
+          <div style="display:flex;justify-content:flex-end;gap:6px"><span style="border:1.5px solid #222;border-radius:6px;padding:0 10px">Cancel</span><span style="background:#24427a;color:#fff;border-radius:6px;padding:0 10px">Save</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="4e">
+      <div class="dv-olabel"><a class="dv-oid" href="#4e">4e</a>Holidays across the app</div>
+      <div class="dv-card" style="width:720px">
+        <div style="padding:16px 18px;display:flex;flex-direction:column;gap:14px;font-size:13px">
+          <div style="display:flex;flex-direction:column;gap:4px"><b>Timesheet week (<a class="dv-oid" href="#2l">2l</a>)</b>
+            <div style="display:grid;grid-template-columns:130px repeat(5,1fr) 60px;border:1.5px solid #222;border-radius:8px;overflow:hidden;font-size:12px">
+              <span style="padding:3px 8px;background:#f2f2f2;color:#777">Project</span><span style="padding:3px;background:#f2f2f2">Mon</span><span style="padding:3px;background:#f2f2f2">Tue</span><span style="padding:3px;background:#f2f2f2">Wed</span><span style="padding:3px;background:#f2f2f2">Thu</span><span style="padding:3px;background:#fdf1c7">Fri 🎉</span><span style="padding:3px;background:#f2f2f2">Total</span>
+              <span style="padding:3px 8px">FaithFlow</span><span style="padding:3px">2:10</span><span style="padding:3px">3:00</span><span style="padding:3px">1:45</span><span style="padding:3px">0:50</span><span style="padding:3px;background:repeating-linear-gradient(45deg,#fdf1c7 0 5px,#fff8e0 5px 10px);color:#8a6d00">Dussehra</span><b style="padding:3px">7:45</b>
+              <b style="padding:3px 8px;border-top:1.5px solid #222">Target</b><span style="padding:3px;border-top:1.5px solid #222">8h</span><span style="padding:3px;border-top:1.5px solid #222">8h</span><span style="padding:3px;border-top:1.5px solid #222">8h</span><span style="padding:3px;border-top:1.5px solid #222">8h</span><span style="padding:3px;border-top:1.5px solid #222;color:#8a6d00">0h</span><b style="padding:3px;border-top:1.5px solid #222">32h</b>
+            </div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div style="display:flex;flex-direction:column;gap:4px"><b>Project timeline (<a class="dv-oid" href="#2i">2i</a>)</b>
+              <div style="position:relative;height:40px;border:1.5px solid #222;border-radius:8px;background:#fafafa"><span style="position:absolute;left:30%;width:3%;top:0;bottom:0;background:#fdf1c7"></span><span style="position:absolute;left:58%;width:5%;top:0;bottom:0;background:#fdf1c7"></span><div style="position:absolute;left:8%;right:12%;top:14px;height:10px;border:1.5px solid #222;border-radius:5px;background:#dbe3f0"></div></div>
+              <span style="font-size:12px;color:#777">Holiday bands shade every project row; milestones that land on one get a ⚠.</span></div>
+            <div style="display:flex;flex-direction:column;gap:4px"><b>Morning (<a class="dv-oid" href="#2f">2f</a>) & Today</b>
+              <div style="border:1.5px solid #6b5a20;background:#fdf1c7;border-radius:8px;padding:4px 10px;font-size:12px">🎉 Tomorrow is Dussehra · 2 tasks due → (move to Mon) (keep)</div>
+              <span style="font-size:12px;color:#777">On a day off, Today shows a quiet "Enjoy your day off" and hides the timer — clock in is still possible.</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px"><b>Due-date pickers</b>
+            <span style="font-size:12px;color:#777">Holidays greyed in every date picker · "+3 working days" skips weekends, holidays and leave</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Try next: "take <a class="dv-oid" href="#4a">4a</a> dark mode into the hi-fi v4" · "add a team holiday calendar" · "show leave balance on the timesheet"</p>
+</section>
+
+<section class="dv-turn" id="t3">
+  <div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">Project detail: phase checklist, document checklist, important dates (builds on <a class="dv-oid" href="#2j">2j</a>)</span></div>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="3a">
+      <div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>Checklist tab · grouped by phase, inline add</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;padding:14px 18px;display:flex;flex-direction:column;gap:9px;font-size:13px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end"><div><span style="font-size:12px;color:#777">← Projects</span><br><b style="font-size:20px">FaithFlow</b> <span style="background:#dbe3f0;border-radius:99px;padding:0 8px;font-size:11px">On track</span></div><span style="font-size:12px;color:#777">4 Aug – 12 Dec 2026</span></div>
+          <div style="display:flex;gap:16px;border-bottom:1.5px solid #222"><span>Tasks 26</span><span style="border-bottom:3px solid #24427a;font-weight:700">Checklist 7/12</span><span>Documents 3/6</span><span>Dates 5</span><span>Time 64h</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:#777">Filter: (All) (Open) (Mine)</span><span style="border:1.5px solid #222;border-radius:6px;padding:0 8px">⧉ Use template ▾</span></div>
+          <div style="display:flex;flex-direction:column;gap:3px;font-size:12px">
+            <span style="color:#777">▸ DISCOVERY · 3/3 ✓  <i>(collapsed)</i></span>
+            <span style="color:#777">▸ DESIGN · 2/2 ✓</span>
+            <span style="font-weight:700;color:#24427a">▾ DEV · 2/4 · current</span>
+            <span style="padding-left:14px">☑ <s>API contract agreed</s> · Ravi · 2 Oct</span>
+            <span style="padding-left:14px">☑ <s>Payments sandbox live</s> · 9 Oct</span>
+            <span style="padding-left:14px">☐ Admin console v2 merged · due 30 Oct  <span style="color:#24427a">📎 PR link</span></span>
+            <span style="padding-left:14px">☐ Recurring giving feature-complete · due 6 Nov</span>
+            <span style="padding-left:14px;border-bottom:1.5px solid #bbb;color:#24427a;align-self:flex-start;min-width:260px">+ Add item to Dev… ⏎</span>
+            <span style="margin-top:4px">▾ QA · 0/2 · starts 9 Nov</span>
+            <span style="padding-left:14px">☐ Test plan signed off</span>
+            <span style="padding-left:14px">☐ UAT with church admins</span>
+            <span style="padding-left:14px;color:#24427a">+ Add item to QA…</span>
+            <span>▸ HANDOVER · 0/1</span>
+          </div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Add = type in the phase's last row + Enter. Hover a row → owner, due date, link, ✕. Drag rows between phases. The 7/12 on the project card counts all of these.</div>
+    </div>
+
+    <div class="dv-opt" id="3b">
+      <div class="dv-olabel"><a class="dv-oid" href="#3b">3b</a>Add-item ways · inline, template, item popover</div>
+      <div class="dv-card" style="width:520px">
+        <div style="padding:16px 18px;display:flex;flex-direction:column;gap:14px;font-size:13px">
+          <div style="display:flex;flex-direction:column;gap:4px"><b>① Inline (fastest)</b>
+            <div style="border-bottom:1.5px solid #222;padding:2px 0">Security review done <span style="color:#24427a">@Ravi</span> <span style="color:#24427a">!6 Nov</span> ⏎</div>
+            <span style="font-size:12px;color:#777">@ assigns owner · ! sets due date · paste a URL to attach</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><b>② From template</b>
+            <div style="border:1.5px solid #222;border-radius:8px;padding:6px 10px;display:flex;flex-direction:column;gap:2px;font-size:12px"><span>☑ Standard web app (12 items)</span><span>☐ Mobile release (9)</span><span>☐ Data migration (7)</span><span style="color:#777">Adds missing items only · edit templates in Settings</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><b>③ Item popover (click a row)</b>
+            <div style="border:1.5px solid #222;border-radius:8px;padding:6px 10px;display:grid;grid-template-columns:70px 1fr;font-size:12px;row-gap:2px"><span style="color:#777">Item</span><span>Admin console v2 merged</span><span style="color:#777">Phase</span><span>Dev ▾</span><span style="color:#777">Owner</span><span>Ravi ▾</span><span style="color:#777">Due</span><span>30 Oct ▾  → also in Dates</span><span style="color:#777">Link</span><span>github.com/… </span><span style="color:#777">Needs doc</span><span>[ Release notes ▾ ]</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="3c">
+      <div class="dv-olabel"><a class="dv-oid" href="#3c">3c</a>Documents tab · document checklist</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;padding:14px 18px;display:flex;flex-direction:column;gap:9px;font-size:13px">
+          <div style="display:flex;gap:16px;border-bottom:1.5px solid #222"><span>Tasks 26</span><span>Checklist 7/12</span><span style="border-bottom:3px solid #24427a;font-weight:700">Documents 3/6</span><span>Dates 5</span><span>Time 64h</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px"><span style="color:#777">Required docs for this project · 3 approved, 1 in review, 2 missing</span><span style="background:#24427a;color:#fff;border-radius:6px;padding:0 10px">+ Add document</span></div>
+          <div style="display:grid;grid-template-columns:1.6fr 0.8fr 0.9fr 0.8fr 0.8fr 1fr;border:1.5px solid #222;border-radius:8px;overflow:hidden;font-size:12px">
+            <span style="padding:4px 8px;background:#f2f2f2;color:#777">Document</span><span style="padding:4px;background:#f2f2f2;color:#777">Phase</span><span style="padding:4px;background:#f2f2f2;color:#777">Status</span><span style="padding:4px;background:#f2f2f2;color:#777">Owner</span><span style="padding:4px;background:#f2f2f2;color:#777">Due</span><span style="padding:4px;background:#f2f2f2;color:#777">File / link</span>
+            <span style="padding:4px 8px">Scope & SOW</span><span style="padding:4px">Discovery</span><span style="padding:4px"><span style="background:#24427a;color:#fff;border-radius:99px;padding:0 6px">Approved</span></span><span style="padding:4px">Kalyani</span><span style="padding:4px">8 Aug</span><span style="padding:4px;color:#24427a">📄 SOW_v3.pdf</span>
+            <span style="padding:4px 8px">PRD · Admin console</span><span style="padding:4px">Design</span><span style="padding:4px"><span style="background:#24427a;color:#fff;border-radius:99px;padding:0 6px">Approved</span></span><span style="padding:4px">Kalyani</span><span style="padding:4px">5 Sep</span><span style="padding:4px;color:#24427a">🔗 Confluence</span>
+            <span style="padding:4px 8px">Design sign-off</span><span style="padding:4px">Design</span><span style="padding:4px"><span style="background:#24427a;color:#fff;border-radius:99px;padding:0 6px">Approved</span></span><span style="padding:4px">Client</span><span style="padding:4px">26 Sep</span><span style="padding:4px;color:#24427a">🔗 Figma</span>
+            <span style="padding:4px 8px">PRD · Recurring giving</span><span style="padding:4px">Dev</span><span style="padding:4px"><span style="background:#dbe3f0;border-radius:99px;padding:0 6px">In review</span></span><span style="padding:4px">Kalyani</span><span style="padding:4px">24 Oct</span><span style="padding:4px;color:#24427a">🔗 Doc</span>
+            <span style="padding:4px 8px">UAT sign-off</span><span style="padding:4px">QA</span><span style="padding:4px"><span style="border:1.5px dashed #c00;color:#c00;border-radius:99px;padding:0 6px">Missing</span></span><span style="padding:4px">Client</span><span style="padding:4px">30 Nov</span><span style="padding:4px;color:#999">[ attach ]</span>
+            <span style="padding:4px 8px">Handover pack</span><span style="padding:4px">Handover</span><span style="padding:4px"><span style="border:1.5px dashed #c00;color:#c00;border-radius:99px;padding:0 6px">Missing</span></span><span style="padding:4px">Kalyani</span><span style="padding:4px">7 Dec</span><span style="padding:4px;color:#999">[ attach ]</span>
+          </div>
+          <span style="font-size:12px;color:#777">Status flow: Missing → Draft → In review → Approved · drop a file or paste a link on any row</span>
+          <div style="border:1.5px dashed #222;border-radius:10px;padding:6px 10px;font-size:12px">⚠ Phase gate: QA can't be marked done until <b>UAT sign-off</b> is Approved</div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Docs are their own checklist: each has a status, so the card's 3/6 = approved docs. Seeded from a template per project type.</div>
+    </div>
+
+    <div class="dv-opt" id="3d">
+      <div class="dv-olabel"><a class="dv-oid" href="#3d">3d</a>Dates tab · important dates</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;padding:14px 18px;display:flex;flex-direction:column;gap:9px;font-size:13px">
+          <div style="display:flex;gap:16px;border-bottom:1.5px solid #222"><span>Tasks 26</span><span>Checklist 7/12</span><span>Documents 3/6</span><span style="border-bottom:3px solid #24427a;font-weight:700">Dates 5</span><span>Time 64h</span></div>
+          <div style="display:grid;grid-template-columns:1fr 210px;gap:16px">
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+              <div style="display:flex;justify-content:space-between"><span style="color:#777">UPCOMING</span><span style="background:#24427a;color:#fff;border-radius:6px;padding:0 10px">+ Add date</span></div>
+              <div style="display:grid;grid-template-columns:54px 1fr auto;gap:8px;align-items:center;border:1.5px solid #222;border-radius:8px;padding:4px 8px"><b>24 Oct</b><span>PRD review with client<br><span style="color:#777">Client meeting · 🔔 1 day before</span></span><span style="color:#c00">in 2d</span></div>
+              <div style="display:grid;grid-template-columns:54px 1fr auto;gap:8px;align-items:center;border:1.5px solid #222;border-radius:8px;padding:4px 8px"><b>6 Nov</b><span>Feature freeze<br><span style="color:#777">Deadline</span></span><span>15d</span></div>
+              <div style="display:grid;grid-template-columns:54px 1fr auto;gap:8px;align-items:center;border:1.5px solid #222;border-radius:8px;padding:4px 8px"><b>9 Nov</b><span>QA starts ◆<br><span style="color:#777">Milestone · from timeline</span></span><span>18d</span></div>
+              <div style="display:grid;grid-template-columns:54px 1fr auto;gap:8px;align-items:center;border:1.5px dashed #999;border-radius:8px;padding:4px 8px"><b>14 Nov</b><span>Diwali — team off<br><span style="color:#777">Holiday / blocker</span></span><span>23d</span></div>
+              <div style="display:grid;grid-template-columns:54px 1fr auto;gap:8px;align-items:center;border:1.5px solid #222;border-radius:8px;padding:4px 8px"><b>12 Dec</b><span>Go-live<br><span style="color:#777">Deadline · contract</span></span><span>51d</span></div>
+              <span style="color:#777">▸ Past (4)</span>
+            </div>
+            <div style="border:1.5px solid #222;border-radius:10px;padding:8px;font-size:11px;display:flex;flex-direction:column;gap:4px">
+              <b style="font-size:13px">November</b>
+              <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><span></span><span></span><span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span style="background:#24427a;color:#fff;border-radius:4px">6</span><span>7</span><span>8</span><span style="outline:1.5px solid #24427a;border-radius:4px">9</span><span>10</span><span>11</span><span>12</span><span>13</span><span style="background:#eee;border-radius:4px">14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span></div>
+              <span style="color:#777">■ deadline · □ milestone · ░ holiday</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Milestones from the timeline show up here automatically; you add the rest yourself.</div>
+    </div>
+
+    <div class="dv-opt" id="3e">
+      <div class="dv-olabel"><a class="dv-oid" href="#3e">3e</a>Add date · modal</div>
+      <div class="dv-card" style="width:340px">
+        <div style="padding:16px;display:flex;flex-direction:column;gap:7px;font-size:13px">
+          <b style="font-size:18px">Add important date</b>
+          <div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px;color:#999">What's happening?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px">📅 24 Oct</div><div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px;color:#999">time (optional)</div></div>
+          <span style="font-size:12px;color:#777">Type</span>
+          <span style="font-size:12px">( Deadline ) ( <b>Client meeting</b> ) ( Milestone ) ( Holiday )</span>
+          <span style="font-size:12px;color:#777">Remind me</span>
+          <span style="font-size:12px">( none ) ( <b>1 day before</b> ) ( 1 week ) ( on the day )</span>
+          <span style="font-size:12px">☐ Show on Today when ≤ 7 days away</span>
+          <div style="display:flex;justify-content:flex-end;gap:6px"><span style="border:1.5px solid #222;border-radius:6px;padding:0 10px">Cancel</span><span style="background:#24427a;color:#fff;border-radius:6px;padding:0 10px">Save</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="3f">
+      <div class="dv-olabel"><a class="dv-oid" href="#3f">3f</a>Alt · one-page overview, no tabs</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;padding:14px 18px;display:flex;flex-direction:column;gap:10px;font-size:13px">
+          <div><b style="font-size:20px">FaithFlow</b> <span style="background:#dbe3f0;border-radius:99px;padding:0 8px;font-size:11px">On track</span> <span style="font-size:12px;color:#777">· Dev → QA 9 Nov</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;flex:1">
+            <div style="border:1.5px solid #222;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:3px;font-size:12px"><b style="font-size:14px">Checklist · Dev 2/4</b><span>☑ <s>API contract</s></span><span>☑ <s>Payments sandbox</s></span><span>☐ Admin console v2</span><span>☐ Recurring giving</span><span style="color:#24427a">+ add item</span><span style="margin-top:auto;color:#777">all phases 7/12 →</span></div>
+            <div style="border:1.5px solid #222;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:3px;font-size:12px"><b style="font-size:14px">Documents 3/6</b><span>✓ Scope & SOW</span><span>✓ PRD · Admin console</span><span>✓ Design sign-off</span><span>◐ PRD · Recurring giving</span><span style="color:#c00">○ UAT sign-off</span><span style="color:#c00">○ Handover pack</span><span style="color:#24427a">+ add document</span></div>
+            <div style="border:1.5px solid #222;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:3px;font-size:12px"><b style="font-size:14px">Important dates</b><span><b>24 Oct</b> PRD review · 2d</span><span><b>6 Nov</b> Feature freeze</span><span><b>9 Nov</b> QA starts ◆</span><span><b>14 Nov</b> Diwali off</span><span><b>12 Dec</b> Go-live</span><span style="color:#24427a">+ add date</span></div>
+          </div>
+          <div style="border:1.5px solid #222;border-radius:10px;padding:6px 10px;font-size:12px">Tasks · 8 open  ○ PRD recurring giving · ○ Reply on onboarding copy · ○ Release notes …  <span style="color:#24427a">see all →</span></div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Everything at a glance, less depth. Pairs well with tabs: overview first, tabs for editing.</div>
+    </div>
+
+    <div class="dv-opt" id="3g">
+      <div class="dv-olabel"><a class="dv-oid" href="#3g">3g</a>Where dates & docs surface elsewhere</div>
+      <div class="dv-card" style="width:520px">
+        <div style="padding:16px 18px;display:flex;flex-direction:column;gap:12px;font-size:13px">
+          <div style="display:flex;flex-direction:column;gap:4px"><b>Today (<a class="dv-oid" href="#2a">2a</a>) · "Coming up" strip</b>
+            <div style="border:1.5px solid #222;border-radius:8px;padding:4px 10px;font-size:12px;display:flex;gap:10px;flex-wrap:wrap"><span>📅 Sat · FaithFlow PRD review</span><span>📅 6 Nov · Feature freeze</span><span style="color:#c00">📄 UAT sign-off missing</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><b>Project card (<a class="dv-oid" href="#2h">2h</a>)</b>
+            <div style="border:1.5px solid #222;border-radius:8px;padding:4px 10px;font-size:12px;display:flex;justify-content:space-between"><span>☑ 7/12</span><span>📄 3/6</span><span>📅 next: 24 Oct</span><span>⏱ 64h</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><b>Timeline (<a class="dv-oid" href="#2i">2i</a>)</b>
+            <div style="position:relative;height:28px;border-bottom:1.5px solid #222"><div style="position:absolute;left:10%;right:10%;top:10px;height:10px;border:1.5px solid #222;border-radius:5px;background:#dbe3f0"></div><span style="position:absolute;left:30%;top:-2px;font-size:11px">◆</span><span style="position:absolute;left:52%;top:-2px;font-size:11px;color:#c00">▼</span><span style="position:absolute;left:70%;top:-2px;font-size:11px">░</span></div>
+            <span style="font-size:12px;color:#777">◆ milestone · ▼ deadline · ░ holiday, as optional layers</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Try next: "go with tabs (<a class="dv-oid" href="#3a">3a</a>) plus the overview (<a class="dv-oid" href="#3f">3f</a>) as the first tab" · "make <a class="dv-oid" href="#3c">3c</a> docs block phase completion" · "take <a class="dv-oid" href="#3a">3a</a>–<a class="dv-oid" href="#3d">3d</a> to hi-fi"</p>
+</section>
+
+<section class="dv-turn" id="t2">
+  <div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Every screen, low-fi · 720 × 450 frames (half of 1440)</span></div>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="2a">
+      <div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Today · the hub</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;display:grid;grid-template-columns:110px 1fr 150px;font-size:13px">
+          <div style="border-right:1.5px solid #222;padding:12px 10px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-weight:700;font-size:15px;padding-bottom:8px">☕ Focus Desk</div>
+            <div style="padding:3px 8px;border-radius:5px;background:#dbe3f0;color:#24427a;font-weight:700">Today</div>
+            <div style="padding:3px 8px">Projects</div><div style="padding:3px 8px">Timesheet</div><div style="padding:3px 8px">Settings</div>
+            <div style="margin-top:10px;font-size:11px;color:#777">PROJECTS</div>
+            <div style="padding:0 8px;font-size:12px">▪ FaithFlow</div><div style="padding:0 8px;font-size:12px">▪ Mantralok</div><div style="padding:0 8px;font-size:12px">▪ STAX</div><div style="padding:0 8px;font-size:12px">▪ Surviant</div>
+          </div>
+          <div style="padding:12px 14px;display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div><div style="font-size:11px;color:#777">Good afternoon</div><div style="font-weight:700;font-size:18px;line-height:1">Thu, 22 Oct</div></div>
+              <div style="border:1.5px solid #222;border-radius:6px;padding:2px 10px">● Clock out</div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 92px;gap:8px">
+              <div style="border:1.5px solid #24427a;background:#eef2f8;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:4px">
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:#24427a"><span>FOCUSING · 4 of 4</span><span>● ● ● ○</span></div>
+                <div style="display:flex;align-items:flex-end;gap:10px"><span style="font-size:38px;font-weight:700;line-height:1;color:#24427a">18:42</span><span style="line-height:1.2">PRD: recurring giving<br><span style="font-size:11px;color:#777">FaithFlow</span></span></div>
+                <div style="height:4px;background:#b8c7e0;border-radius:4px"><div style="width:25%;height:100%;background:#24427a;border-radius:4px"></div></div>
+                <div style="display:flex;gap:5px;align-items:center"><span style="background:#24427a;color:#fff;border-radius:5px;padding:0 8px">⤢ Focus</span><span style="border:1.5px solid #222;border-radius:5px;padding:0 6px">❚❚</span><span style="border:1.5px solid #222;border-radius:5px;padding:0 6px">■</span><span style="margin-left:auto;font-size:11px;text-decoration:underline;color:#24427a;white-space:nowrap">log time</span></div>
+              </div>
+              <div style="border:1.5px dashed #222;border-radius:10px;padding:8px;font-size:12px;display:flex;flex-direction:column;gap:2px"><b>My day</b><span>3h 25m focused</span><span>5h 10m span</span><span>7 sessions</span></div>
+            </div>
+            <div style="border:1.5px solid #222;border-radius:8px;padding:3px 10px;color:#888;display:flex;justify-content:space-between;gap:8px"><span>+ Add a task for today…</span><span style="white-space:nowrap">[project ▾]</span></div>
+            <div style="background:#ffdee6;border-radius:8px;padding:3px 10px;font-size:12px">From earlier: (STAX brief · Mon) (Release notes · Tue)</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px">
+              <div style="border:1.5px solid #222;border-radius:8px;padding:6px 8px;display:flex;flex-direction:column;gap:2px"><b>FaithFlow · 2 open</b><span>○ • PRD recurring giving ⏱ [major] 2h</span><span>○ ◦ Reply on onboarding copy 15m</span><span style="color:#888">+ 1 done</span></div>
+              <div style="border:1.5px solid #222;border-radius:8px;padding:6px 8px;display:flex;flex-direction:column;gap:2px"><b>Mantralok · 1 open</b><span>○ • Role permissions spec 1/2 [major]</span><span style="color:#888">+ 1 done</span></div>
+              <div style="border:1.5px solid #222;border-radius:8px;padding:6px 8px;display:flex;flex-direction:column;gap:2px"><b>STAX · 1 open</b><span>○ • Q4 roadmap one-pager 0/3</span></div>
+              <div style="border:1.5px solid #222;border-radius:8px;padding:6px 8px;display:flex;flex-direction:column;gap:2px"><b>Surviant · 1 open</b><span>○ ◦ Submit timesheet 10m</span></div>
+            </div>
+          </div>
+          <div style="border-left:1.5px solid #222;padding:12px 10px;background:#f6f6f6;display:flex;flex-direction:column;gap:7px;font-size:12px">
+            <b style="font-size:14px">Session log</b>
+            <span style="color:#24427a">● 2:46 – now<br>PRD recurring giving</span>
+            <span>○ 2:25–2:45 · 20m<br>Onboarding funnel</span>
+            <span>○ 1:55–2:20 · 25m<br>Moderation flows</span>
+            <span>○ 1:00–1:45 · 45m<br>Weekly sync</span>
+            <span style="color:#888">… 4 more</span>
+          </div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">① Timer is the hero; one block. ② Tasks grouped by project; done hidden. ③ Click a task → <a class="dv-oid" href="#2c">2c</a>. ④ Focus → <a class="dv-oid" href="#2b">2b</a>. ⑤ "log time" → <a class="dv-oid" href="#2d">2d</a>.</div>
+    </div>
+
+    <div class="dv-opt" id="2b">
+      <div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Focus mode · full screen</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;display:flex;flex-direction:column;padding:16px 20px;font-size:13px">
+          <div style="display:flex;justify-content:space-between;color:#777"><span>FOCUSING · SESSION 4 OF 4</span><span style="border:1.5px solid #222;border-radius:6px;padding:0 8px;color:#222">⤡ Exit · Esc</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+            <span style="border-radius:99px;background:#dbe3f0;padding:0 10px;font-size:12px">FaithFlow</span>
+            <span style="font-size:22px;font-weight:700">Write PRD: recurring giving</span>
+            <span style="font-size:110px;font-weight:700;line-height:0.9;color:#24427a">18:42</span>
+            <div style="width:260px;height:4px;background:#ddd;border-radius:4px"><div style="width:25%;height:100%;background:#24427a"></div></div>
+            <div style="display:flex;gap:8px"><span style="background:#24427a;color:#fff;border-radius:6px;padding:2px 20px">❚❚ Pause</span><span style="border:1.5px solid #222;border-radius:6px;padding:2px 14px">■ Stop</span></div>
+            <span style="color:#777">● ● ● ○ long break after this one</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;font-size:12px">
+            <div><span style="color:#777">Subtasks</span><br>☑ <s>Problem & goals</s><br>☑ <s>User stories</s><br>☐ Edge cases<br>☐ Success metrics</div>
+            <div style="text-align:right"><span style="color:#777">Up next</span><br>Role permissions spec</div>
+          </div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Nothing else on screen. Timer ends → break screen (<a class="dv-oid" href="#2e">2e</a>), session auto-logged.</div>
+    </div>
+
+    <div class="dv-opt" id="2c">
+      <div class="dv-olabel"><a class="dv-oid" href="#2c">2c</a>Task detail · drawer over Today</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;position:relative;background:repeating-linear-gradient(45deg,#f4f4f4 0 8px,#ececec 8px 16px);font-size:13px">
+          <span style="position:absolute;left:20px;top:20px;color:#999">(Today, dimmed)</span>
+          <div style="position:absolute;top:10px;right:10px;bottom:10px;width:280px;background:#fff;border:1.5px solid #222;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between"><span style="border:1.5px solid #222;border-radius:6px;padding:0 8px">✓ Mark complete</span><span>✕</span></div>
+            <b style="font-size:19px;line-height:1.1">Write PRD: recurring giving</b>
+            <div style="display:grid;grid-template-columns:70px 1fr;font-size:12px;row-gap:2px"><span style="color:#777">Project</span><span>FaithFlow ▾</span><span style="color:#777">Priority</span><span>High ▾</span><span style="color:#777">Due</span><span>Today ▾</span><span style="color:#777">Estimate</span><span>2h ▾</span><span style="color:#777">Size</span><span>[major] toggle</span></div>
+            <div style="background:#f2f2f2;border-radius:8px;padding:6px 8px;font-size:12px;color:#666">Notes… (free text)</div>
+            <div style="font-size:12px;display:flex;flex-direction:column;gap:1px"><span style="color:#777">Subtasks · 2 of 4</span><span>☑ <s>Problem & goals</s></span><span>☑ <s>User stories</s></span><span>☐ Edge cases</span><span>☐ Success metrics</span><span style="border-bottom:1.5px solid #bbb;color:#24427a">+ Add a subtask… ⏎</span></div>
+            <div style="font-size:12px;color:#777">Time on this task: 50m · 2 sessions</div>
+            <span style="margin-top:auto;background:#24427a;color:#fff;border-radius:6px;padding:3px;text-align:center">⏱ Focus on this task</span>
+          </div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">All fields editable inline. Subtasks: type + Enter; ✕ on hover to remove.</div>
+    </div>
+
+    <div class="dv-opt" id="2d">
+      <div class="dv-olabel"><a class="dv-oid" href="#2d">2d</a>Log time · forgot to start</div>
+      <div class="dv-card" style="width:340px">
+        <div style="padding:16px;display:flex;flex-direction:column;gap:8px;font-size:13px">
+          <b style="font-size:18px">Log time</b>
+          <span style="color:#777;font-size:12px">What did you work on?</span>
+          <div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px;color:#999">pick a task or type…</div>
+          <span style="color:#777;font-size:12px">Project</span>
+          <div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px">FaithFlow ▾</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:#777;font-size:12px">From</span><div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px">12:10</div></div><div><span style="color:#777;font-size:12px">To</span><div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px">12:40</div></div></div>
+          <span style="font-size:12px;color:#24427a">Quick: [last 15m] [last 30m] [since last session]</span>
+          <div style="display:flex;justify-content:flex-end;gap:6px"><span style="border:1.5px solid #222;border-radius:6px;padding:0 10px">Cancel</span><span style="background:#24427a;color:#fff;border-radius:6px;padding:0 10px">Add to log</span></div>
+        </div>
+      </div>
+      <div style="width:340px;font-size:13px;line-height:1.4;color:#555">Quick chips fill From/To. Entry shows "added by hand" in the log.</div>
+    </div>
+
+    <div class="dv-opt" id="2e">
+      <div class="dv-olabel"><a class="dv-oid" href="#2e">2e</a>Break screen · after a session</div>
+      <div class="dv-card" style="width:340px">
+        <div style="height:300px;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;font-size:13px;background:#eef2f8">
+          <span style="color:#777">SESSION 4 DONE · 25m logged</span>
+          <b style="font-size:22px">Take a long break</b>
+          <span style="font-size:54px;font-weight:700;line-height:1;color:#24427a">15:00</span>
+          <span>How did it go? ( 😐 fine ) ( 👍 good ) ( 🔥 deep )</span>
+          <div style="display:flex;gap:6px"><span style="background:#24427a;color:#fff;border-radius:6px;padding:0 10px">Start break</span><span style="border:1.5px solid #222;border-radius:6px;padding:0 10px">Skip → next task</span></div>
+        </div>
+      </div>
+      <div style="width:340px;font-size:13px;line-height:1.4;color:#555">Optional rating feeds the timesheet's focus quality. Placeholder emoji = rating chips.</div>
+    </div>
+
+    <div class="dv-opt" id="2f">
+      <div class="dv-olabel"><a class="dv-oid" href="#2f">2f</a>Morning · before clock in</div>
+      <div class="dv-card" style="width:520px">
+        <div style="height:330px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;font-size:13px">
+          <div style="color:#777">Good morning · Thu, 22 Oct</div>
+          <b style="font-size:24px;line-height:1.1">Ready to start your day?</b>
+          <span style="background:#24427a;color:#fff;border-radius:8px;padding:4px 16px;align-self:flex-start">● Clock in</span>
+          <div style="border:1.5px dashed #222;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:3px">
+            <b>Plan today (from yesterday)</b>
+            <span>☐ 2 overdue — keep / move / drop</span>
+            <span>☐ 5 due today — reorder by drag</span>
+            <span>☐ Calendar: 2 meetings (1h 15m)</span>
+          </div>
+          <span style="color:#777">Capacity: 6h 30m free · 5h 45m planned ✓</span>
+        </div>
+      </div>
+      <div style="width:520px;font-size:13px;line-height:1.4;color:#555">Triage overdue before the day starts, so "From earlier" stays short.</div>
+    </div>
+
+    <div class="dv-opt" id="2g">
+      <div class="dv-olabel"><a class="dv-oid" href="#2g">2g</a>Clock out · end of day</div>
+      <div class="dv-card" style="width:520px">
+        <div style="height:330px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;font-size:13px">
+          <b style="font-size:22px">Wrapping up · 9:42 AM – 6:10 PM</b>
+          <div style="display:flex;gap:18px"><span><b style="font-size:20px">8h 28m</b><br><span style="color:#777">day span</span></span><span><b style="font-size:20px">5h 40m</b><br><span style="color:#777">focused</span></span><span><b style="font-size:20px">11</b><br><span style="color:#777">sessions</span></span></div>
+          <div style="display:flex;height:14px;border-radius:7px;overflow:hidden;border:1.5px solid #222"><span style="width:40%;background:#24427a"></span><span style="width:25%;background:#5873a6"></span><span style="width:20%;background:#8aa0c8"></span><span style="width:15%;background:#dbe3f0"></span></div>
+          <span style="font-size:12px;color:#777">FaithFlow · Mantralok · STAX · Surviant</span>
+          <span>3 open tasks → ( move to tomorrow ) ( leave )</span>
+          <span style="color:#24427a">⚠ 40m gap 12:05–12:45 — log it?</span>
+          <span style="background:#24427a;color:#fff;border-radius:8px;padding:3px 16px;align-self:flex-start">Clock out</span>
+        </div>
+      </div>
+      <div style="width:520px;font-size:13px;line-height:1.4;color:#555">Catches untracked gaps before they hit the timesheet.</div>
+    </div>
+
+    <div class="dv-opt" id="2h">
+      <div class="dv-olabel"><a class="dv-oid" href="#2h">2h</a>Projects · cards</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;display:grid;grid-template-columns:110px 1fr;font-size:13px">
+          <div style="border-right:1.5px solid #222;padding:12px 10px;display:flex;flex-direction:column;gap:6px"><div style="font-weight:700;font-size:15px;padding-bottom:8px">☕ Focus Desk</div><div style="padding:3px 8px">Today</div><div style="padding:3px 8px;border-radius:5px;background:#dbe3f0;color:#24427a;font-weight:700">Projects</div><div style="padding:3px 8px">Timesheet</div><div style="padding:3px 8px">Settings</div></div>
+          <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:20px">Projects</b><span style="border:1.5px solid #222;border-radius:6px;padding:0 4px"><span style="background:#dbe3f0;padding:0 8px;border-radius:4px">▦ Cards</span> ▬ Timeline</span></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="border:1.5px solid #222;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:5px"><div style="display:flex;justify-content:space-between"><b>FaithFlow</b><span style="background:#dbe3f0;border-radius:99px;padding:0 8px;font-size:11px">On track</span></div><span style="font-size:11px;color:#777">4 Aug – 12 Dec 2026</span><span style="font-size:11px">Tasks 18/26</span><div style="height:5px;background:#ddd;border-radius:4px"><div style="width:69%;height:100%;background:#24427a;border-radius:4px"></div></div><div style="display:flex;justify-content:space-between;font-size:11px"><span>☑ 7/12</span><span>⏱ 64h 30m</span><span>Dev → QA 9 Nov</span></div></div>
+              <div style="border:1.5px solid #222;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:5px"><div style="display:flex;justify-content:space-between"><b>Mantralok</b><span style="background:#ffdee6;border-radius:99px;padding:0 8px;font-size:11px">At risk</span></div><span style="font-size:11px;color:#777">1 Sep – 30 Jan 2027</span><span style="font-size:11px">Tasks 9/22</span><div style="height:5px;background:#ddd;border-radius:4px"><div style="width:41%;height:100%;background:#24427a;border-radius:4px"></div></div><div style="display:flex;justify-content:space-between;font-size:11px"><span>☑ 4/10</span><span>⏱ 38h</span><span>Design → Dev 2 Nov</span></div></div>
+              <div style="border:1.5px solid #222;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:5px"><div style="display:flex;justify-content:space-between"><b>STAX</b><span style="background:#dbe3f0;border-radius:99px;padding:0 8px;font-size:11px">On track</span></div><span style="font-size:11px;color:#777">15 Jul – 28 Nov 2026</span><span style="font-size:11px">Tasks 24/30</span><div style="height:5px;background:#ddd;border-radius:4px"><div style="width:80%;height:100%;background:#24427a;border-radius:4px"></div></div><div style="display:flex;justify-content:space-between;font-size:11px"><span>☑ 10/12</span><span>⏱ 71h</span><span>QA → Handover</span></div></div>
+              <div style="border:1.5px solid #222;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:5px"><div style="display:flex;justify-content:space-between"><b>Surviant – General</b><span style="background:#eee;border-radius:99px;padding:0 8px;font-size:11px">Ongoing</span></div><span style="font-size:11px;color:#777">All year</span><span style="font-size:11px">Tasks 12/15</span><div style="height:5px;background:#ddd;border-radius:4px"><div style="width:80%;height:100%;background:#24427a;border-radius:4px"></div></div><div style="display:flex;justify-content:space-between;font-size:11px"><span>☑ 3/6</span><span>⏱ 22h</span><span>—</span></div></div>
+            </div>
+            <div style="border:1.5px dashed #999;border-radius:10px;padding:6px;text-align:center;color:#777">+ New project</div>
+          </div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Card click → project detail <a class="dv-oid" href="#2j">2j</a>. New project → <a class="dv-oid" href="#2k">2k</a>.</div>
+    </div>
+
+    <div class="dv-opt" id="2i">
+      <div class="dv-olabel"><a class="dv-oid" href="#2i">2i</a>Projects · timeline</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;padding:14px 18px;display:flex;flex-direction:column;gap:10px;font-size:13px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:20px">Projects</b><span style="border:1.5px solid #222;border-radius:6px;padding:0 4px">▦ Cards <span style="background:#dbe3f0;padding:0 8px;border-radius:4px">▬ Timeline</span></span></div>
+          <div style="display:grid;grid-template-columns:110px repeat(7,1fr);font-size:11px;color:#777;border-bottom:1.5px solid #222;padding-bottom:3px"><span></span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span></div>
+          <div style="position:relative;display:flex;flex-direction:column;gap:26px;padding-top:14px">
+            <div style="position:absolute;top:0;bottom:-10px;left:calc(110px + (100% - 110px) * 0.53);border-left:1.5px dashed #24427a"><span style="position:absolute;bottom:-16px;left:-14px;font-size:11px;color:#24427a">today</span></div>
+            <div style="display:grid;grid-template-columns:110px 1fr;align-items:center"><b>FaithFlow</b><div style="position:relative;height:14px"><div style="position:absolute;left:15%;width:63%;height:100%;border:1.5px solid #222;border-radius:7px;background:linear-gradient(90deg,#dbe3f0 0 22%,#b8c7e0 22% 44%,#8aa0c8 44% 75%,#5873a6 75% 92%,#24427a 92%)"></div><span style="position:absolute;left:15%;top:-14px;font-size:10px">◆Disc</span><span style="position:absolute;left:28%;top:-14px;font-size:10px">◆Des</span><span style="position:absolute;left:41%;top:-14px;font-size:10px">◆Dev</span><span style="position:absolute;left:61%;top:-14px;font-size:10px">◇QA</span><span style="position:absolute;left:73%;top:-14px;font-size:10px">◇Hand</span></div></div>
+            <div style="display:grid;grid-template-columns:110px 1fr;align-items:center"><b>Mantralok</b><div style="position:relative;height:14px"><div style="position:absolute;left:29%;width:71%;height:100%;border:1.5px solid #222;border-radius:7px;background:linear-gradient(90deg,#dbe3f0 0 18%,#b8c7e0 18% 40%,#8aa0c8 40% 72%,#5873a6 72% 95%,#24427a 95%)"></div><span style="position:absolute;left:29%;top:-14px;font-size:10px">◆Disc</span><span style="position:absolute;left:42%;top:-14px;font-size:10px">◆Des</span><span style="position:absolute;left:58%;top:-14px;font-size:10px">◇Dev</span><span style="position:absolute;left:81%;top:-14px;font-size:10px">◇QA</span></div></div>
+            <div style="display:grid;grid-template-columns:110px 1fr;align-items:center"><b>STAX</b><div style="position:relative;height:14px"><div style="position:absolute;left:7%;width:62%;height:100%;border:1.5px solid #222;border-radius:7px;background:linear-gradient(90deg,#dbe3f0 0 19%,#b8c7e0 19% 40%,#8aa0c8 40% 70%,#5873a6 70% 96%,#24427a 96%)"></div><span style="position:absolute;left:7%;top:-14px;font-size:10px">◆Disc</span><span style="position:absolute;left:19%;top:-14px;font-size:10px">◆Des</span><span style="position:absolute;left:32%;top:-14px;font-size:10px">◆Dev</span><span style="position:absolute;left:51%;top:-14px;font-size:10px">◆QA</span><span style="position:absolute;left:66%;top:-14px;font-size:10px">◇Hand</span></div></div>
+            <div style="display:grid;grid-template-columns:110px 1fr;align-items:center"><b>Surviant</b><div style="height:14px;border:1.5px solid #222;border-radius:7px;background:#eee;font-size:10px;padding-left:6px;line-height:12px">ongoing</div></div>
+          </div>
+          <div style="margin-top:auto;font-size:11px;color:#777">◆ reached · ◇ upcoming · zoom: [Month] Quarter · drag a ◇ to reschedule</div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Hover a bar → phase dates + hours. Click a milestone → its checklist in <a class="dv-oid" href="#2j">2j</a>.</div>
+    </div>
+
+    <div class="dv-opt" id="2j">
+      <div class="dv-olabel"><a class="dv-oid" href="#2j">2j</a>Project detail · FaithFlow</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;padding:14px 18px;display:flex;flex-direction:column;gap:10px;font-size:13px">
+          <span style="font-size:12px;color:#777">← Projects</span>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end"><div><b style="font-size:22px">FaithFlow</b> <span style="background:#dbe3f0;border-radius:99px;padding:0 8px;font-size:11px">On track ▾</span><br><span style="font-size:12px;color:#777">4 Aug – 12 Dec 2026 · client: Grace Church</span></div><span style="background:#24427a;color:#fff;border-radius:6px;padding:0 12px">⏱ Focus</span></div>
+          <div style="display:flex;align-items:center;gap:4px;font-size:12px"><span style="background:#24427a;color:#fff;border-radius:99px;padding:0 8px">✓ Discovery</span>—<span style="background:#24427a;color:#fff;border-radius:99px;padding:0 8px">✓ Design</span>—<span style="border:2px solid #24427a;border-radius:99px;padding:0 8px;font-weight:700">● Dev</span>—<span style="border:1.5px solid #999;border-radius:99px;padding:0 8px">QA 9 Nov</span>—<span style="border:1.5px solid #999;border-radius:99px;padding:0 8px">Handover 7 Dec</span></div>
+          <div style="display:flex;gap:16px;border-bottom:1.5px solid #222;font-size:13px"><span style="border-bottom:3px solid #24427a;font-weight:700">Tasks 26</span><span>Checklist 7/12</span><span>Time 64h</span><span>Notes</span></div>
+          <div style="display:grid;grid-template-columns:1fr 200px;gap:14px">
+            <div style="display:flex;flex-direction:column;gap:3px;font-size:12px">
+              <span style="color:#777">THIS WEEK</span><span>○ • PRD recurring giving [major] 2h</span><span>○ ◦ Reply on onboarding copy</span><span>○ • Release notes (overdue)</span>
+              <span style="color:#777;margin-top:6px">LATER</span><span>○ ◦ QA test plan · Nov</span><span>○ ◦ UAT with church admins</span><span style="color:#888">+ 18 done</span>
+            </div>
+            <div style="border:1.5px dashed #222;border-radius:10px;padding:8px;font-size:12px;display:flex;flex-direction:column;gap:2px"><b>Dev checklist</b><span>☑ API contract</span><span>☑ Payments sandbox</span><span>☐ Admin console v2</span><span>☐ Recurring giving</span><span style="color:#24427a">+ add item</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Checklist is per phase (the 7/12 on the card). Tasks bucketed by when, not status.</div>
+    </div>
+
+    <div class="dv-opt" id="2k">
+      <div class="dv-olabel"><a class="dv-oid" href="#2k">2k</a>New project</div>
+      <div class="dv-card" style="width:340px">
+        <div style="padding:16px;display:flex;flex-direction:column;gap:7px;font-size:13px">
+          <b style="font-size:18px">New project</b>
+          <div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px;color:#999">Name</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px;color:#999">Start</div><div style="border:1.5px solid #222;border-radius:6px;padding:2px 8px;color:#999">End</div></div>
+          <span style="font-size:12px;color:#777">Phases (template)</span>
+          <span style="font-size:12px">[✓ Discovery] [✓ Design] [✓ Dev] [✓ QA] [✓ Handover] [+]</span>
+          <span style="font-size:12px;color:#777">Spread evenly across dates — adjust later on the timeline</span>
+          <div style="display:flex;justify-content:flex-end;gap:6px"><span style="border:1.5px solid #222;border-radius:6px;padding:0 10px">Cancel</span><span style="background:#24427a;color:#fff;border-radius:6px;padding:0 10px">Create</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="2l">
+      <div class="dv-olabel"><a class="dv-oid" href="#2l">2l</a>Timesheet · week grid</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;padding:14px 18px;display:flex;flex-direction:column;gap:10px;font-size:13px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:20px">Timesheet</b><span style="white-space:nowrap">‹ 19 – 25 Oct ›   <span style="border:1.5px solid #222;border-radius:6px;padding:0 4px"><span style="background:#dbe3f0;padding:0 6px;border-radius:4px">Week</span> Day</span>   <span style="background:#24427a;color:#fff;border-radius:6px;padding:0 10px">Export ▾</span></span></div>
+          <div style="display:grid;grid-template-columns:150px repeat(5,1fr) 60px;border:1.5px solid #222;border-radius:8px;overflow:hidden;font-size:12px">
+            <span style="padding:4px 8px;background:#f2f2f2;color:#777">Project</span><span style="padding:4px;background:#f2f2f2;color:#777">Mon</span><span style="padding:4px;background:#f2f2f2;color:#777">Tue</span><span style="padding:4px;background:#f2f2f2;color:#777">Wed</span><span style="padding:4px;background:#dbe3f0;color:#24427a">Thu</span><span style="padding:4px;background:#f2f2f2;color:#777">Fri</span><span style="padding:4px;background:#f2f2f2;color:#777">Total</span>
+            <span style="padding:4px 8px">FaithFlow</span><span style="padding:4px">2:10</span><span style="padding:4px">3:00</span><span style="padding:4px">1:45</span><span style="padding:4px;background:#eef2f8">0:50</span><span style="padding:4px;color:#bbb">–</span><b style="padding:4px">7:45</b>
+            <span style="padding:4px 8px">Mantralok</span><span style="padding:4px">1:30</span><span style="padding:4px">0:45</span><span style="padding:4px">2:20</span><span style="padding:4px;background:#eef2f8">1:05</span><span style="padding:4px;color:#bbb">–</span><b style="padding:4px">5:40</b>
+            <span style="padding:4px 8px">STAX</span><span style="padding:4px">2:00</span><span style="padding:4px">1:15</span><span style="padding:4px">1:00</span><span style="padding:4px;background:#eef2f8">0:45</span><span style="padding:4px;color:#bbb">–</span><b style="padding:4px">5:00</b>
+            <span style="padding:4px 8px">Surviant – General</span><span style="padding:4px">0:45</span><span style="padding:4px">1:00</span><span style="padding:4px">0:30</span><span style="padding:4px;background:#eef2f8">0:45</span><span style="padding:4px;color:#bbb">–</span><b style="padding:4px">3:00</b>
+            <b style="padding:4px 8px;border-top:1.5px solid #222">Focused</b><b style="padding:4px;border-top:1.5px solid #222">6:25</b><b style="padding:4px;border-top:1.5px solid #222">6:00</b><b style="padding:4px;border-top:1.5px solid #222">5:35</b><b style="padding:4px;border-top:1.5px solid #222;background:#eef2f8">3:25</b><span style="padding:4px;border-top:1.5px solid #222"></span><b style="padding:4px;border-top:1.5px solid #222">21:25</b>
+            <span style="padding:4px 8px;color:#777">Day span</span><span style="padding:4px;color:#777">8:40</span><span style="padding:4px;color:#777">8:15</span><span style="padding:4px;color:#777">7:50</span><span style="padding:4px;color:#777;background:#eef2f8">5:10</span><span style="padding:4px"></span><span style="padding:4px"></span>
+          </div>
+          <div style="display:flex;gap:10px;font-size:12px"><span style="border:1.5px dashed #222;border-radius:8px;padding:4px 10px">Focus ratio 72%</span><span style="border:1.5px dashed #222;border-radius:8px;padding:4px 10px">Untracked 1h 50m → review</span><span style="border:1.5px dashed #222;border-radius:8px;padding:4px 10px">Status: draft · [Submit week]</span></div>
+          <span style="font-size:12px;color:#777">Click a cell → that day's sessions (edit / split / move project)</span>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Option A: spreadsheet-like, best for submitting hours.</div>
+    </div>
+
+    <div class="dv-opt" id="2m">
+      <div class="dv-olabel"><a class="dv-oid" href="#2m">2m</a>Timesheet · day view (alt)</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;padding:14px 18px;display:flex;flex-direction:column;gap:10px;font-size:13px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:20px">Timesheet</b><span style="white-space:nowrap">‹ Thu 22 Oct ›   <span style="border:1.5px solid #222;border-radius:6px;padding:0 4px">Week <span style="background:#dbe3f0;padding:0 6px;border-radius:4px">Day</span></span></span></div>
+          <div style="display:grid;grid-template-columns:50px 1fr;font-size:11px;color:#777"><span></span><div style="display:grid;grid-template-columns:repeat(9,1fr)"><span>9</span><span>10</span><span>11</span><span>12</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div>
+          <div style="display:grid;grid-template-columns:50px 1fr;align-items:center"><span style="font-size:11px;color:#777">clock</span><div style="position:relative;height:10px"><div style="position:absolute;left:8%;width:57%;height:100%;background:#eee;border:1.5px solid #222;border-radius:5px"></div></div></div>
+          <div style="display:grid;grid-template-columns:50px 1fr;align-items:center"><span style="font-size:11px;color:#777">focus</span><div style="position:relative;height:28px">
+            <div style="position:absolute;left:8%;width:4.6%;height:100%;background:#24427a;border-radius:4px"></div><div style="position:absolute;left:14%;width:4.6%;height:100%;background:#24427a;border-radius:4px"></div><div style="position:absolute;left:20.4%;width:7.4%;height:100%;background:repeating-linear-gradient(45deg,#5873a6 0 4px,#8aa0c8 4px 8px);border-radius:4px"></div><div style="position:absolute;left:29.6%;width:4.6%;height:100%;background:#8aa0c8;border-radius:4px"></div>
+            <div style="position:absolute;left:34.3%;width:7.4%;height:100%;border:1.5px dashed #c00;border-radius:4px;font-size:10px;color:#c00;text-align:center;line-height:24px">gap?</div>
+            <div style="position:absolute;left:44.4%;width:8.3%;height:100%;background:#dbe3f0;border:1px solid #24427a;border-radius:4px"></div><div style="position:absolute;left:54.2%;width:4.6%;height:100%;background:#5873a6;border-radius:4px"></div><div style="position:absolute;left:59.6%;width:3.7%;height:100%;background:#8aa0c8;border-radius:4px"></div></div></div>
+          <div style="display:flex;flex-direction:column;gap:3px;font-size:12px;border-top:1.5px solid #222;padding-top:8px">
+            <span>9:45–10:10 · FaithFlow · Admin console review · 25m  <span style="color:#24427a">edit</span></span>
+            <span>10:15–10:40 · FaithFlow · Sprint planning notes · 25m</span>
+            <span>10:50–11:30 · Mantralok · Role permissions · 40m <i>(by hand)</i></span>
+            <span style="color:#888">… 4 more</span>
+          </div>
+          <span style="font-size:12px;color:#777">Drag edges to resize · drag block to another row to change project</span>
+        </div>
+      </div>
+      <div style="width:720px;font-size:13px;line-height:1.4;color:#555">Option B: visual — best for spotting gaps and fixing sessions.</div>
+    </div>
+
+    <div class="dv-opt" id="2n">
+      <div class="dv-olabel"><a class="dv-oid" href="#2n">2n</a>Settings</div>
+      <div class="dv-card" style="width:720px">
+        <div style="height:450px;display:grid;grid-template-columns:150px 1fr;font-size:13px">
+          <div style="border-right:1.5px solid #222;padding:14px 12px;display:flex;flex-direction:column;gap:6px"><b style="font-size:18px;padding-bottom:6px">Settings</b><span style="background:#dbe3f0;color:#24427a;border-radius:5px;padding:0 8px;font-weight:700">Timer</span><span style="padding:0 8px">Work day</span><span style="padding:0 8px">Projects & phases</span><span style="padding:0 8px">Timesheet</span><span style="padding:0 8px">Integrations</span><span style="padding:0 8px">Notifications</span></div>
+          <div style="padding:14px 18px;display:flex;flex-direction:column;gap:12px">
+            <b style="font-size:16px">Timer</b>
+            <div style="display:grid;grid-template-columns:180px 1fr;row-gap:10px;align-items:center;font-size:12px">
+              <span>Focus length</span><span>( 25 ) ( 50 ) ( custom __ )</span>
+              <span>Short / long break</span><span>[ 5m ] / [ 15m ]</span>
+              <span>Sessions before long break</span><span>[ 4 ]</span>
+              <span>Auto-start next session</span><span>[ off ◯— ]</span>
+              <span>End-of-session sound</span><span>[ soft bell ▾ ]  ▶</span>
+              <span>Ask for focus rating</span><span>[ on —● ]</span>
+            </div>
+            <div style="border-top:1.5px dashed #bbb;padding-top:10px;font-size:12px;color:#777;display:flex;flex-direction:column;gap:4px">
+              <span>Work day → target hours, clock-in reminder, auto clock-out at</span>
+              <span>Timesheet → rounding (5/15m), week start, export format (CSV / Jira worklog)</span>
+              <span>Integrations → Google Calendar (meetings as sessions), Jira (pull tasks), Slack status</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Try next: "pick <a class="dv-oid" href="#2l">2l</a> or <a class="dv-oid" href="#2m">2m</a> for the timesheet and take it to hi-fi" · "3 alternative layouts for <a class="dv-oid" href="#2a">2a</a>" · "cut <a class="dv-oid" href="#2f">2f</a> and <a class="dv-oid" href="#2e">2e</a> from v1 scope"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">App map · screens and how you move between them</span></div>
+  <div class="dv-opts">
+    <div class="dv-opt" id="1a">
+      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Sitemap + daily flow</div>
+      <div class="dv-card" style="width:1180px">
+        <div style="padding:24px 28px;display:flex;flex-direction:column;gap:26px;font-size:14px">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <b style="width:110px">Daily loop</b>
+            <a href="#2f" style="border:1.5px solid #222;border-radius:8px;padding:4px 12px;text-decoration:none;color:#222">Morning · clock in + plan</a><span>→</span>
+            <a href="#2a" style="border:2px solid #24427a;background:#eef2f8;border-radius:8px;padding:4px 12px;text-decoration:none;color:#24427a;font-weight:700">Today (hub)</a><span>→</span>
+            <a href="#2b" style="border:1.5px solid #222;border-radius:8px;padding:4px 12px;text-decoration:none;color:#222">Focus mode</a><span>→</span>
+            <a href="#2e" style="border:1.5px solid #222;border-radius:8px;padding:4px 12px;text-decoration:none;color:#222">Break</a><span>↺ ×4 …</span>
+            <a href="#2g" style="border:1.5px solid #222;border-radius:8px;padding:4px 12px;text-decoration:none;color:#222">Clock out · review</a><span>→</span>
+            <a href="#2l" style="border:1.5px solid #222;border-radius:8px;padding:4px 12px;text-decoration:none;color:#222">Timesheet</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px">
+            <div style="border:1.5px solid #222;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:5px">
+              <b style="font-size:17px;color:#24427a">Today</b>
+              <span>· Focus timer block → <a class="dv-oid" href="#2b">2b</a></span>
+              <span>· My day stats</span>
+              <span>· Quick add task</span>
+              <span>· From earlier (overdue)</span>
+              <span>· Tasks by project</span>
+              <span style="padding-left:12px">↳ Task drawer <a class="dv-oid" href="#2c">2c</a></span>
+              <span style="padding-left:12px">↳ Subtasks add / tick</span>
+              <span>· Session log</span>
+              <span style="padding-left:12px">↳ Log time <a class="dv-oid" href="#2d">2d</a></span>
+              <span>· Clock in / out <a class="dv-oid" href="#2f">2f</a> <a class="dv-oid" href="#2g">2g</a></span>
+            </div>
+            <div style="border:1.5px solid #222;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:5px">
+              <b style="font-size:17px;color:#24427a">Projects</b>
+              <span>· Cards view <a class="dv-oid" href="#2h">2h</a></span>
+              <span>· Timeline view <a class="dv-oid" href="#2i">2i</a></span>
+              <span>· New project <a class="dv-oid" href="#2k">2k</a></span>
+              <span>· Project detail <a class="dv-oid" href="#2j">2j</a></span>
+              <span style="padding-left:12px">↳ Phase stepper</span>
+              <span style="padding-left:12px">↳ Tasks · Checklist · Time · Notes</span>
+            </div>
+            <div style="border:1.5px solid #222;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:5px">
+              <b style="font-size:17px;color:#24427a">Timesheet</b>
+              <span>· Week grid <a class="dv-oid" href="#2l">2l</a></span>
+              <span>· Day view <a class="dv-oid" href="#2m">2m</a></span>
+              <span style="padding-left:12px">↳ Edit / split / move session</span>
+              <span>· Gaps & untracked</span>
+              <span>· Submit week · Export</span>
+            </div>
+            <div style="border:1.5px solid #222;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:5px">
+              <b style="font-size:17px;color:#24427a">Settings</b> <a class="dv-oid" href="#2n">2n</a>
+              <span>· Timer</span><span>· Work day</span><span>· Projects & phases</span><span>· Timesheet rules</span><span>· Integrations</span><span>· Notifications</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:28px;font-size:13px;color:#555;flex-wrap:wrap">
+            <span><b>Global:</b> sidebar nav · Esc closes overlays · timer keeps running across screens (mini timer in sidebar when not on Today)</span>
+            <span><b>Data:</b> Task → Session → Timesheet row → Project hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="dv-next">Turn <a class="dv-tid" href="#t2" style="font-size:9px">2</a> above has every screen. Try next: "add a mini timer to the sidebar" · "which screens are v1 vs later?"</p>
+</section>
+</x-dc>
+</body>
+</html>

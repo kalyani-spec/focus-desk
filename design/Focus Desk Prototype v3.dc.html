@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/broadsheet-d63c6cc3-be31-45af-9598-144018467245/styles.css">
+<script src="_ds/broadsheet-d63c6cc3-be31-45af-9598-144018467245/_ds_bundle.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<style>
+body{margin:0;background:#0e0e10;font-family:"Poppins",system-ui,sans-serif}
+:root{--font-body:"Poppins",system-ui,sans-serif;--font-heading:"Poppins",system-ui,sans-serif}
+a{color:#8f8ff5}a:hover{color:#b4b4ff}
+@keyframes fdIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<div style="--color-bg:{{ th.bg }};--color-surface:{{ th.surface }};--color-text:{{ th.text }};--color-divider:{{ th.divider }};--color-neutral-100:{{ th.n1 }};--color-neutral-200:{{ th.n2 }};--color-neutral-300:{{ th.n3 }};--color-neutral-400:{{ th.n4 }};--color-neutral-500:{{ th.n5 }};--color-neutral-600:{{ th.n6 }};--color-neutral-700:{{ th.n7 }};--color-neutral-800:{{ th.n8 }};--color-neutral-900:{{ th.n9 }};--color-accent:{{ th.a }};--color-accent-100:{{ th.a1 }};--color-accent-200:{{ th.a2 }};--color-accent-300:{{ th.a3 }};--color-accent-400:{{ th.a4 }};--color-accent-500:{{ th.a5 }};--color-accent-600:{{ th.a6 }};--color-accent-700:{{ th.a7 }};--color-accent-800:{{ th.a8 }};--color-accent-900:{{ th.a9 }};--color-accent-2-100:{{ th.r1 }};--color-accent-2-700:{{ th.r7 }};--color-accent-2-800:{{ th.r8 }};--hol-bg:{{ th.holBg }};--hol-text:{{ th.holText }};--card:{{ th.card }};--shadow-sm:{{ th.sh1 }};--shadow-lg:{{ th.sh3 }};width:1440px;min-height:960px;display:grid;grid-template-columns:minmax(0,1fr) 320px;grid-template-rows:64px auto;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:14px;position:relative;--font-body:Poppins,system-ui,sans-serif;--font-heading:Poppins,system-ui,sans-serif;font-family:Poppins,system-ui,sans-serif;--radius-sm:6px;--radius-md:8px;--radius-lg:12px;font-optical-sizing:none;font-variant-numeric:tabular-nums;line-height:1.45">
+
+  <aside style="grid-column:1 / -1;height:64px;box-sizing:border-box;padding:0 36px;display:flex;align-items:center;gap:28px;position:sticky;top:0;z-index:20;background:var(--color-bg);border-bottom:1px solid var(--color-neutral-300)">
+    <div style="display:flex;align-items:center;gap:10px">
+      <i class="ph-duotone ph-coffee" style="font-size:18px;color:var(--color-accent-700)"></i>
+      <span style="font-weight:600;font-size:14px;white-space:nowrap">Focus Desk</span>
+    </div>
+    <nav style="display:flex;gap:2px">
+      <sc-for list="{{ nav }}" as="n" hint-placeholder-count="4">
+        <a href="#" onClick="{{ n.go }}" style="display:flex;align-items:center;gap:12px;padding:6px 12px;border-radius:8px;text-decoration:none;font-size:14px;white-space:nowrap;color:{{ n.color }};background:{{ n.bg }};font-weight:{{ n.weight }}" style-hover="background:var(--color-neutral-200)">
+          <i class="ph-duotone {{ n.icon }}" style="font-size:16px"></i><span>{{ n.label }}</span>
+        </a>
+      </sc-for>
+    </nav>
+    <sc-if value="{{ showMini }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ enterFocus }}" style="display:flex;gap:10px;align-items:center;padding:6px 12px;border:0;border-radius:8px;background:var(--color-accent-100);cursor:pointer;font-family:var(--font-body);color:var(--color-text);text-align:left" style-hover="background:var(--color-accent-200)">
+        <span style="display:flex;align-items:center;gap:8px;font-size:12px;white-space:nowrap;color:var(--color-accent-700)"><i class="ph-duotone ph-timer" style="font-size:14px"></i>{{ miniLabel }}</span>
+        <span style="font-size:14px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums;color:var(--color-accent-800)">{{ timeLabel }}</span>
+      </button>
+    </sc-if>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:14px">
+      <span style="font-size:13px;white-space:nowrap;color:var(--color-neutral-700)">{{ clockSub }}</span>
+      <button class="btn btn-secondary btn-icon" onClick="{{ toggleTheme }}" title="Toggle dark mode" style="border-radius:10px;width:34px;height:34px"><i class="ph-duotone {{ themeIcon }}" style="font-size:14px"></i></button>
+    </div>
+  </aside>
+
+  <sc-if value="{{ isToday }}" hint-placeholder-val="{{ true }}">
+    <main style="grid-column:1 / -1;padding:28px 36px 64px;display:flex;flex-direction:column;gap:24px;min-width:0;animation:fdIn .25s ease">
+      <header style="display:flex;align-items:center;justify-content:space-between;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span style="font-size:14px;color:var(--color-neutral-700)">Good afternoon, Kalyani · {{ focusedLabel }} focused across {{ sessionCount }} sessions</span>
+          <h1 style="margin:0;font-size:22px;white-space:nowrap">Thursday, 22 October</h1>
+        </div>
+        <button class="btn {{ clockBtnClass }}" onClick="{{ clockAction }}" style="white-space:nowrap;padding:10px 18px;gap:10px;border-radius:12px">
+          <span style="width:9px;height:9px;border-radius:50%;background:{{ clockDot }}"></span>{{ clockLabel }}
+        </button>
+      </header>
+
+      <sc-if value="{{ hasComing }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap;font-size:13px;color:var(--color-neutral-700)">
+          <span style="color:var(--color-neutral-600)">Coming up</span>
+          <sc-if value="{{ holidaySoon }}" hint-placeholder-val="{{ true }}">
+            <span style="display:flex;align-items:center;gap:6px;color:var(--hol-text)"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ holidaySoonShort }}</span>
+          </sc-if>
+          <sc-for list="{{ comingUp }}" as="c" hint-placeholder-count="1">
+            <button onClick="{{ c.go }}" style="display:flex;align-items:center;gap:6px;border:0;background:none;padding:0;font-family:var(--font-body);font-size:13px;color:var(--color-neutral-800);cursor:pointer" style-hover="color:var(--color-text)">{{ c.label }}<span style="color:var(--color-neutral-600)">{{ c.when }}</span></button>
+          </sc-for>
+          <sc-if value="{{ comingHasMore }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ toggleComing }}" style="border:0;background:none;padding:0;font-family:var(--font-body);font-size:13px;color:var(--color-accent-700);cursor:pointer">{{ comingMoreLabel }}</button>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <div style="display:grid;grid-template-columns:minmax(0,0.95fr) minmax(0,1.2fr) minmax(0,0.9fr);gap:16px;align-items:start">
+        <section style="position:relative;overflow:hidden;padding:26px;border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:22px;min-height:600px;box-sizing:border-box">
+          <div style="position:absolute;left:50%;top:40%;width:420px;height:420px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(91,91,214,.22),rgba(91,91,214,0));pointer-events:none"></div>
+          <div style="position:relative;align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <span style="font-size:13px;color:var(--color-neutral-700)">{{ phaseLabel }}</span>
+            <div style="display:flex;gap:6px"><sc-for list="{{ dots }}" as="d" hint-placeholder-count="4"><span style="width:7px;height:7px;border-radius:50%;background:{{ d.bg }};box-shadow:{{ d.ring }}"></span></sc-for></div>
+          </div>
+          <div style="position:relative;width:224px;height:224px;margin-top:18px">
+            <svg width="224" height="224" style="transform:rotate(-90deg);overflow:visible"><circle cx="112" cy="112" r="104" style="fill:none;stroke:var(--color-neutral-300);stroke-width:6"></circle><circle cx="112" cy="112" r="104" style="fill:none;stroke:var(--color-accent);stroke-width:6;stroke-linecap:round;stroke-dasharray:653.5;stroke-dashoffset:{{ ringOff }};filter:drop-shadow(0 0 8px rgba(91,91,214,.85));transition:stroke-dashoffset 1s linear"></circle></svg>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:52px;font-weight:500;letter-spacing:-0.03em;font-variant-numeric:tabular-nums">{{ timeLabel }}</span></div>
+          </div>
+          <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;margin-top:8px">
+            <span style="font-size:14px;font-weight:500;line-height:1.35;text-wrap:pretty">{{ current.title }}</span>
+            <span style="font-size:13px;color:var(--color-neutral-700)">{{ current.project }}</span>
+          </div>
+          <div style="position:relative;margin-top:auto;align-self:stretch;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-primary" onClick="{{ toggleRun }}" style="color:#fff;flex:1;white-space:nowrap;padding:9px 16px;border-radius:10px;font-size:14px"><i class="ph-fill {{ runIcon }}" style="font-size:14px"></i>{{ runLabel }}</button>
+              <button class="btn btn-secondary" onClick="{{ enterFocus }}" style="white-space:nowrap;padding:9px 14px;border-radius:10px;font-size:14px"><i class="ph-duotone ph-arrows-out-simple" style="font-size:14px"></i>Focus mode</button>
+              <button class="btn btn-secondary btn-icon" onClick="{{ endSession }}" title="End session" style="border-radius:10px;width:40px;height:40px"><i class="ph-duotone ph-stop" style="font-size:15px"></i></button>
+            </div>
+            <a href="#" onClick="{{ openLog }}" style="align-self:center;font-size:13px;color:var(--color-accent-700)">Forgot to start? Log time</a>
+          </div>
+        </section>
+        <div style="display:flex;flex-direction:column;gap:20px;min-width:0">
+
+      <section style="display:flex;flex-direction:column;gap:16px;font-family:Poppins,system-ui,sans-serif">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px">
+          <h3 style="margin:0;font-family:Poppins,system-ui,sans-serif;font-weight:600;font-size:15px;letter-spacing:0">Today’s list</h3>
+          <span style="font-size:14px;color:var(--color-neutral-700)">{{ doneSummary }}</span>
+        </div>
+        <form onSubmit="{{ addTask }}" style="display:flex;gap:10px">
+          <div style="position:relative;flex:1">
+            <i class="ph-duotone ph-plus" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--color-neutral-600)"></i>
+            <input class="input" value="{{ draft }}" onChange="{{ setDraft }}" placeholder="Add a task for today…" style="min-height:46px;padding-left:42px;font-family:Poppins,system-ui,sans-serif;font-size:14px;border-radius:14px;background:var(--card);border-color:transparent;box-shadow:var(--shadow-sm);color:var(--color-text)">
+          </div>
+          <select class="input" value="{{ draftProject }}" onChange="{{ setDraftProject }}" style="width:200px;min-height:46px;font-family:var(--font-body);font-size:14px;border-radius:14px;background:var(--card);border-color:transparent;box-shadow:var(--shadow-sm);color:var(--color-text)">
+            <sc-for list="{{ projectNames }}" as="p" hint-placeholder-count="4"><option value="{{ p }}">{{ p }}</option></sc-for>
+          </select>
+        </form>
+        <sc-if value="{{ hasOverdue }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;align-items:center;gap:14px;padding:12px 18px;border-radius:16px;background:var(--color-accent-2-100)">
+            <span style="font-size:15px;color:var(--color-accent-2-800);white-space:nowrap">From earlier</span>
+            <div style="display:flex;gap:10px;flex:1;min-width:0;flex-wrap:wrap">
+              <sc-for list="{{ overdue }}" as="t" hint-placeholder-count="2">
+                <button onClick="{{ t.select }}" style="display:flex;align-items:center;gap:8px;padding:4px 12px;border-radius:999px;border:0;background:var(--color-bg);font-family:Poppins,system-ui,sans-serif;font-size:14px;cursor:pointer;color:var(--color-text)" style-hover="background:var(--card)">{{ t.title }}<span style="font-size:13px;color:var(--color-accent-2-700)">{{ t.due }}</span></button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:16px">
+          <sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
+            <div style="padding:16px 16px 12px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:4px">
+              <div style="display:flex;align-items:center;gap:10px;padding:0 6px 4px;font-family:var(--font-body)">
+                <span style="width:9px;height:9px;border-radius:3px;background:{{ g.swatch }}"></span>
+                <span style="font-size:14px;font-weight:600;flex:1;min-width:0">{{ g.name }}</span>
+                <span style="font-size:13px;color:var(--color-neutral-600)">{{ g.meta }}</span>
+              </div>
+              <sc-for list="{{ g.tasks }}" as="t" hint-placeholder-count="2">
+                <div onClick="{{ t.select }}" style="display:grid;grid-template-columns:20px minmax(0,1fr) auto;align-items:center;gap:12px;padding:6px;border-radius:10px;cursor:pointer;background:{{ t.rowBg }}" style-hover="background:var(--color-neutral-200)">
+                  <button onClick="{{ t.toggle }}" aria-label="Complete" style="width:19px;height:19px;padding:0;border-radius:50%;border:1.5px solid {{ t.boxBorder }};background:{{ t.boxBg }};display:grid;place-items:center;cursor:pointer;color:#fff">
+                    <i class="ph-duotone ph-check" style="font-size:11px;opacity:{{ t.checkOpacity }}"></i>
+                  </button>
+                  <div style="display:flex;align-items:center;gap:8px;min-width:0">
+                    <span style="width:6px;height:6px;flex:none;border-radius:50%;background:{{ t.priorityBg }};box-shadow:{{ t.priorityRing }}" title="{{ t.prLabel }}"></span>
+                    <span style="font-size:14px;line-height:1.4;text-decoration:{{ t.decoration }};color:{{ t.titleColor }};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ t.title }}</span>
+                    <sc-if value="{{ t.hasSubs }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:3px;font-size:13px;color:var(--color-neutral-600);white-space:nowrap"><i class="ph-duotone ph-list-checks" style="font-size:14px"></i>{{ t.subLabel }}</span></sc-if>
+                    <sc-if value="{{ t.isCurrent }}" hint-placeholder-val="{{ false }}"><i class="ph-duotone ph-timer" style="font-size:14px;color:var(--color-accent)"></i></sc-if>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <sc-if value="{{ t.major }}" hint-placeholder-val="{{ false }}"><span class="tag tag-outline" style="font-size:12px;padding:0 8px;border-radius:999px">major</span></sc-if>
+                    <span style="font-size:14px;color:var(--color-neutral-700);white-space:nowrap">{{ t.est }}</span>
+                  </div>
+                </div>
+              </sc-for>
+              <sc-if value="{{ g.hasDone }}" hint-placeholder-val="{{ false }}">
+                <button onClick="{{ g.toggleDone }}" style="align-self:flex-start;margin:2px 6px 0;padding:2px 0;background:none;border:0;font-family:Poppins,system-ui,sans-serif;font-size:14px;color:var(--color-neutral-600);cursor:pointer" style-hover="color:var(--color-accent-700)">{{ g.doneLabel }}</button>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+        <aside style="padding:22px;border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:18px;min-width:0">
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <h4 style="margin:0;font-size:14px;font-weight:600">Session log</h4>
+        <span style="font-size:13px;color:var(--color-neutral-700)">{{ logSummary }}</span>
+      </div>
+      <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+        <sc-if value="{{ inFocusRun }}" hint-placeholder-val="{{ true }}">
+          <li style="display:grid;grid-template-columns:14px minmax(0,1fr);gap:14px;padding-bottom:20px;position:relative">
+            <span style="position:absolute;left:6px;top:14px;bottom:0;width:1px;background:var(--color-neutral-300)"></span>
+            <span style="width:13px;height:13px;margin-top:4px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 0 4px var(--color-accent-200)"></span>
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-size:13px;color:var(--color-accent-700)">{{ liveRange }}</span>
+              <span style="font-size:14px;font-weight:600;line-height:1.3">{{ current.title }}</span>
+            </div>
+          </li>
+        </sc-if>
+        <sc-for list="{{ log }}" as="s" hint-placeholder-count="7">
+          <li style="display:grid;grid-template-columns:14px minmax(0,1fr);gap:14px;padding-bottom:20px;position:relative">
+            <span style="position:absolute;left:6px;top:14px;bottom:0;width:1px;background:var(--color-neutral-300);display:{{ s.lineDisplay }}"></span>
+            <span style="width:13px;height:13px;margin-top:4px;border-radius:50%;background:var(--card);border:1.5px solid {{ s.dotBorder }}"></span>
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--color-neutral-700);font-variant-numeric:tabular-nums"><span>{{ s.range }}</span><span>{{ s.dur }}</span></div>
+              <span style="font-size:14px;line-height:1.3">{{ s.task }}</span>
+              <span style="font-size:13px;color:var(--color-neutral-600)">{{ s.meta }}</span>
+            </div>
+          </li>
+        </sc-for>
+      </ol>
+    </aside>
+      </div>
+    </main>
+  </sc-if>
+
+  <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+    <main style="grid-column:1 / -1;padding:28px 40px 64px;display:flex;flex-direction:column;gap:28px;min-width:0;animation:fdIn .25s ease">
+      <header style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span style="font-size:14px;color:var(--color-neutral-700)">{{ projSummary }}</span>
+          <h1 style="margin:0;font-size:22px">Projects</h1>
+        </div>
+        <div style="display:flex;padding:4px;gap:4px;border-radius:12px;background:var(--color-neutral-200);margin-left:auto">
+          <sc-for list="{{ views }}" as="v" hint-placeholder-count="2">
+            <button onClick="{{ v.go }}" style="display:flex;align-items:center;gap:8px;padding:8px 16px;border:0;border-radius:9px;font-family:var(--font-body);font-size:14px;cursor:pointer;background:{{ v.bg }};color:{{ v.color }};box-shadow:{{ v.shadow }}">
+              <i class="ph-duotone {{ v.icon }}" style="font-size:15px"></i>{{ v.label }}
+            </button>
+          </sc-for>
+        </div>
+        <button class="btn btn-primary" onClick="{{ openNewProject }}" style="color:#fff;white-space:nowrap;padding:9px 16px;border-radius:10px;font-size:14px"><i class="ph ph-plus" style="font-size:15px"></i>New project</button>
+      </header>
+
+      <sc-if value="{{ isGrid }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px">
+          <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+            <article onClick="{{ p.open }}" style="padding:26px 28px;border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:20px;cursor:pointer;transition:transform .15s ease" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-lg)">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
+                <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <span style="width:10px;height:10px;border-radius:3px;background:{{ p.swatch }}"></span>
+                    <h4 style="margin:0;font-size:18px">{{ p.name }}</h4>
+                  </div>
+                  <span style="font-size:13px;color:var(--color-neutral-700)">{{ p.range }}</span>
+                </div>
+                <span class="tag {{ p.statusClass }}" style="border-radius:999px;padding:3px 12px;font-size:12px;white-space:nowrap">{{ p.status }}</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;justify-content:space-between;font-size:13px">
+                  <span style="color:var(--color-neutral-700)">Tasks</span>
+                  <span style="font-variant-numeric:tabular-nums">{{ p.tasksDone }} of {{ p.tasksTotal }} · {{ p.taskPctLabel }}</span>
+                </div>
+                <div style="height:6px;border-radius:6px;background:var(--color-neutral-300);overflow:hidden"><div style="height:100%;width:{{ p.taskPct }};background:var(--color-accent);border-radius:6px"></div></div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <span style="font-size:13px;color:var(--color-neutral-700)">Checklist</span>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <span style="font-size:14px;font-weight:600;font-variant-numeric:tabular-nums">{{ p.checkLabel }}</span>
+                    <div style="display:flex;gap:2px"><sc-for list="{{ p.checkTicks }}" as="c" hint-placeholder-count="12"><span style="width:3px;height:12px;border-radius:2px;background:{{ c.bg }}"></span></sc-for></div>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;color:var(--color-neutral-700)">Documents</span><span style="font-size:14px;font-weight:600">{{ p.docLabel }}</span></div>
+                <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;color:var(--color-neutral-700)">Hours logged</span><span style="font-size:14px;font-weight:600;white-space:nowrap">{{ p.hours }}</span></div>
+                <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;color:var(--color-neutral-700)">Next date</span><span style="font-size:14px">{{ p.nextDate }}</span></div>
+              </div>
+              <span style="font-size:13px;color:var(--color-neutral-700)">{{ p.phase }}</span>
+            </article>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isTimeline }}" hint-placeholder-val="{{ false }}">
+        <section style="padding:24px 28px 28px;border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column">
+          <div style="display:grid;grid-template-columns:200px minmax(0,1fr);padding-bottom:10px">
+            <span style="font-size:13px;color:var(--color-neutral-700)">Project</span>
+            <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr))">
+              <sc-for list="{{ months }}" as="m" hint-placeholder-count="7"><span style="font-size:13px;color:var(--color-neutral-700);padding-left:8px">{{ m }}</span></sc-for>
+            </div>
+          </div>
+          <div style="position:relative;display:flex;flex-direction:column">
+            <div style="position:absolute;top:0;bottom:0;left:200px;right:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));pointer-events:none">
+              <sc-for list="{{ months }}" as="m" hint-placeholder-count="7"><span style="border-left:1px solid var(--color-neutral-200)"></span></sc-for>
+            </div>
+            <div style="position:absolute;top:0;bottom:0;left:200px;right:0;pointer-events:none">
+              <sc-for list="{{ holBands }}" as="hb" hint-placeholder-count="4"><span title="{{ hb.label }}" style="position:absolute;top:0;bottom:0;left:{{ hb.left }};width:{{ hb.width }};background:var(--hol-bg);opacity:0.8"></span></sc-for>
+            </div>
+            <div style="position:absolute;top:-6px;bottom:0;left:calc(200px + (100% - 200px) * {{ todayFrac }});width:0;border-left:1.5px dashed var(--color-accent-500);pointer-events:none;z-index:2">
+              <span style="position:absolute;bottom:-22px;left:-18px;font-size:12px;color:var(--color-accent-700)">Today</span>
+            </div>
+            <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:200px minmax(0,1fr);align-items:center;height:104px">
+                <button onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:2px;padding:0 16px 0 0;border:0;background:none;text-align:left;cursor:pointer;font-family:var(--font-body);color:var(--color-text)">
+                  <span style="font-size:14px;font-weight:600">{{ p.name }}</span>
+                  <span style="font-size:13px;color:var(--color-neutral-700)">{{ p.phaseShort }}</span>
+                </button>
+                <div style="position:relative;height:100%">
+                  <div style="position:absolute;top:44px;left:{{ p.left }};width:{{ p.width }};height:16px;border-radius:8px;overflow:hidden;display:flex;background:var(--color-neutral-300)">
+                    <sc-for list="{{ p.segments }}" as="sg" hint-placeholder-count="5"><span title="{{ sg.label }}" style="width:{{ sg.width }};height:100%;background:{{ sg.bg }}"></span></sc-for>
+                  </div>
+                  <sc-for list="{{ p.milestones }}" as="ms" hint-placeholder-count="5">
+                    <div style="position:absolute;top:0;left:{{ ms.left }};height:100%;width:0;z-index:1">
+                      <span style="position:absolute;top:12px;left:0;transform:translateX(-50%);font-size:12px;white-space:nowrap;color:{{ ms.color }}">{{ ms.label }}</span>
+                      <span style="position:absolute;top:46px;left:-6px;width:12px;height:12px;transform:rotate(45deg);border-radius:2px;background:{{ ms.fill }};border:2px solid var(--card);box-shadow:0 0 0 1.5px var(--color-accent-700)"></span>
+                      <span style="position:absolute;top:70px;left:0;transform:translateX(-50%);font-size:11px;white-space:nowrap;color:{{ ms.dateColor }}">{{ ms.date }}</span>
+                    </div>
+                  </sc-for>
+                  <sc-if value="{{ p.ongoing }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:18px;left:8px;font-size:12px;color:var(--color-neutral-700)">Ongoing · runs all year</span></sc-if>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:20px;padding-top:32px;font-size:13px;color:var(--color-neutral-700)">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;transform:rotate(45deg);border-radius:2px;background:var(--color-accent-700)"></span>Milestone reached</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;transform:rotate(45deg);border-radius:2px;background:var(--card);box-shadow:0 0 0 1.5px var(--color-accent-700)"></span>Upcoming</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:10px;background:var(--hol-bg)"></span>Holiday / leave</span>
+            <span style="display:flex;align-items:center;gap:8px;color:var(--color-accent-2-700)"><i class="ph-duotone ph-warning" style="font-size:14px"></i>Milestone on a day off</span>
+          </div>
+        </section>
+      </sc-if>
+    </main>
+  </sc-if>
+
+  <sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+    <main style="grid-column:1 / -1;padding:28px 40px 64px;display:flex;flex-direction:column;gap:24px;min-width:0;animation:fdIn .25s ease">
+      <a href="#" onClick="{{ backToProjects }}" style="display:flex;align-items:center;gap:6px;font-size:14px;text-decoration:none;color:var(--color-neutral-700)"><i class="ph-duotone ph-arrow-left" style="font-size:14px"></i>Projects</a>
+      <header style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="width:12px;height:12px;border-radius:3px;background:{{ pj.swatch }}"></span>
+            <h1 style="margin:0;font-size:22px">{{ pj.name }}</h1>
+            <span class="tag {{ pj.statusClass }}" style="border-radius:999px;padding:3px 12px;font-size:12px">{{ pj.status }}</span>
+          </div>
+          <span style="font-size:14px;color:var(--color-neutral-700)">{{ pj.range }} · {{ pj.hours }} logged</span>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-secondary" onClick="{{ openDate }}" style="white-space:nowrap;border-radius:12px"><i class="ph-duotone ph-calendar-plus" style="font-size:14px"></i>Add date</button>
+          <button class="btn btn-primary" onClick="{{ pj.focus }}" style="color:#fff;white-space:nowrap;border-radius:12px"><i class="ph-duotone ph-timer" style="font-size:14px"></i>Focus on next task</button>
+        </div>
+      </header>
+
+      <sc-if value="{{ pj.hasPhases }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ pj.stepper }}" as="st" hint-placeholder-count="5">
+            <div style="display:flex;align-items:center;gap:6px">
+              <span style="display:flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;font-size:14px;white-space:nowrap;background:{{ st.bg }};color:{{ st.color }};box-shadow:{{ st.ring }}"><i class="ph-duotone {{ st.icon }}" style="font-size:14px"></i>{{ st.label }}<span style="font-size:12px;opacity:0.8">{{ st.date }}</span></span>
+              <span style="width:20px;height:1.5px;background:var(--color-neutral-400);display:{{ st.lineDisplay }}"></span>
+            </div>
+          </sc-for>
+          <button onClick="{{ openPhases }}" style="display:flex;align-items:center;gap:6px;margin-left:6px;padding:6px 12px;border-radius:999px;border:1px dashed var(--color-neutral-400);background:none;font-family:var(--font-body);font-size:13px;color:var(--color-neutral-700);cursor:pointer;white-space:nowrap" style-hover="border-color:var(--color-accent);color:var(--color-accent-700)"><i class="ph ph-pencil-simple" style="font-size:13px"></i>Edit phases</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ pjOngoing }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ openPhases }}" style="align-self:flex-start;display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px dashed var(--color-neutral-400);background:none;font-family:var(--font-body);font-size:13px;color:var(--color-neutral-700);cursor:pointer;white-space:nowrap" style-hover="border-color:var(--color-accent);color:var(--color-accent-700)"><i class="ph ph-plus" style="font-size:13px"></i>Add phases</button>
+      </sc-if>
+
+      <div style="display:flex;gap:28px;padding:0 2px">
+        <sc-for list="{{ ptabs }}" as="tb" hint-placeholder-count="5">
+          <button onClick="{{ tb.go }}" style="padding:6px 0 10px;border:0;border-bottom:2.5px solid {{ tb.line }};background:none;font-family:var(--font-body);font-size:14px;cursor:pointer;color:{{ tb.color }};font-weight:{{ tb.weight }}">{{ tb.label }}</button>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ tabOverview }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+            <section style="padding:22px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline"><h4 style="margin:0;font-size:14px">{{ pj.curPhaseTitle }}</h4><a href="#" onClick="{{ tabTo.checklist }}" style="font-size:13px;color:var(--color-accent-700)">All {{ pj.checkLabel }} →</a></div>
+              <sc-for list="{{ pj.curItems }}" as="ci" hint-placeholder-count="4">
+                <label style="display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer;color:{{ ci.color }};text-decoration:{{ ci.decoration }}"><input type="checkbox" checked="{{ ci.d }}" onChange="{{ ci.toggle }}" style="accent-color:var(--color-accent);width:16px;height:16px">{{ ci.t }}</label>
+              </sc-for>
+            </section>
+            <section style="padding:22px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline"><h4 style="margin:0;font-size:14px">Documents</h4><a href="#" onClick="{{ tabTo.docs }}" style="font-size:13px;color:var(--color-accent-700)">{{ pj.docLabel }} approved →</a></div>
+              <sc-for list="{{ pj.docs }}" as="dc" hint-placeholder-count="5">
+                <div style="display:flex;align-items:center;gap:10px;font-size:14px"><i class="ph-duotone {{ dc.icon }}" style="font-size:15px;color:{{ dc.iconColor }}"></i><span style="flex:1;min-width:0">{{ dc.t }}</span><span style="font-size:12px;color:{{ dc.iconColor }}">{{ dc.status }}</span></div>
+              </sc-for>
+            </section>
+            <section style="padding:22px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline"><h4 style="margin:0;font-size:14px">Important dates</h4><a href="#" onClick="{{ tabTo.dates }}" style="font-size:13px;color:var(--color-accent-700)">All →</a></div>
+              <sc-for list="{{ pj.nextDates }}" as="dt" hint-placeholder-count="4">
+                <div style="display:grid;grid-template-columns:58px 1fr auto;gap:10px;align-items:center;font-size:14px"><span style="font-weight:600;white-space:nowrap">{{ dt.short }}</span><span style="min-width:0">{{ dt.t }}</span><span style="font-size:12px;color:{{ dt.whenColor }};white-space:nowrap">{{ dt.when }}</span></div>
+              </sc-for>
+            </section>
+          </div>
+          <section style="padding:22px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:6px;font-family:Poppins,system-ui,sans-serif">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;font-family:var(--font-body)"><h4 style="margin:0;font-size:14px">Open tasks</h4><a href="#" onClick="{{ tabTo.tasks }}" style="font-size:13px;color:var(--color-accent-700)">All tasks →</a></div>
+            <sc-for list="{{ pj.openTasks }}" as="t" hint-placeholder-count="3">
+              <div onClick="{{ t.select }}" style="display:flex;align-items:center;gap:12px;padding:6px;border-radius:10px;cursor:pointer" style-hover="background:var(--color-neutral-200)">
+                <span style="width:7px;height:7px;border-radius:50%;background:{{ t.priorityBg }};box-shadow:{{ t.priorityRing }}"></span>
+                <span style="font-size:14px;flex:1">{{ t.title }}</span>
+                <span style="font-size:14px;color:var(--color-neutral-700)">{{ t.est }}</span>
+              </div>
+            </sc-for>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ tabTasks }}" hint-placeholder-val="{{ false }}">
+        <section style="padding:20px 22px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:4px;font-family:Poppins,system-ui,sans-serif">
+          <sc-for list="{{ pj.allTasks }}" as="t" hint-placeholder-count="4">
+            <div onClick="{{ t.select }}" style="display:grid;grid-template-columns:20px minmax(0,1fr) 90px 60px;align-items:center;gap:14px;padding:8px;border-radius:10px;cursor:pointer" style-hover="background:var(--color-neutral-200)">
+              <button onClick="{{ t.toggle }}" aria-label="Complete" style="width:19px;height:19px;padding:0;border-radius:50%;border:1.5px solid {{ t.boxBorder }};background:{{ t.boxBg }};display:grid;place-items:center;cursor:pointer;color:#fff"><i class="ph-duotone ph-check" style="font-size:11px;opacity:{{ t.checkOpacity }}"></i></button>
+              <span style="font-size:14px;text-decoration:{{ t.decoration }};color:{{ t.titleColor }}">{{ t.title }}</span>
+              <span style="font-family:var(--font-body);font-size:13px;color:var(--color-neutral-700)">{{ t.due }}</span>
+              <span style="font-size:14px;color:var(--color-neutral-700);text-align:right">{{ t.est }}</span>
+            </div>
+          </sc-for>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{ tabChecklist }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="font-size:14px;color:var(--color-neutral-700)">Type in the last row of a phase and press Enter to add an item. Tick to complete; ✕ to remove.</span>
+          <sc-for list="{{ pj.ckGroups }}" as="cg" hint-placeholder-count="5">
+            <section style="padding:16px 20px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:4px">
+              <button onClick="{{ cg.toggle }}" style="display:flex;align-items:center;gap:10px;padding:4px 0;border:0;background:none;font-family:var(--font-body);cursor:pointer;color:var(--color-text);text-align:left">
+                <i class="ph-duotone {{ cg.caret }}" style="font-size:14px;color:var(--color-neutral-600)"></i>
+                <span style="font-size:15px;font-weight:600;color:{{ cg.color }}">{{ cg.name }}</span>
+                <span style="font-size:13px;color:var(--color-neutral-600)">{{ cg.meta }}</span>
+                <sc-if value="{{ cg.isCurrent }}" hint-placeholder-val="{{ false }}"><span class="tag tag-accent" style="border-radius:999px;font-size:11px;padding:1px 8px">current</span></sc-if>
+              </button>
+              <sc-if value="{{ cg.open }}" hint-placeholder-val="{{ true }}">
+                <sc-for list="{{ cg.items }}" as="ci" hint-placeholder-count="3">
+                  <div style="display:flex;align-items:center;gap:12px;padding:6px 4px 6px 24px;border-radius:8px" style-hover="background:var(--color-neutral-200)">
+                    <input type="checkbox" checked="{{ ci.d }}" onChange="{{ ci.toggle }}" style="accent-color:var(--color-accent);width:16px;height:16px">
+                    <span style="flex:1;font-size:14px;color:{{ ci.color }};text-decoration:{{ ci.decoration }}">{{ ci.t }}</span>
+                    <span style="font-size:13px;color:var(--color-neutral-600)">{{ ci.meta }}</span>
+                    <button onClick="{{ ci.remove }}" title="Remove" style="border:0;background:none;padding:4px;cursor:pointer;color:var(--color-neutral-500);display:grid" style-hover="color:var(--color-accent-2-700)"><i class="ph-duotone ph-x" style="font-size:13px"></i></button>
+                  </div>
+                </sc-for>
+                <form onSubmit="{{ cg.add }}" style="display:flex;align-items:center;gap:12px;padding:4px 4px 4px 24px">
+                  <i class="ph-duotone ph-plus" style="font-size:15px;color:var(--color-accent)"></i>
+                  <input value="{{ cg.draft }}" onChange="{{ cg.setDraft }}" placeholder="{{ cg.placeholder }}" style="flex:1;border:0;border-bottom:1.5px solid var(--color-neutral-300);background:transparent;padding:6px 0;font-family:var(--font-body);font-size:14px;color:var(--color-text);outline:none">
+                </form>
+              </sc-if>
+            </section>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ tabDocs }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+            <span style="font-size:14px;color:var(--color-neutral-700)">{{ pj.docSummary }} · click a status to move it forward</span>
+            <button class="btn btn-primary" onClick="{{ openDocNew }}" style="color:#fff;white-space:nowrap;padding:8px 14px;border-radius:10px;font-size:14px"><i class="ph ph-plus" style="font-size:14px"></i>Add document</button>
+          </div>
+          <section style="padding:8px 20px 16px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column">
+            <div style="display:grid;grid-template-columns:minmax(0,1.6fr) 110px 120px 110px 90px minmax(0,1fr) 28px;gap:12px;padding:10px 0;font-size:12px;color:var(--color-neutral-600)">
+              <span>Document</span><span>Phase</span><span>Status</span><span>Owner</span><span>Due</span><span>File / link</span><span></span>
+            </div>
+            <sc-for list="{{ pj.docs }}" as="dc" hint-placeholder-count="5">
+              <div style="display:grid;grid-template-columns:minmax(0,1.6fr) 110px 120px 110px 90px minmax(0,1fr) 28px;gap:12px;align-items:center;padding:10px 0;font-size:14px;border-top:1px solid var(--color-neutral-200)">
+                <span style="display:flex;align-items:center;gap:10px"><i class="ph-duotone {{ dc.icon }}" style="font-size:14px;color:{{ dc.iconColor }}"></i>{{ dc.t }}</span>
+                <span style="color:var(--color-neutral-700)">{{ dc.phaseName }}</span>
+                <button onClick="{{ dc.cycle }}" title="Advance status" style="justify-self:start;padding:3px 12px;border-radius:999px;border:{{ dc.pillBorder }};background:{{ dc.pillBg }};color:{{ dc.pillColor }};font-family:var(--font-body);font-size:12px;cursor:pointer;white-space:nowrap">{{ dc.status }}</button>
+                <span>{{ dc.owner }}</span>
+                <span style="color:{{ dc.dueColor }}">{{ dc.dueLabel }}</span>
+                <div style="display:flex;align-items:center;gap:6px;min-width:0">
+                  <sc-if value="{{ dc.hasLink }}" hint-placeholder-val="{{ true }}">
+                    <button type="button" onClick="{{ dc.edit }}" title="Edit document" style="display:flex;align-items:center;gap:6px;min-width:0;border:0;background:none;padding:0;cursor:pointer;font-family:var(--font-body);font-size:14px;color:var(--color-accent-700)"><i class="ph-duotone {{ dc.linkIcon }}" style="font-size:14px"></i><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ dc.linkLabel }}</span></button>
+                    <sc-if value="{{ dc.hasUrl }}" hint-placeholder-val="{{ false }}"><a href="{{ dc.url }}" target="_blank" rel="noopener" title="Open link" style="display:grid;color:var(--color-neutral-600)"><i class="ph ph-arrow-square-out" style="font-size:14px"></i></a></sc-if>
+                  </sc-if>
+                  <sc-if value="{{ dc.noLink }}" hint-placeholder-val="{{ false }}">
+                    <button type="button" onClick="{{ dc.edit }}" style="display:flex;align-items:center;gap:6px;padding:3px 10px;border-radius:8px;border:1px dashed var(--color-neutral-400);background:none;cursor:pointer;font-family:var(--font-body);font-size:13px;color:var(--color-neutral-700);white-space:nowrap" style-hover="border-color:var(--color-accent);color:var(--color-accent-700)"><i class="ph ph-link" style="font-size:13px"></i>Link or attach</button>
+                  </sc-if>
+                </div>
+                <button onClick="{{ dc.remove }}" title="Remove" style="border:0;background:none;padding:4px;cursor:pointer;color:var(--color-neutral-500);display:grid" style-hover="color:var(--color-accent-2-700)"><i class="ph-duotone ph-x" style="font-size:13px"></i></button>
+              </div>
+            </sc-for>
+            
+          </section>
+          <sc-if value="{{ pj.hasGate }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 18px;border-radius:14px;background:var(--color-accent-2-100);color:var(--color-accent-2-800);font-size:14px"><i class="ph-duotone ph-lock-simple" style="font-size:16px"></i>{{ pj.gateText }}</div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ tabDates }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:start">
+          <section style="padding:20px 22px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:4px"><h4 style="margin:0;font-size:14px">Upcoming</h4><button class="btn btn-primary" onClick="{{ openDate }}" style="color:#fff;white-space:nowrap;border-radius:10px;padding:7px 14px"><i class="ph-duotone ph-plus" style="font-size:14px"></i>Add date</button></div>
+            <sc-for list="{{ pj.upcoming }}" as="dt" hint-placeholder-count="5">
+              <div style="display:grid;grid-template-columns:64px minmax(0,1fr) auto 28px;gap:14px;align-items:center;padding:10px 12px;border-radius:12px;background:{{ dt.rowBg }}">
+                <div style="display:flex;flex-direction:column;line-height:1.1"><span style="font-size:12px;color:var(--color-neutral-600)">{{ dt.dow }}</span><span style="font-size:14px;font-weight:600;white-space:nowrap">{{ dt.short }}</span></div>
+                <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                  <span style="font-size:14px">{{ dt.t }}</span>
+                  <span style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--color-neutral-700)"><i class="ph-duotone {{ dt.icon }}" style="font-size:14px"></i>{{ dt.typeLabel }}</span>
+                  <sc-if value="{{ dt.conflict }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--color-accent-2-700)"><i class="ph-duotone ph-warning" style="font-size:14px"></i>{{ dt.conflictText }}</span></sc-if>
+                </div>
+                <span style="font-size:13px;white-space:nowrap;color:{{ dt.whenColor }}">{{ dt.when }}</span>
+                <sc-if value="{{ dt.removable }}" hint-placeholder-val="{{ false }}"><button onClick="{{ dt.remove }}" title="Remove" style="border:0;background:none;padding:4px;cursor:pointer;color:var(--color-neutral-500);display:grid" style-hover="color:var(--color-accent-2-700)"><i class="ph-duotone ph-x" style="font-size:13px"></i></button></sc-if>
+              </div>
+            </sc-for>
+            <sc-if value="{{ pj.hasPast }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:var(--color-neutral-600);padding:4px 12px">{{ pj.pastLabel }}</span></sc-if>
+          </section>
+          <section style="padding:20px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <button class="btn btn-ghost btn-icon" onClick="{{ calPrev }}" style="width:30px;height:30px;border-radius:8px"><i class="ph-duotone ph-caret-left" style="font-size:14px"></i></button>
+              <span style="font-weight:600">{{ cal.title }}</span>
+              <button class="btn btn-ghost btn-icon" onClick="{{ calNext }}" style="width:30px;height:30px;border-radius:8px"><i class="ph-duotone ph-caret-right" style="font-size:14px"></i></button>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:12px;color:var(--color-neutral-600)"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:13px">
+              <sc-for list="{{ cal.cells }}" as="cc" hint-placeholder-count="35">
+                <span title="{{ cc.tip }}" style="height:30px;display:grid;place-items:center;border-radius:8px;background:{{ cc.bg }};color:{{ cc.color }};box-shadow:{{ cc.ring }};font-weight:{{ cc.weight }}">{{ cc.n }}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--color-neutral-700)">
+              <span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:3px;background:var(--color-accent)"></span>Deadline / meeting</span>
+              <span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:3px;box-shadow:inset 0 0 0 1.5px var(--color-accent)"></span>Milestone</span>
+              <span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:3px;background:var(--hol-bg)"></span>Day off</span>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+    </main>
+  </sc-if>
+
+  <sc-if value="{{ isTimesheet }}" hint-placeholder-val="{{ false }}">
+    <main style="grid-column:1 / -1;padding:28px 40px 64px;display:flex;flex-direction:column;gap:24px;min-width:0;animation:fdIn .25s ease">
+      <header style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span style="font-size:14px;color:var(--color-neutral-700)">{{ tsSub }}</span>
+          <h1 style="margin:0;font-size:22px">Timesheet</h1>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="display:flex;padding:4px;gap:4px;border-radius:12px;background:var(--color-neutral-200)">
+            <sc-for list="{{ tsViews }}" as="v" hint-placeholder-count="2">
+              <button onClick="{{ v.go }}" style="padding:8px 16px;border:0;border-radius:9px;font-family:var(--font-body);font-size:14px;cursor:pointer;background:{{ v.bg }};color:{{ v.color }};box-shadow:{{ v.shadow }}">{{ v.label }}</button>
+            </sc-for>
+          </div>
+          <button class="btn {{ submitClass }}" onClick="{{ submitWeek }}" style="white-space:nowrap;border-radius:12px"><i class="ph-duotone {{ submitIcon }}" style="font-size:14px"></i>{{ submitLabel }}</button>
+        </div>
+      </header>
+
+      <sc-if value="{{ tsWeek }}" hint-placeholder-val="{{ true }}">
+        <section style="padding:8px 24px 16px;border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column">
+          <div style="display:grid;grid-template-columns:minmax(0,1.4fr) repeat(5,minmax(0,1fr)) 90px;gap:8px;padding:12px 0;font-size:13px;color:var(--color-neutral-600)">
+            <span>Project</span>
+            <sc-for list="{{ tsDays }}" as="d" hint-placeholder-count="5"><span style="display:flex;flex-direction:column;color:{{ d.color }}"><span style="font-weight:{{ d.weight }}">{{ d.label }}</span><span style="font-size:12px">{{ d.sub }}</span></span></sc-for>
+            <span style="text-align:right">Total</span>
+          </div>
+          <sc-for list="{{ tsRows }}" as="r" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:minmax(0,1.4fr) repeat(5,minmax(0,1fr)) 90px;gap:8px;align-items:center;padding:12px 0;border-top:1px solid var(--color-neutral-200);font-size:14px;font-variant-numeric:tabular-nums">
+              <span style="display:flex;align-items:center;gap:10px"><span style="width:9px;height:9px;border-radius:3px;background:{{ r.swatch }}"></span>{{ r.name }}</span>
+              <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="5"><span style="padding:4px 8px;border-radius:8px;background:{{ c.bg }};color:{{ c.color }};font-size:{{ c.size }}">{{ c.v }}</span></sc-for>
+              <span style="text-align:right;font-weight:600">{{ r.total }}</span>
+            </div>
+          </sc-for>
+          <div style="display:grid;grid-template-columns:minmax(0,1.4fr) repeat(5,minmax(0,1fr)) 90px;gap:8px;padding:12px 0;border-top:1.5px solid var(--color-neutral-400);font-size:14px;font-weight:600;font-variant-numeric:tabular-nums">
+            <span>Focused</span><sc-for list="{{ tsFocused }}" as="c" hint-placeholder-count="5"><span style="padding:0 8px">{{ c }}</span></sc-for><span style="text-align:right">{{ tsTotal }}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.4fr) repeat(5,minmax(0,1fr)) 90px;gap:8px;padding:4px 0;font-size:14px;color:var(--color-neutral-700);font-variant-numeric:tabular-nums">
+            <span>Day span</span><sc-for list="{{ tsSpan }}" as="c" hint-placeholder-count="5"><span style="padding:0 8px">{{ c }}</span></sc-for><span></span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.4fr) repeat(5,minmax(0,1fr)) 90px;gap:8px;padding:4px 0;font-size:14px;color:var(--color-neutral-700);font-variant-numeric:tabular-nums">
+            <span>Target</span><sc-for list="{{ tsTarget }}" as="c" hint-placeholder-count="5"><span style="padding:0 8px">{{ c }}</span></sc-for><span style="text-align:right">32h</span>
+          </div>
+        </section>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+          <div style="padding:20px 22px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:var(--color-neutral-700)">Focus ratio</span><span style="font-size:22px;font-weight:600">{{ tsRatio }}</span><span style="font-size:13px;color:var(--color-neutral-600)">focused ÷ day span, this week</span></div>
+          <button onClick="{{ toDayView }}" style="padding:20px 22px;border-radius:14px;border:0;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:4px;text-align:left;cursor:pointer;font-family:var(--font-body);color:var(--color-text)" style-hover="background:var(--color-neutral-200)"><span style="font-size:13px;color:var(--color-neutral-700)">Untracked today</span><span style="font-size:22px;font-weight:600;color:var(--color-accent-2-700)">{{ gapTotal }}</span><span style="font-size:13px;color:var(--color-accent-700)">Review gaps in day view →</span></button>
+          <div style="padding:20px 22px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:var(--color-neutral-700)">Leave balance</span><span style="font-size:22px;font-weight:600">{{ leaveLeft }}</span><span style="font-size:13px;color:var(--color-neutral-600)">Fri is a public holiday — target adjusted</span></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ tsDay }}" hint-placeholder-val="{{ false }}">
+        <section style="padding:24px 28px;border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px">
+          <div style="display:grid;grid-template-columns:70px minmax(0,1fr)">
+            <span></span>
+            <div style="display:grid;grid-template-columns:repeat(9,minmax(0,1fr));font-size:12px;color:var(--color-neutral-600)"><sc-for list="{{ hours }}" as="h" hint-placeholder-count="9"><span style="border-left:1px solid var(--color-neutral-300);padding-left:4px">{{ h }}</span></sc-for></div>
+          </div>
+          <div style="display:grid;grid-template-columns:70px minmax(0,1fr);align-items:center">
+            <span style="font-size:13px;color:var(--color-neutral-700)">Clocked</span>
+            <div style="position:relative;height:12px"><span style="position:absolute;left:{{ clockBar.left }};width:{{ clockBar.width }};top:0;bottom:0;border-radius:6px;background:var(--color-neutral-300)"></span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:70px minmax(0,1fr);align-items:center">
+            <span style="font-size:13px;color:var(--color-neutral-700)">Focus</span>
+            <div style="position:relative;height:44px">
+              <sc-for list="{{ dayBars }}" as="b" hint-placeholder-count="7"><span title="{{ b.tip }}" style="position:absolute;top:0;bottom:0;left:{{ b.left }};width:{{ b.width }};border-radius:6px;background:{{ b.bg }}"></span></sc-for>
+              <sc-for list="{{ gaps }}" as="g" hint-placeholder-count="2"><button onClick="{{ g.log }}" title="Log this gap" style="position:absolute;top:0;bottom:0;left:{{ g.left }};width:{{ g.width }};border-radius:6px;border:1.5px dashed var(--color-accent-2-700);background:var(--color-accent-2-100);color:var(--color-accent-2-800);font-family:var(--font-body);font-size:12px;cursor:pointer;padding:0">+ log</button></sc-for>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;font-size:13px;color:var(--color-neutral-700);flex-wrap:wrap">
+            <sc-for list="{{ legend }}" as="lg" hint-placeholder-count="4"><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:3px;background:{{ lg.swatch }}"></span>{{ lg.name }}</span></sc-for>
+            <span style="display:flex;align-items:center;gap:6px;color:var(--color-accent-2-700)"><span style="width:10px;height:10px;border-radius:3px;border:1.5px dashed var(--color-accent-2-700)"></span>Untracked gap ≥ 30m — click to log</span>
+          </div>
+        </section>
+        <section style="padding:8px 24px 12px;border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column">
+          <sc-for list="{{ log }}" as="s" hint-placeholder-count="7">
+            <div style="display:grid;grid-template-columns:180px minmax(0,1fr) 200px 70px;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--color-neutral-200);font-size:14px">
+              <span style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">{{ s.range }}</span>
+              <span>{{ s.task }}</span>
+              <span style="color:var(--color-neutral-700)">{{ s.meta }}</span>
+              <span style="text-align:right;font-weight:600">{{ s.dur }}</span>
+            </div>
+          </sc-for>
+        </section>
+      </sc-if>
+    </main>
+  </sc-if>
+
+  <sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+    <main style="grid-column:1 / -1;padding:28px 40px 64px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px;min-width:0;align-content:start;animation:fdIn .25s ease">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <h1 style="margin:0 0 16px;font-size:22px">Settings</h1>
+        <sc-for list="{{ stabs }}" as="s" hint-placeholder-count="3">
+          <button onClick="{{ s.go }}" style="display:flex;align-items:center;gap:10px;padding:9px 12px;border:0;border-radius:10px;background:{{ s.bg }};color:{{ s.color }};font-family:var(--font-body);font-size:14px;cursor:pointer;text-align:left;font-weight:{{ s.weight }}" style-hover="background:var(--color-neutral-200)"><i class="ph-duotone {{ s.icon }}" style="font-size:14px"></i>{{ s.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;padding-top:56px;max-width:820px">
+        <sc-if value="{{ setTimer }}" hint-placeholder-val="{{ true }}">
+          <section style="padding:26px 28px;border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:22px">
+            <h3 style="margin:0;font-size:18px">Timer</h3>
+            <sc-for list="{{ timerSettings }}" as="ts" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:240px 1fr;align-items:center;gap:16px">
+                <div style="display:flex;flex-direction:column"><span style="font-size:14px">{{ ts.label }}</span><span style="font-size:13px;color:var(--color-neutral-600)">{{ ts.hint }}</span></div>
+                <div style="display:flex;gap:6px">
+                  <sc-for list="{{ ts.opts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.go }}" style="padding:7px 16px;border-radius:10px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-family:var(--font-body);font-size:14px;cursor:pointer;white-space:nowrap">{{ o.label }}</button></sc-for>
+                </div>
+              </div>
+            </sc-for>
+            <div style="display:grid;grid-template-columns:240px 1fr;align-items:center;gap:16px">
+              <div style="display:flex;flex-direction:column"><span style="font-size:14px">Ask how the session went</span><span style="font-size:13px;color:var(--color-neutral-600)">Shown on the break screen</span></div>
+              <button onClick="{{ toggleRating }}" style="width:46px;height:26px;border-radius:999px;border:0;padding:3px;cursor:pointer;background:{{ ratingTrack }};display:flex;justify-content:{{ ratingJustify }}"><span style="width:20px;height:20px;border-radius:50%;background:var(--color-bg)"></span></button>
+            </div>
+          </section>
+        </sc-if>
+        <sc-if value="{{ setAppearance }}" hint-placeholder-val="{{ false }}">
+          <section style="padding:26px 28px;border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:20px">
+            <h3 style="margin:0;font-size:18px">Appearance</h3>
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,240px));gap:16px">
+              <sc-for list="{{ themeOpts }}" as="o" hint-placeholder-count="2">
+                <button onClick="{{ o.go }}" style="padding:12px;border-radius:16px;border:2px solid {{ o.border }};background:var(--color-bg);cursor:pointer;display:flex;flex-direction:column;gap:10px;font-family:var(--font-body);color:var(--color-text);text-align:left">
+                  <span style="height:96px;border-radius:10px;background:{{ o.prevBg }};display:grid;grid-template-columns:28px 1fr;gap:6px;padding:8px">
+                    <span style="border-radius:6px;background:{{ o.prevSide }}"></span>
+                    <span style="display:flex;flex-direction:column;gap:6px"><span style="height:34px;border-radius:6px;background:{{ o.prevHero }}"></span><span style="height:12px;width:70%;border-radius:4px;background:{{ o.prevLine }}"></span><span style="height:12px;width:50%;border-radius:4px;background:{{ o.prevLine }}"></span></span>
+                  </span>
+                  <span style="display:flex;align-items:center;gap:8px;font-size:14px"><i class="ph-duotone {{ o.icon }}" style="font-size:14px"></i>{{ o.label }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </section>
+        </sc-if>
+        <sc-if value="{{ setHolidays }}" hint-placeholder-val="{{ false }}">
+          <section style="padding:26px 28px;border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:18px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0;font-size:18px">Holidays & leave · 2026</h3><button class="btn btn-primary" onClick="{{ openHol }}" style="color:#fff;white-space:nowrap;border-radius:10px"><i class="ph-duotone ph-plus" style="font-size:14px"></i>Add day off</button></div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <span style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;background:var(--color-bg);font-size:14px"><i class="ph-duotone ph-globe-hemisphere-east" style="font-size:15px"></i>Holiday calendar: India · office</span>
+              <span style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;background:var(--color-bg);font-size:14px"><i class="ph-duotone ph-suitcase-rolling" style="font-size:15px"></i>Leave left: <b>{{ leaveLeft }}</b></span>
+              <span style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;background:var(--hol-bg);color:var(--hol-text);font-size:14px"><i class="ph-duotone ph-confetti" style="font-size:15px"></i>Next off: {{ nextOff }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ holList }}" as="h" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:150px minmax(0,1fr) 150px 120px 28px;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--color-neutral-200);font-size:14px">
+                  <span style="font-weight:600;white-space:nowrap">{{ h.dateLabel }}</span>
+                  <span>{{ h.t }}</span>
+                  <span style="justify-self:start;padding:3px 12px;border-radius:999px;font-size:12px;background:{{ h.pillBg }};color:{{ h.pillColor }};white-space:nowrap">{{ h.typeLabel }}</span>
+                  <span style="font-size:13px;color:var(--color-neutral-600)">{{ h.when }}</span>
+                  <button onClick="{{ h.remove }}" title="Remove" style="border:0;background:none;padding:4px;cursor:pointer;color:var(--color-neutral-500);display:grid" style-hover="color:var(--color-accent-2-700)"><i class="ph-duotone ph-x" style="font-size:13px"></i></button>
+                </div>
+              </sc-for>
+            </div>
+            <span style="font-size:13px;color:var(--color-neutral-600)">Days off are shaded on project timelines, set the timesheet target to 0h, and are flagged when a milestone or date lands on them.</span>
+          </section>
+        </sc-if>
+      </div>
+    </main>
+  </sc-if>
+
+  <sc-if value="{{ hasSel }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeSel }}" style="position:fixed;inset:0;z-index:40;background:color-mix(in srgb, #000 22%, transparent)"></div>
+    <div style="position:fixed;top:16px;right:16px;bottom:16px;width:400px;z-index:41;border-radius:16px;background:var(--color-bg);box-shadow:var(--shadow-lg);padding:28px;display:flex;flex-direction:column;gap:22px;overflow:auto;animation:fdIn .2s ease">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <button class="btn btn-secondary" onClick="{{ sel.toggle }}" style="white-space:nowrap;gap:8px;border-radius:12px;font-size:14px;padding:7px 14px"><i class="ph-duotone ph-check-circle" style="font-size:14px"></i>{{ sel.doneLabel }}</button>
+        <button class="btn btn-ghost btn-icon" onClick="{{ closeSel }}" title="Close" style="border-radius:12px;color:var(--color-neutral-700)"><i class="ph-duotone ph-x" style="font-size:16px"></i></button>
+      </div>
+      <span style="font-family:Poppins,system-ui,sans-serif;font-weight:600;font-size:22px;line-height:1.2;text-wrap:pretty">{{ sel.title }}</span>
+      <div style="display:grid;grid-template-columns:90px 1fr;row-gap:10px;font-size:14px">
+        <span style="color:var(--color-neutral-700)">Project</span><span>{{ sel.project }}</span>
+        <span style="color:var(--color-neutral-700)">Priority</span><span>{{ sel.prLabel }}</span>
+        <span style="color:var(--color-neutral-700)">Due</span><span style="color:{{ sel.dueColor }}">{{ sel.dueLabel }}</span>
+        <span style="color:var(--color-neutral-700)">Estimate</span><span>{{ sel.est }}</span>
+      </div>
+      <sc-if value="{{ sel.hasNotes }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0;padding:14px 16px;border-radius:14px;background:var(--card);font-size:14px;line-height:1.6;text-wrap:pretty">{{ sel.notes }}</p>
+      </sc-if>
+      <div style="display:flex;flex-direction:column;gap:2px;font-family:Poppins,system-ui,sans-serif">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:4px">
+          <span style="font-family:var(--font-body);font-size:13px;color:var(--color-neutral-700)">Subtasks</span>
+          <span style="font-family:var(--font-body);font-size:13px;color:var(--color-neutral-700)">{{ sel.subLabel }}</span>
+        </div>
+        <sc-for list="{{ sel.subs }}" as="st" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;gap:10px;padding:3px 0">
+            <label style="display:flex;align-items:center;gap:10px;flex:1;font-size:14px;cursor:pointer;color:{{ st.color }};text-decoration:{{ st.decoration }}">
+              <input type="checkbox" checked="{{ st.done }}" onChange="{{ st.toggle }}" style="accent-color:var(--color-accent);width:16px;height:16px">{{ st.title }}
+            </label>
+            <button onClick="{{ st.remove }}" title="Remove" style="border:0;background:none;padding:4px;cursor:pointer;color:var(--color-neutral-500);display:grid" style-hover="color:var(--color-accent-2-700)"><i class="ph-duotone ph-x" style="font-size:13px"></i></button>
+          </div>
+        </sc-for>
+        <form onSubmit="{{ sel.addSub }}" style="display:flex;align-items:center;gap:10px;margin-top:4px">
+          <i class="ph-duotone ph-plus" style="font-size:15px;color:var(--color-accent)"></i>
+          <input value="{{ subDraft }}" onChange="{{ setSubDraft }}" placeholder="Add a subtask…" style="flex:1;border:0;border-bottom:1.5px solid var(--color-neutral-300);background:transparent;padding:6px 0;font-family:Poppins,system-ui,sans-serif;font-size:14px;color:var(--color-text);outline:none">
+        </form>
+      </div>
+      <button class="btn btn-primary" onClick="{{ sel.focus }}" style="color:#fff;margin-top:auto;padding:12px;border-radius:12px;font-size:14px"><i class="ph-duotone ph-timer" style="font-size:16px"></i>Focus on this task</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ focusMode }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:50;background:var(--color-bg);display:flex;flex-direction:column;padding:32px 44px;animation:fdIn .3s ease">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:13px;color:var(--color-neutral-700)">{{ phaseLabel }}</span>
+        <button class="btn btn-secondary" onClick="{{ exitFocus }}" style="white-space:nowrap;gap:8px;border-radius:12px"><i class="ph-duotone ph-arrows-in-simple" style="font-size:15px"></i>Exit focus <span style="font-weight:400;color:var(--color-neutral-600)">Esc</span></button>
+      </div>
+      <sc-if value="{{ isFocusPhase }}" hint-placeholder-val="{{ true }}">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;text-align:center">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;max-width:720px">
+            <span class="tag tag-accent" style="border-radius:999px">{{ current.project }}</span>
+            <span style="font-family:Poppins,system-ui,sans-serif;font-weight:600;font-size:22px;line-height:1.2;text-wrap:balance">{{ current.title }}</span>
+          </div>
+          <div style="font-size:136px;line-height:0.9;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;color:var(--color-accent-800)">{{ timeLabel }}</div>
+          <div style="width:520px;height:4px;background:var(--color-neutral-300);border-radius:4px;overflow:hidden"><div style="height:100%;width:{{ progressPct }};background:var(--color-accent);transition:width 1s linear"></div></div>
+          <div style="display:flex;gap:12px">
+            <button class="btn btn-primary" onClick="{{ toggleRun }}" style="color:#fff;padding:13px 30px;border-radius:14px;font-size:15px;min-width:150px"><i class="ph-duotone {{ runIcon }}" style="font-size:16px"></i>{{ runLabel }}</button>
+            <button class="btn btn-secondary" onClick="{{ endSession }}" style="white-space:nowrap;padding:13px 24px;border-radius:14px;font-size:15px"><i class="ph-duotone ph-stop" style="font-size:16px"></i>End session</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="display:flex;gap:7px"><sc-for list="{{ dots }}" as="d" hint-placeholder-count="4"><span style="width:10px;height:10px;border-radius:50%;background:{{ d.bg }};box-shadow:{{ d.ring }}"></span></sc-for></div>
+            <span style="font-size:14px;color:var(--color-neutral-700)">{{ cycleHint }}</span>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px">
+          <div style="display:flex;flex-direction:column;min-width:240px;font-family:Poppins,system-ui,sans-serif">
+            <sc-if value="{{ current.hasSubs }}" hint-placeholder-val="{{ false }}">
+              <span style="font-family:var(--font-body);font-size:13px;color:var(--color-neutral-700);padding-bottom:4px">Subtasks</span>
+              <sc-for list="{{ current.subs }}" as="st" hint-placeholder-count="3">
+                <label style="display:flex;align-items:center;gap:10px;padding:3px 0;font-size:14px;cursor:pointer;color:{{ st.color }};text-decoration:{{ st.decoration }}"><input type="checkbox" checked="{{ st.done }}" onChange="{{ st.toggle }}" style="accent-color:var(--color-accent);width:16px;height:16px">{{ st.title }}</label>
+              </sc-for>
+            </sc-if>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:14px">
+            <span style="color:var(--color-neutral-700)">Up next</span><span style="font-family:Poppins,system-ui,sans-serif;font-size:14px">{{ upNext }}</span>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isBreakPhase }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;text-align:center">
+          <span style="font-size:14px;color:var(--color-neutral-700)">{{ breakDone }}</span>
+          <h2 style="margin:0;font-size:26px">{{ breakTitle }}</h2>
+          <div style="font-size:104px;line-height:0.9;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;color:var(--color-accent-600)">{{ timeLabel }}</div>
+          <sc-if value="{{ askRating }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <span style="font-size:14px;color:var(--color-neutral-700)">How focused were you?</span>
+              <div style="display:flex;gap:8px"><sc-for list="{{ ratings }}" as="r" hint-placeholder-count="3"><button onClick="{{ r.go }}" style="padding:8px 18px;border-radius:999px;border:1px solid {{ r.border }};background:{{ r.bg }};color:{{ r.color }};font-family:var(--font-body);font-size:14px;cursor:pointer;white-space:nowrap">{{ r.label }}</button></sc-for></div>
+            </div>
+          </sc-if>
+          <div style="display:flex;gap:12px">
+            <button class="btn btn-primary" onClick="{{ toggleRun }}" style="color:#fff;white-space:nowrap;padding:13px 28px;border-radius:14px;font-size:15px"><i class="ph-duotone {{ runIcon }}" style="font-size:16px"></i>{{ breakRunLabel }}</button>
+            <button class="btn btn-secondary" onClick="{{ nextFocus }}" style="white-space:nowrap;padding:13px 24px;border-radius:14px;font-size:15px"><i class="ph-duotone ph-skip-forward" style="font-size:16px"></i>Skip to next session</button>
+          </div>
+          <span style="font-size:14px;color:var(--color-neutral-700)">Next up: <span style="font-family:Poppins,system-ui,sans-serif;font-size:14px;color:var(--color-text)">{{ current.title }}</span></span>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ logOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" onClick="{{ closeLog }}" style="z-index:60;background:color-mix(in srgb, #000 30%, transparent)">
+      <form class="dialog" onClick="{{ stopProp }}" onSubmit="{{ submitLog }}" style="width:460px;border-radius:16px;background:var(--color-bg);color:var(--color-text)">
+        <div class="dialog-title">Log time</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="field"><label style="color:var(--color-neutral-700)">What did you work on?</label><input class="input" value="{{ lf.task }}" onChange="{{ lf.setTask }}" placeholder="e.g. Stakeholder call" style="border-radius:10px;color:var(--color-text)"></div>
+          <div class="field"><label style="color:var(--color-neutral-700)">Project</label>
+            <select class="input" value="{{ lf.project }}" onChange="{{ lf.setProject }}" style="border-radius:10px;color:var(--color-text)"><sc-for list="{{ projectNames }}" as="p" hint-placeholder-count="4"><option value="{{ p }}">{{ p }}</option></sc-for></select>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="field"><label style="color:var(--color-neutral-700)">From</label><input class="input" type="time" value="{{ lf.from }}" onChange="{{ lf.setFrom }}" style="border-radius:10px;color:var(--color-text)"></div>
+            <div class="field"><label style="color:var(--color-neutral-700)">To</label><input class="input" type="time" value="{{ lf.to }}" onChange="{{ lf.setTo }}" style="border-radius:10px;color:var(--color-text)"></div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ quickLogs }}" as="q" hint-placeholder-count="3"><button type="button" onClick="{{ q.go }}" style="padding:4px 12px;border-radius:999px;border:1px solid var(--color-divider);background:none;font-family:var(--font-body);font-size:13px;cursor:pointer;color:var(--color-accent-700)">{{ q.label }}</button></sc-for></div>
+          <sc-if value="{{ logError }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:var(--color-accent-2-700)">{{ logErrorText }}</span></sc-if>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-secondary" onClick="{{ closeLog }}" style="white-space:nowrap;border-radius:10px">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="color:#fff;white-space:nowrap;border-radius:10px">Add to log</button>
+        </div>
+      </form>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ clockOutOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" onClick="{{ closeClockOut }}" style="z-index:60;background:color-mix(in srgb, #000 30%, transparent)">
+      <div class="dialog" onClick="{{ stopProp }}" style="width:520px;border-radius:16px;background:var(--color-bg);color:var(--color-text);gap:18px">
+        <div style="display:flex;flex-direction:column;gap:2px"><div class="dialog-title">Wrapping up</div><span style="font-size:14px;color:var(--color-neutral-700)">9:42 AM – 2:52 PM</span></div>
+        <div style="display:flex;gap:32px">
+          <div style="display:flex;flex-direction:column"><span style="font-size:22px;font-weight:600">5h 10m</span><span style="font-size:13px;color:var(--color-neutral-700)">day span</span></div>
+          <div style="display:flex;flex-direction:column"><span style="font-size:22px;font-weight:600;color:var(--color-accent-800)">{{ focusedLabel }}</span><span style="font-size:13px;color:var(--color-neutral-700)">focused</span></div>
+          <div style="display:flex;flex-direction:column"><span style="font-size:22px;font-weight:600">{{ sessionCount }}</span><span style="font-size:13px;color:var(--color-neutral-700)">sessions</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;height:12px;border-radius:6px;overflow:hidden;gap:2px"><sc-for list="{{ projSplit }}" as="ps" hint-placeholder-count="4"><span title="{{ ps.tip }}" style="width:{{ ps.width }};background:{{ ps.swatch }}"></span></sc-for></div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--color-neutral-700)"><sc-for list="{{ projSplit }}" as="ps" hint-placeholder-count="4"><span style="display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:3px;background:{{ ps.swatch }}"></span>{{ ps.tip }}</span></sc-for></div>
+        </div>
+        <sc-for list="{{ bigGaps }}" as="g" hint-placeholder-count="1">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:12px;background:var(--color-accent-2-100);color:var(--color-accent-2-800);font-size:14px"><i class="ph-duotone ph-warning" style="font-size:14px"></i><span style="flex:1">{{ g.label }}</span><button class="btn btn-ghost" onClick="{{ g.log }}" style="white-space:nowrap;color:var(--color-accent-2-800)">Log it</button></div>
+        </sc-for>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer"><input type="checkbox" checked="{{ moveOpen }}" onChange="{{ toggleMoveOpen }}" style="accent-color:var(--color-accent);width:16px;height:16px">Move {{ openCount }} open tasks to tomorrow</label>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" onClick="{{ closeClockOut }}" style="white-space:nowrap;border-radius:10px">Keep working</button>
+          <button class="btn btn-primary" onClick="{{ confirmClockOut }}" style="color:#fff;white-space:nowrap;border-radius:10px">Clock out</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ npOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" onClick="{{ npClose }}" style="z-index:60;background:color-mix(in srgb, #000 45%, transparent)">
+      <div class="dialog" onClick="{{ stopProp }}" style="width:760px;max-width:calc(100vw - 48px);padding:0;gap:0;border-radius:16px;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;overflow:hidden">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:22px 26px 16px">
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:18px;font-weight:600">New project</span><span style="font-size:13px;color:var(--color-neutral-700)">Set it up once. Phases, checklist and documents are ready to track from day one.</span></div>
+          <button type="button" onClick="{{ npClose }}" title="Close" style="border:0;background:none;padding:4px;cursor:pointer;color:var(--color-neutral-600);display:grid"><i class="ph ph-x" style="font-size:16px"></i></button>
+        </div>
+        <div style="display:flex;gap:8px;padding:0 26px 18px;border-bottom:1px solid var(--color-neutral-300)">
+          <sc-for list="{{ npSteps }}" as="st" hint-placeholder-count="4">
+            <button type="button" onClick="{{ st.go }}" style="flex:1;display:flex;align-items:center;gap:8px;padding:8px 0 0;border:0;border-top:2px solid {{ st.bar }};background:none;font-family:var(--font-body);color:{{ st.color }};font-weight:{{ st.weight }};cursor:{{ st.cursor }};font-size:13px;text-align:left"><span style="font-variant-numeric:tabular-nums;color:var(--color-neutral-600)">{{ st.num }}</span>{{ st.label }}</button>
+          </sc-for>
+        </div>
+        <div style="padding:22px 26px;min-height:380px;max-height:560px;overflow:auto;box-sizing:border-box">
+          <sc-if value="{{ npS0 }}" hint-placeholder-val="{{ true }}">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="field" style="grid-column:1 / -1"><label style="color:var(--color-neutral-700)">Project name</label><input class="input" value="{{ np.name }}" onChange="{{ npSet.name }}" placeholder="e.g. Temple donations app" style="border-radius:10px;color:var(--color-text);background:var(--color-bg)"></div>
+              <div class="field"><label style="color:var(--color-neutral-700)">Client or team</label><input class="input" value="{{ np.client }}" onChange="{{ npSet.client }}" placeholder="e.g. Mantralok Trust" style="border-radius:10px;color:var(--color-text);background:var(--color-bg)"></div>
+              <div class="field"><label style="color:var(--color-neutral-700)">Colour</label><div style="display:flex;gap:12px;align-items:center;min-height:40px"><sc-for list="{{ npColors }}" as="c" hint-placeholder-count="6"><button type="button" onClick="{{ c.go }}" title="{{ c.hex }}" style="width:22px;height:22px;border-radius:50%;border:0;padding:0;cursor:pointer;background:{{ c.hex }};box-shadow:{{ c.ring }}"></button></sc-for></div></div>
+              <div class="field"><label style="color:var(--color-neutral-700)">Start date</label><input class="input" type="date" value="{{ np.start }}" onChange="{{ npSetStart }}" style="border-radius:10px;color:var(--color-text);background:var(--color-bg)"></div>
+              <div class="field"><label style="color:var(--color-neutral-700)">Target end date</label><input class="input" type="date" value="{{ np.end }}" onChange="{{ npSetEnd }}" style="border-radius:10px;color:var(--color-text);background:var(--color-bg)"></div>
+              <div style="grid-column:1 / -1;display:flex;flex-direction:column"><button type="button" onClick="{{ npToggleOngoing }}" style="display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;border:1px solid var(--color-neutral-300);background:transparent;color:var(--color-text);font-family:var(--font-body);cursor:pointer;text-align:left">
+            <span style="width:34px;height:20px;border-radius:999px;background:{{ npOngoingTrack }};position:relative;flex:none;transition:background .15s"><span style="position:absolute;top:2px;left:{{ npOngoingKnob }};width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s"></span></span>
+            <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:500">Ongoing work</span><span style="font-size:13px;color:var(--color-neutral-700)">No phases. Good for retainers and internal ops.</span></span>
+          </button></div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ npOngoingPhases }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:300px;text-align:center"><i class="ph-duotone ph-infinity" style="font-size:28px;color:var(--color-accent-700)"></i><span style="font-size:15px;font-weight:500">Ongoing projects skip phases</span><span style="font-size:13px;color:var(--color-neutral-700);max-width:360px">You can still add checklist items and documents in the next step.</span></div>
+          </sc-if>
+          <sc-if value="{{ npS1 }}" hint-placeholder-val="{{ false }}"><sc-if value="{{ npHasPhases }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:18px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+                <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:600">When does each phase start?</span><span style="font-size:13px;color:var(--color-neutral-700)">{{ npSpan }}. Edit any date.</span></div>
+                <button type="button" class="btn btn-secondary" onClick="{{ npSpread }}" style="white-space:nowrap;padding:7px 12px;border-radius:10px;font-size:13px"><i class="ph ph-arrows-left-right" style="font-size:14px"></i>Spread evenly</button>
+              </div>
+              <div style="display:flex;height:8px;gap:2px;border-radius:999px;overflow:hidden"><sc-for list="{{ npPhases }}" as="p" hint-placeholder-count="5"><span style="width:{{ p.pct }};background:{{ p.shade }}"></span></sc-for></div>
+              <div style="display:flex;flex-direction:column">
+                <sc-for list="{{ npPhases }}" as="p" hint-placeholder-count="5">
+                  <div style="display:grid;grid-template-columns:26px 110px 170px 64px minmax(0,1fr);align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--color-neutral-300)">
+                    <span style="width:22px;height:22px;border-radius:6px;background:var(--color-neutral-200);font-size:12px;display:grid;place-items:center;box-shadow:inset 3px 0 0 {{ p.shade }}">{{ p.num }}</span>
+                    <span style="font-size:14px;font-weight:500">{{ p.name }}</span>
+                    <input class="input" type="date" value="{{ p.date }}" onChange="{{ p.set }}" style="border-radius:8px;min-height:34px;padding:4px 10px;font-size:13px;color:var(--color-text);background:var(--color-bg)">
+                    <span style="font-size:13px;color:var(--color-neutral-700)">{{ p.dur }}</span>
+                    <span style="font-size:13px;color:var(--color-accent-2-700)">{{ p.warn }}</span>
+                  </div>
+                </sc-for>
+              </div>
+              <span style="font-size:13px;color:var(--color-neutral-700)">Project ends {{ npEndLabel }}</span>
+            </div>
+          </sc-if></sc-if>
+          <sc-if value="{{ npS2 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:20px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <span style="font-size:14px;font-weight:600">Start from a template</span>
+                <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px"><sc-for list="{{ npTpls }}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{ o.go }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 14px;border-radius:10px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-family:var(--font-body);cursor:pointer;text-align:left"><span style="font-size:13px;font-weight:500">{{ o.label }}</span><span style="font-size:12px;color:var(--color-neutral-700)">{{ o.sub }}</span></button></sc-for></div>
+              </div>
+              <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px">
+                <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:14px;font-weight:600">Checklist</span><span style="font-size:12px;color:var(--color-neutral-600)">{{ npCkCount }}</span></div>
+                  <sc-for list="{{ npCk }}" as="g" hint-placeholder-count="3">
+                    <div style="display:flex;flex-direction:column">
+                      <span style="font-size:12px;color:var(--color-neutral-600);padding:4px 0">{{ g.name }}</span>
+                      <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="2">
+                        <button type="button" onClick="{{ c.toggle }}" style="display:flex;align-items:center;gap:10px;padding:5px 6px;border:0;border-radius:6px;background:none;cursor:pointer;font-family:var(--font-body);font-size:13px;color:var(--color-text);text-align:left;opacity:{{ c.op }}" style-hover="background:var(--color-neutral-200)">
+                          <span style="width:15px;height:15px;border-radius:4px;border:1.5px solid {{ c.boxBorder }};background:{{ c.boxBg }};display:grid;place-items:center;flex:none;box-sizing:border-box"><i class="ph ph-check" style="font-size:10px;color:#fff;opacity:{{ c.checkOp }}"></i></span>{{ c.t }}
+                        </button>
+                      </sc-for>
+                    </div>
+                  </sc-for>
+                  <form onSubmit="{{ npAddCk }}" style="display:flex;gap:8px;align-items:center">
+                    <input class="input" value="{{ np.ckDraft }}" onChange="{{ npSet.ckDraft }}" placeholder="Add an item" style="flex:1;min-width:0;border-radius:8px;min-height:34px;font-size:13px;color:var(--color-text);background:var(--color-bg)">
+                    <select class="input" value="{{ np.ckPhase }}" onChange="{{ npSet.ckPhase }}" style="width:110px;border-radius:8px;min-height:34px;font-size:13px;color:var(--color-text);background:var(--color-bg)"><option value="0">Discovery</option><option value="1">Design</option><option value="2">Dev</option><option value="3">QA</option><option value="4">Handover</option></select>
+                  </form>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:14px;font-weight:600">Documents</span><span style="font-size:12px;color:var(--color-neutral-600)">{{ npDocCount }}</span></div>
+                  <span style="font-size:12px;color:var(--color-neutral-700)">A gate document must be approved before its phase can close. Links can be added later from the project.</span>
+                  <sc-for list="{{ npDocs }}" as="d" hint-placeholder-count="4">
+                    <div onClick="{{ d.toggle }}" style="display:flex;align-items:center;gap:10px;padding:7px 6px;border-radius:6px;cursor:pointer;opacity:{{ d.op }}" style-hover="background:var(--color-neutral-200)">
+                      <span style="width:15px;height:15px;border-radius:4px;border:1.5px solid {{ d.boxBorder }};background:{{ d.boxBg }};display:grid;place-items:center;flex:none;box-sizing:border-box"><i class="ph ph-check" style="font-size:10px;color:#fff;opacity:{{ d.checkOp }}"></i></span>
+                      <div style="flex:1;min-width:0;display:flex;flex-direction:column"><span style="font-size:13px">{{ d.t }}</span><span style="font-size:12px;color:var(--color-neutral-600)">{{ d.meta }}</span></div>
+                      <button type="button" onClick="{{ d.toggleGate }}" style="padding:2px 10px;border-radius:999px;border:1px solid {{ d.gateBorder }};background:{{ d.gateBg }};color:{{ d.gateColor }};font-family:var(--font-body);font-size:12px;cursor:pointer;white-space:nowrap">{{ d.gateLabel }}</button>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ npS3 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:18px">
+              <div style="display:flex;flex-direction:column;gap:14px;padding:18px;border-radius:12px;background:var(--card);box-shadow:var(--shadow-sm)">
+                <div style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;border-radius:3px;background:{{ np.color }}"></span><span style="font-size:17px;font-weight:600">{{ np.name }}</span><span class="tag tag-accent" style="margin-left:auto;font-size:12px;border-radius:999px">On track</span></div>
+                <span style="font-size:13px;color:var(--color-neutral-700)">{{ npSummary }}</span>
+                <sc-if value="{{ npHasPhases }}" hint-placeholder-val="{{ true }}">
+                  <div style="display:flex;gap:2px"><sc-for list="{{ npPhases }}" as="p" hint-placeholder-count="5"><div style="width:{{ p.pct }};display:flex;flex-direction:column;gap:6px;min-width:0"><span style="height:8px;border-radius:2px;background:{{ p.shade }}"></span><span style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</span><span style="font-size:11px;color:var(--color-neutral-600);white-space:nowrap">{{ p.dateLabel }}</span></div></sc-for></div>
+                </sc-if>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px"><sc-for list="{{ npStats }}" as="x" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:12px;box-shadow:var(--shadow-sm)"><span style="font-size:20px;font-weight:600">{{ x.n }}</span><span style="font-size:13px;color:var(--color-neutral-700)">{{ x.l }}</span></div></sc-for></div>
+              <sc-if value="{{ npHasWarn }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:12px;background:var(--color-accent-2-100)"><sc-for list="{{ npWarns }}" as="w" hint-placeholder-count="1"><span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-accent-2-800)"><i class="ph-duotone ph-warning" style="font-size:14px"></i>{{ w }}</span></sc-for></div>
+              </sc-if>
+              <button type="button" onClick="{{ npToggleKickoff }}" style="display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;border:1px solid var(--color-neutral-300);background:transparent;color:var(--color-text);font-family:var(--font-body);cursor:pointer;text-align:left">
+            <span style="width:34px;height:20px;border-radius:999px;background:{{ npKickTrack }};position:relative;flex:none;transition:background .15s"><span style="position:absolute;top:2px;left:{{ npKickKnob }};width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s"></span></span>
+            <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:500">Add a kickoff meeting on {{ npStartLabel }}</span><span style="font-size:13px;color:var(--color-neutral-700)">Shows up in Dates and on Today when it’s close.</span></span>
+          </button>
+            </div>
+          </sc-if>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:16px 26px;border-top:1px solid var(--color-neutral-300)">
+          <sc-if value="{{ npHasError }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-accent-2-700)"><i class="ph-duotone ph-warning" style="font-size:14px"></i>{{ npError }}</span></sc-if>
+          <div style="margin-left:auto;display:flex;gap:8px">
+            <sc-if value="{{ npShowBack }}" hint-placeholder-val="{{ false }}"><button type="button" class="btn btn-secondary" onClick="{{ npBack }}" style="white-space:nowrap;border-radius:10px">Back</button></sc-if>
+            <button type="button" class="btn btn-primary" onClick="{{ npNext }}" style="color:#fff;white-space:nowrap;border-radius:10px">{{ npNextLabel }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ docOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" onClick="{{ closeDocDlg }}" style="z-index:60;background:color-mix(in srgb, #000 45%, transparent)">
+      <form class="dialog" onClick="{{ stopProp }}" onSubmit="{{ saveDocDlg }}" style="width:540px;border-radius:16px;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-lg)">
+        <div style="display:flex;flex-direction:column;gap:2px"><div class="dialog-title" style="font-size:18px">{{ dcfTitle }}</div><span style="font-size:13px;color:var(--color-neutral-700)">{{ pj.name }}</span></div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="field"><label style="color:var(--color-neutral-700)">Document name</label><input class="input" value="{{ dcf.t }}" onChange="{{ dcfSet.t }}" placeholder="e.g. Security review" style="border-radius:10px;color:var(--color-text);background:var(--color-bg)"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+            <div class="field"><label style="color:var(--color-neutral-700)">Phase</label><select class="input" value="{{ dcf.phase }}" onChange="{{ dcfSet.phase }}" style="border-radius:10px;color:var(--color-text);background:var(--color-bg)"><sc-for list="{{ pj.phaseOptions }}" as="po" hint-placeholder-count="5"><option value="{{ po.v }}">{{ po.label }}</option></sc-for></select></div>
+            <div class="field"><label style="color:var(--color-neutral-700)">Owner</label><input class="input" value="{{ dcf.owner }}" onChange="{{ dcfSet.owner }}" placeholder="Kalyani" style="border-radius:10px;color:var(--color-text);background:var(--color-bg)"></div>
+            <div class="field"><label style="color:var(--color-neutral-700)">Due</label><input class="input" type="date" value="{{ dcf.due }}" onChange="{{ dcfSet.due }}" style="border-radius:10px;color:var(--color-text);background:var(--color-bg)"></div>
+          </div>
+          <div class="field"><label style="color:var(--color-neutral-700)">Status</label><div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ dcfStatuses }}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{ o.go }}" style="display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-family:var(--font-body);font-size:13px;cursor:pointer;white-space:nowrap">{{ o.label }}</button></sc-for></div></div>
+          <div class="field"><label style="color:var(--color-neutral-700)">Where is it?</label>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ dcfKinds }}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{ o.go }}" style="display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-family:var(--font-body);font-size:13px;cursor:pointer;white-space:nowrap"><i class="ph {{ o.icon }}" style="font-size:14px"></i>{{ o.label }}</button></sc-for></div>
+          </div>
+          <sc-if value="{{ dcfIsLink }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="position:relative"><i class="ph ph-link" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:15px;color:var(--color-neutral-600)"></i><input class="input" value="{{ dcf.url }}" onChange="{{ dcfSet.url }}" placeholder="Paste a Google Doc, Figma, Notion or Confluence link" style="border-radius:10px;color:var(--color-text);background:var(--color-bg);padding-left:36px;width:100%;box-sizing:border-box"></div>
+              <sc-if value="{{ dcfHasSrc }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--color-neutral-700)"><i class="ph-duotone {{ dcfSrcIcon }}" style="font-size:15px;color:var(--color-accent-700)"></i>{{ dcfSrc }}</span></sc-if>
+            </div>
+          </sc-if>
+          <sc-if value="{{ dcfIsFile }}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px;border:1.5px dashed var(--color-neutral-400);border-radius:12px;cursor:pointer;text-align:center" style-hover="border-color:var(--color-accent)">
+              <i class="ph-duotone ph-paperclip" style="font-size:22px;color:var(--color-accent-700)"></i>
+              <span style="font-size:14px">{{ dcfFileLabel }}</span>
+              <span style="font-size:12px;color:var(--color-neutral-600)">PDF, DOCX, XLSX or images</span>
+              <input type="file" onChange="{{ dcfSetFile }}" style="display:none">
+            </label>
+          </sc-if>
+          <sc-if value="{{ dcfIsLater }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:var(--color-neutral-700)">It’ll show a “Link or attach” button in the list until you add it.</span></sc-if>
+          <button type="button" onClick="{{ dcfToggleGate }}" style="display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;border:1px solid var(--color-neutral-300);background:transparent;color:var(--color-text);font-family:var(--font-body);cursor:pointer;text-align:left">
+            <span style="width:34px;height:20px;border-radius:999px;background:{{ dcfGateTrack }};position:relative;flex:none;transition:background .15s"><span style="position:absolute;top:2px;left:{{ dcfGateKnob }};width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s"></span></span>
+            <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:500">Required to close {{ dcfPhaseName }}</span><span style="font-size:13px;color:var(--color-neutral-700)">The phase can’t be marked done until this is approved.</span></span>
+          </button>
+          <sc-if value="{{ dcfHasErr }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-accent-2-700)"><i class="ph-duotone ph-warning" style="font-size:14px"></i>{{ dcfErr }}</span></sc-if>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-secondary" onClick="{{ closeDocDlg }}" style="white-space:nowrap;border-radius:10px">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="color:#fff;white-space:nowrap;border-radius:10px">{{ dcfSaveLabel }}</button>
+        </div>
+      </form>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ phOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" onClick="{{ closePhases }}" style="z-index:60;background:color-mix(in srgb, #000 45%, transparent)">
+      <form class="dialog" onClick="{{ stopProp }}" onSubmit="{{ savePhases }}" style="width:680px;max-width:calc(100vw - 48px);border-radius:16px;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-lg)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+          <div style="display:flex;flex-direction:column;gap:2px"><div class="dialog-title" style="font-size:18px">{{ phTitle }}</div><span style="font-size:13px;color:var(--color-neutral-700)">{{ pj.name }} · rename, reschedule, add or remove phases</span></div>
+          <button type="button" class="btn btn-secondary" onClick="{{ phSpread }}" style="white-space:nowrap;padding:7px 12px;border-radius:10px;font-size:13px"><i class="ph ph-arrows-left-right" style="font-size:14px"></i>Spread evenly</button>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;height:8px;gap:2px;border-radius:999px;overflow:hidden"><sc-for list="{{ phRows }}" as="p" hint-placeholder-count="5"><span style="width:{{ p.pct }};background:{{ p.shade }}"></span></sc-for></div>
+          <div style="display:flex;flex-direction:column;max-height:380px;overflow:auto">
+            <div style="display:grid;grid-template-columns:24px minmax(0,1fr) 160px 56px 64px;gap:10px;padding:0 0 6px;font-size:12px;color:var(--color-neutral-600)"><span></span><span>Phase</span><span>Starts</span><span>Length</span><span></span></div>
+            <sc-for list="{{ phRows }}" as="p" hint-placeholder-count="5">
+              <div style="display:flex;flex-direction:column;gap:4px;padding:8px 0;border-top:1px solid var(--color-neutral-300)">
+                <div style="display:grid;grid-template-columns:24px minmax(0,1fr) 160px 56px 64px;gap:10px;align-items:center">
+                  <span style="width:22px;height:22px;border-radius:6px;background:var(--color-neutral-200);font-size:12px;display:grid;place-items:center;box-shadow:inset 3px 0 0 {{ p.shade }}">{{ p.num }}</span>
+                  <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                    <input value="{{ p.name }}" onChange="{{ p.setName }}" style="border:0;border-bottom:1px solid transparent;background:transparent;padding:2px 0;font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--color-text);outline:none" style-focus="border-bottom-color:var(--color-accent)">
+                    <span style="font-size:12px;color:var(--color-neutral-600)">{{ p.meta }}</span>
+                  </div>
+                  <input class="input" type="date" value="{{ p.date }}" onChange="{{ p.setDate }}" style="border-radius:8px;min-height:34px;padding:4px 10px;font-size:13px;color:var(--color-text);background:var(--color-bg)">
+                  <span style="font-size:13px;color:var(--color-neutral-700)">{{ p.dur }}</span>
+                  <div style="display:flex;gap:2px;justify-content:flex-end">
+                    <button type="button" onClick="{{ p.insert }}" title="Add a phase after this" style="border:0;background:none;padding:6px;border-radius:6px;cursor:pointer;color:var(--color-neutral-600);display:grid" style-hover="background:var(--color-neutral-200);color:var(--color-accent-700)"><i class="ph ph-plus" style="font-size:14px"></i></button>
+                    <sc-if value="{{ p.canRemove }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ p.remove }}" title="Remove phase" style="border:0;background:none;padding:6px;border-radius:6px;cursor:pointer;color:var(--color-neutral-600);display:grid" style-hover="background:var(--color-neutral-200);color:var(--color-accent-2-700)"><i class="ph ph-trash" style="font-size:14px"></i></button></sc-if>
+                  </div>
+                </div>
+                <sc-if value="{{ p.hasWarn }}" hint-placeholder-val="{{ false }}"><span style="padding-left:34px;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--color-accent-2-700)"><i class="ph-duotone ph-warning" style="font-size:13px"></i>{{ p.warn }}</span></sc-if>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:4px;border-top:1px solid var(--color-neutral-300)">
+            <button type="button" onClick="{{ phAddEnd }}" style="display:flex;align-items:center;gap:6px;border:0;background:none;padding:6px 0;font-family:var(--font-body);font-size:13px;color:var(--color-accent-700);cursor:pointer"><i class="ph ph-plus" style="font-size:14px"></i>Add phase at the end</button>
+            <div style="display:flex;align-items:center;gap:10px"><label style="font-size:13px;color:var(--color-neutral-700)">Project ends</label><input class="input" type="date" value="{{ phf.end }}" onChange="{{ phSetEnd }}" style="width:160px;border-radius:8px;min-height:34px;padding:4px 10px;font-size:13px;color:var(--color-text);background:var(--color-bg)"></div>
+          </div>
+          <sc-if value="{{ phHasNotes }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:4px;padding:10px 14px;border-radius:10px;background:var(--color-neutral-200)"><sc-for list="{{ phNotes }}" as="n" hint-placeholder-count="1"><span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-neutral-800)"><i class="ph-duotone ph-arrow-bend-down-right" style="font-size:14px"></i>{{ n }}</span></sc-for></div>
+          </sc-if>
+          <sc-if value="{{ phHasErr }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-accent-2-700)"><i class="ph-duotone ph-warning" style="font-size:14px"></i>{{ phErr }}</span></sc-if>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-secondary" onClick="{{ closePhases }}" style="white-space:nowrap;border-radius:10px">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="color:#fff;white-space:nowrap;border-radius:10px">Save phases</button>
+        </div>
+      </form>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ dateOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" onClick="{{ closeDate }}" style="z-index:60;background:color-mix(in srgb, #000 30%, transparent)">
+      <form class="dialog" onClick="{{ stopProp }}" onSubmit="{{ saveDate }}" style="width:460px;border-radius:16px;background:var(--color-bg);color:var(--color-text)">
+        <div style="display:flex;flex-direction:column;gap:2px"><div class="dialog-title">Add important date</div><span style="font-size:14px;color:var(--color-neutral-700)">{{ pj.name }}</span></div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="field"><label style="color:var(--color-neutral-700)">What’s happening?</label><input class="input" value="{{ df.t }}" onChange="{{ df.setT }}" placeholder="e.g. Sprint demo with client" style="border-radius:10px;color:var(--color-text)"></div>
+          <div class="field"><label style="color:var(--color-neutral-700)">Date</label><input class="input" type="date" value="{{ df.date }}" onChange="{{ df.setDate }}" style="border-radius:10px;color:var(--color-text)"></div>
+          <div class="field"><label style="color:var(--color-neutral-700)">Type</label>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ df.types }}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{ o.go }}" style="padding:6px 14px;border-radius:999px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-family:var(--font-body);font-size:14px;cursor:pointer;white-space:nowrap">{{ o.label }}</button></sc-for></div>
+          </div>
+          <div class="field"><label style="color:var(--color-neutral-700)">Remind me</label>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ df.reminds }}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{ o.go }}" style="padding:6px 14px;border-radius:999px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-family:var(--font-body);font-size:14px;cursor:pointer;white-space:nowrap">{{ o.label }}</button></sc-for></div>
+          </div>
+          <sc-if value="{{ df.hasWarn }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-accent-2-700)"><i class="ph-duotone ph-warning" style="font-size:14px"></i>{{ df.warn }}</span></sc-if>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-secondary" onClick="{{ closeDate }}" style="white-space:nowrap;border-radius:10px">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="color:#fff;white-space:nowrap;border-radius:10px">Save date</button>
+        </div>
+      </form>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ holOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" onClick="{{ closeHol }}" style="z-index:60;background:color-mix(in srgb, #000 30%, transparent)">
+      <form class="dialog" onClick="{{ stopProp }}" onSubmit="{{ saveHol }}" style="width:460px;border-radius:16px;background:var(--color-bg);color:var(--color-text)">
+        <div class="dialog-title">Add day off</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ hf.types }}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{ o.go }}" style="padding:6px 14px;border-radius:999px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-family:var(--font-body);font-size:14px;cursor:pointer;white-space:nowrap">{{ o.label }}</button></sc-for></div>
+          <div class="field"><label style="color:var(--color-neutral-700)">Label</label><input class="input" value="{{ hf.t }}" onChange="{{ hf.setT }}" placeholder="e.g. Personal day" style="border-radius:10px;color:var(--color-text)"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="field"><label style="color:var(--color-neutral-700)">From</label><input class="input" type="date" value="{{ hf.from }}" onChange="{{ hf.setFrom }}" style="border-radius:10px;color:var(--color-text)"></div>
+            <div class="field"><label style="color:var(--color-neutral-700)">To</label><input class="input" type="date" value="{{ hf.to }}" onChange="{{ hf.setTo }}" style="border-radius:10px;color:var(--color-text)"></div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ hf.parts }}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{ o.go }}" style="padding:6px 14px;border-radius:999px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font-family:var(--font-body);font-size:14px;cursor:pointer;white-space:nowrap">{{ o.label }}</button></sc-for></div>
+          <sc-if value="{{ hf.hasWarn }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-accent-2-700)"><i class="ph-duotone ph-warning" style="font-size:14px"></i>{{ hf.warn }}</span></sc-if>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-secondary" onClick="{{ closeHol }}" style="white-space:nowrap;border-radius:10px">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="color:#fff;white-space:nowrap;border-radius:10px">Save</button>
+        </div>
+      </form>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:70;padding:12px 20px;border-radius:14px;background:var(--color-text);color:var(--color-bg);font-size:14px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:10px;animation:fdIn .2s ease"><i class="ph-duotone ph-check-circle" style="font-size:14px"></i>{{ toast }}</div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:960}}">
+const P = { FF: 'FaithFlow', ML: 'Mantralok Admin Portal', ST: 'STAX', SG: 'Surviant – General' };
+const SW = { [P.FF]: '#7b7bea', [P.ML]: '#5fa3e8', [P.ST]: '#a77be6', [P.SG]: '#8b8b94' };
+const toMin = s => { const [h, m] = s.split(':').map(Number); return h * 60 + m; };
+const toHM = m => `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`;
+const pad = n => String(n).padStart(2, '0');
+const fmtDur = m => m >= 60 ? `${Math.floor(m / 60)}h${m % 60 ? ' ' + (m % 60) + 'm' : ''}` : `${m}m`;
+const fmt12 = s => { let [h, m] = s.split(':').map(Number); const ap = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12; return `${h}:${pad(m)} ${ap}`; };
+const PR = { high: 'High', med: 'Medium', low: 'Low' };
+const D = (y, m, d) => new Date(y, m - 1, d);
+const TODAY = D(2026, 10, 22), R0 = D(2026, 7, 1), R1 = D(2027, 2, 1);
+const frac = d => Math.min(1, Math.max(0, (d - R0) / (R1 - R0)));
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const fd = d => `${d.getDate()} ${MON[d.getMonth()]}`;
+const fdy = d => `${fd(d)} ${d.getFullYear()}`;
+const iso = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const fromIso = s => { const [y, m, d] = s.split('-').map(Number); return D(y, m, d); };
+const dayDiff = d => Math.round((d - TODAY) / 864e5);
+const sameDay = (a, b) => a.getTime() === b.getTime();
+const whenLabel = d => { const n = dayDiff(d); return n === 0 ? 'today' : n === 1 ? 'tomorrow' : n === -1 ? 'yesterday' : n < 0 ? `${-n}d ago` : `in ${n}d`; };
+const PHASES = ['Discovery', 'Design', 'Dev', 'QA', 'Handover'];
+const SHADES = ['var(--color-accent-300)', 'var(--color-accent-400)', 'var(--color-accent-500)', 'var(--color-accent)', 'var(--color-accent-800)'];
+const DOC_FLOW = ['Missing', 'Draft', 'In review', 'Approved'];
+const DTYPE = { deadline: ['Deadline', 'ph-flag'], meeting: ['Client meeting', 'ph-users-three'], milestone: ['Milestone', 'ph-diamond'], holiday: ['Day off', 'ph-confetti'] };
+const LIGHT = { bg: '#fafafa', surface: '#f3f3f5', card: '#ffffff', text: '#17171a', divider: '#e6e6ea',
+  n1: '#fafafa', n2: '#f1f1f4', n3: '#e6e6ea', n4: '#d4d4da', n5: '#b4b4bc', n6: '#76767f', n7: '#5c5c65', n8: '#3c3c44', n9: '#1f1f24',
+  a: '#5b5bd6', a1: '#f1f1fd', a2: '#e3e3fa', a3: '#c9c9f4', a4: '#9d9dea', a5: '#7b7be0', a6: '#4b4bc4', a7: '#3c3ca8', a8: '#2e2e85', a9: '#1f1f5c',
+  r1: '#fdf0f5', r7: '#b0185e', r8: '#7c1043', holBg: '#fbf3d9', holText: '#6e5300', sh1: '0 0 0 1px #e6e6ea', sh3: '0 20px 50px rgba(20,20,30,.16), 0 0 0 1px #e6e6ea' };
+const DARK = { bg: '#0e0e10', surface: '#141416', card: '#141416', text: '#ececef', divider: '#26262b',
+  n1: '#141416', n2: '#1b1b1f', n3: '#232327', n4: '#2e2e34', n5: '#3d3d45', n6: '#7a7a83', n7: '#8f8f98', n8: '#b8b8c0', n9: '#ececef',
+  a: '#5b5bd6', a1: '#17172a', a2: '#20203d', a3: '#2c2c58', a4: '#40408a', a5: '#5b5bd6', a6: '#6e6ee6', a7: '#a5a5ff', a8: '#c9c9ff', a9: '#e4e4ff',
+  r1: '#2a141e', r7: '#ef8fb6', r8: '#f6b8cf', holBg: '#1d1a10', holText: '#e5cd85', sh1: '0 0 0 1px #232327', sh3: '0 24px 60px rgba(0,0,0,.6), 0 0 0 1px #2a2a30' };
+
+const ck = (phase, arr) => arr.map(([t, d, meta]) => ({ phase, t, d: !!d, meta: meta || '' }));
+const PROJECTS = [
+  { id: 'ff', name: P.FF, status: 'On track', cls: 'tag-accent', start: D(2026, 8, 4), end: D(2026, 12, 12), tasks: [18, 26], hours: '64h 30m',
+    ms: [D(2026, 8, 4), D(2026, 8, 31), D(2026, 9, 28), D(2026, 11, 9), D(2026, 12, 7)],
+    checklist: [...ck(0, [['Stakeholder interviews', 1], ['Scope agreed', 1], ['Success metrics defined', 1]]), ...ck(1, [['Wireframes reviewed', 1], ['Design system tokens', 1]]),
+      ...ck(2, [['API contract agreed', 1, 'Ravi · 2 Oct'], ['Payments sandbox live', 1, '9 Oct'], ['Admin console v2 merged', 0, 'due 30 Oct'], ['Recurring giving feature-complete', 0, 'due 6 Nov']]),
+      ...ck(3, [['Test plan signed off', 0], ['UAT with church admins', 0]]), ...ck(4, [['Handover session', 0]])],
+    docs: [{ t: 'Scope & SOW', phase: 0, s: 3, owner: 'Kalyani', due: D(2026, 8, 8), link: 'SOW_v3.pdf' }, { t: 'PRD · Admin console', phase: 1, s: 3, owner: 'Kalyani', due: D(2026, 9, 5), link: 'Confluence' },
+      { t: 'Design sign-off', phase: 1, s: 3, owner: 'Client', due: D(2026, 9, 26), link: 'Figma' }, { t: 'PRD · Recurring giving', phase: 2, s: 2, owner: 'Kalyani', due: D(2026, 10, 24), link: 'Google Doc' },
+      { t: 'UAT sign-off', phase: 3, s: 0, owner: 'Client', due: D(2026, 11, 30), link: '' }, { t: 'Handover pack', phase: 4, s: 0, owner: 'Kalyani', due: D(2026, 12, 7), link: '' }],
+    dates: [{ t: 'PRD review with client', date: D(2026, 10, 26), type: 'meeting' }, { t: 'Feature freeze', date: D(2026, 11, 6), type: 'deadline' }, { t: 'Go-live', date: D(2026, 12, 12), type: 'deadline' }, { t: 'Kickoff', date: D(2026, 8, 4), type: 'meeting' }] },
+  { id: 'ml', name: P.ML, status: 'At risk', cls: 'tag-accent-2', start: D(2026, 9, 1), end: D(2027, 1, 30), tasks: [9, 22], hours: '38h',
+    ms: [D(2026, 9, 1), D(2026, 9, 29), D(2026, 11, 2), D(2026, 12, 21), D(2027, 1, 25)],
+    checklist: [...ck(0, [['Temple admin interviews', 1], ['Scope agreed', 1]]), ...ck(1, [['Role permission matrix', 1], ['Moderation flows', 1], ['Audit log design', 0, 'due 30 Oct']]),
+      ...ck(2, [['Auth & roles', 0], ['Content moderation', 0], ['Reporting', 0]]), ...ck(3, [['UAT', 0]]), ...ck(4, [['Training session', 0]])],
+    docs: [{ t: 'Scope document', phase: 0, s: 3, owner: 'Kalyani', due: D(2026, 9, 8), link: 'Scope.pdf' }, { t: 'Role permissions spec', phase: 1, s: 1, owner: 'Kalyani', due: D(2026, 10, 28), link: 'Notion' },
+      { t: 'Design sign-off', phase: 1, s: 2, owner: 'Client', due: D(2026, 10, 30), link: 'Figma' }, { t: 'UAT sign-off', phase: 3, s: 0, owner: 'Client', due: D(2027, 1, 15), link: '' }],
+    dates: [{ t: 'Stakeholder demo', date: D(2026, 10, 29), type: 'meeting' }, { t: 'Permissions sign-off', date: D(2026, 11, 2), type: 'deadline' }] },
+  { id: 'st', name: P.ST, status: 'On track', cls: 'tag-accent', start: D(2026, 7, 15), end: D(2026, 11, 28), tasks: [24, 30], hours: '71h 15m',
+    ms: [D(2026, 7, 15), D(2026, 8, 10), D(2026, 9, 7), D(2026, 10, 19), D(2026, 11, 23)],
+    checklist: [...ck(0, [['Market scan', 1], ['Pricing hypotheses', 1]]), ...ck(1, [['Pricing page design', 1], ['Onboarding flow', 1]]),
+      ...ck(2, [['Billing integration', 1], ['Analytics events', 1], ['Pricing page build', 1], ['Onboarding build', 1]]), ...ck(3, [['Regression pass', 1], ['Analytics QA', 1], ['Pricing copy final', 0, 'due 30 Oct']]), ...ck(4, [['Launch checklist', 0]])],
+    docs: [{ t: 'SOW', phase: 0, s: 3, owner: 'Kalyani', due: D(2026, 7, 20), link: 'SOW.pdf' }, { t: 'PRD · Pricing', phase: 1, s: 3, owner: 'Kalyani', due: D(2026, 8, 14), link: 'Confluence' },
+      { t: 'Analytics spec', phase: 2, s: 3, owner: 'Priya', due: D(2026, 9, 20), link: 'Sheet' }, { t: 'Pricing copy', phase: 3, s: 2, owner: 'Kalyani', due: D(2026, 10, 30), link: 'Google Doc' }, { t: 'Handover pack', phase: 4, s: 0, owner: 'Kalyani', due: D(2026, 11, 23), link: '' }],
+    dates: [{ t: 'Analytics brief to stakeholders', date: D(2026, 10, 19), type: 'deadline' }, { t: 'Launch', date: D(2026, 11, 28), type: 'deadline' }, { t: 'Pricing review', date: D(2026, 10, 27), type: 'meeting' }] },
+  { id: 'sg', name: P.SG, status: 'Ongoing', cls: 'tag-neutral', start: D(2026, 1, 1), end: D(2026, 12, 31), tasks: [12, 15], hours: '22h', ms: [],
+    checklist: ck(0, [['Weekly sync notes', 1], ['Monthly report — Sep', 1], ['Laptop refresh request', 1], ['Monthly report — Oct', 0, 'due 31 Oct'], ['Q4 OKRs draft', 0], ['Team offsite plan', 0]]),
+    docs: [{ t: 'Timesheet policy', phase: 0, s: 3, owner: 'HR', due: D(2026, 1, 10), link: 'Policy.pdf' }, { t: 'Leave policy', phase: 0, s: 3, owner: 'HR', due: D(2026, 1, 10), link: 'Policy.pdf' }],
+    dates: [{ t: 'Timesheet due', date: D(2026, 10, 30), type: 'deadline' }, { t: 'Monthly report', date: D(2026, 10, 31), type: 'deadline' }] },
+];
+const WEEK = { [P.FF]: [130, 180, 105], [P.ML]: [90, 45, 140], [P.ST]: [120, 75, 60], [P.SG]: [45, 60, 30] };
+
+const NP_TPL = {
+  standard: { label: 'Client project', sub: '5 phases · 11 checks · 5 docs', ck: [[0,'Stakeholder interviews'],[0,'Scope agreed'],[0,'Success metrics defined'],[1,'Wireframes reviewed'],[1,'Design sign-off'],[2,'API contract agreed'],[2,'Feature-complete'],[3,'Test plan signed off'],[3,'UAT with client'],[4,'Handover session'],[4,'Team training']],
+    docs: [['Scope & SOW',0,'Kalyani',1],['PRD',1,'Kalyani',0],['Design sign-off',1,'Client',1],['UAT sign-off',3,'Client',1],['Handover pack',4,'Kalyani',0]] },
+  internal: { label: 'Internal initiative', sub: 'Lighter · 6 checks · 2 docs', ck: [[0,'Problem statement'],[0,'Success metrics'],[1,'Solution review'],[2,'Build complete'],[3,'Internal testing'],[4,'Rollout announcement']], docs: [['One-pager',0,'Kalyani',1],['Rollout note',4,'Kalyani',0]] },
+  blank: { label: 'Start blank', sub: 'Add your own later', ck: [], docs: [] }
+};
+const docSrc = u => { const x = (u || '').toLowerCase();
+  const m = [['docs.google', 'Google Doc', 'ph-file-doc'], ['drive.google', 'Google Drive', 'ph-google-drive-logo'], ['figma.com', 'Figma', 'ph-figma-logo'], ['notion.', 'Notion', 'ph-notebook'], ['atlassian', 'Confluence', 'ph-file-text'], ['confluence', 'Confluence', 'ph-file-text'], ['sharepoint', 'SharePoint', 'ph-microsoft-word-logo'], ['onedrive', 'OneDrive', 'ph-cloud'], ['loom.com', 'Loom', 'ph-video-camera']].find(r => x.includes(r[0]));
+  if (m) return { label: m[1], icon: m[2] };
+  let host = ''; try { host = new URL(/^https?:/.test(x) ? u : 'https://' + u).hostname.replace(/^www\./, ''); } catch (e) {}
+  return { label: host || 'Link', icon: 'ph-link' }; };
+const NP_COLORS = ['#4fbf9f', '#e0a458', '#e07b9a', '#7b7bea', '#5fa3e8', '#a77be6'];
+const npIso = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+const npSpread = (a0, b0) => { const a = fromIso(a0), b = fromIso(b0), days = Math.max(5, (b - a) / 864e5);
+  return [0, .15, .35, .7, .9].map(x => { const d = new Date(a.getFullYear(), a.getMonth(), a.getDate() + Math.round(days * x)); while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1); return npIso(d); }); };
+const npApply = k => ({ tpl: k, ck: NP_TPL[k].ck.map(([phase, t]) => ({ phase, t, on: true })), docs: NP_TPL[k].docs.map(([t, phase, owner, gate]) => ({ t, phase, owner, gate: !!gate, on: true })) });
+
+class Component extends DCLogic {
+  state = {
+    screen: 'today', theme: 'dark', projView: 'grid', projId: 'ff', projTab: 'overview', tsView: 'week', setTab: 'timer',
+    focusLen: 25, longBreak: 15, askRating: true, rating: null,
+    remaining: 18 * 60 + 42, running: true, mode: 'focus', cycleDone: 3, sessionStart: '14:46', lastLogged: 0,
+    clockedIn: true, clockOutOpen: false, moveOpen: true, current: 1, sel: null, focusMode: false,
+    showDone: {}, draft: '', draftProject: P.FF, subDraft: '', logOpen: false, logError: '',
+    lf: { task: '', project: P.FF, from: '12:05', to: '13:00' },
+    projects: PROJECTS, collapsed: {}, ckDraft: {}, docDraft: '', docPhase: '2', calMonth: 10,
+    dateOpen: false, df: { t: '', date: '2026-10-30', type: 'deadline', remind: '1 day before' }, dfError: '',
+    holOpen: false, hf: { t: '', from: '2026-11-20', to: '2026-11-20', type: 'leave', part: 'Full day' },
+    holidays: [
+      { id: 1, t: 'Dussehra', from: D(2026, 10, 23), to: D(2026, 10, 23), type: 'public', part: 'Full day' },
+      { id: 2, t: 'Diwali', from: D(2026, 11, 9), to: D(2026, 11, 10), type: 'public', part: 'Full day' },
+      { id: 3, t: 'Personal day', from: D(2026, 11, 20), to: D(2026, 11, 20), type: 'leave', part: 'Full day' },
+      { id: 4, t: 'Doctor', from: D(2026, 12, 4), to: D(2026, 12, 4), type: 'leave', part: 'PM half' },
+      { id: 5, t: 'Christmas', from: D(2026, 12, 25), to: D(2026, 12, 25), type: 'public', part: 'Full day' },
+    ],
+    toast: '', submitted: false,
+    tasks: [
+      { id: 1, title: 'Write PRD: recurring giving', project: P.FF, pr: 'high', est: '2h', major: true, due: 'Today',
+        notes: 'Cover monthly and annual cadences, failed-payment retries, and how donors pause or cancel from the app.',
+        subs: [{ t: 'Problem statement & goals', d: true }, { t: 'User stories for donors and admins', d: true }, { t: 'Edge cases: failed payments', d: false }, { t: 'Success metrics', d: false }] },
+      { id: 2, title: 'Admin console review', project: P.FF, pr: 'med', est: '30m', done: true, due: 'Today' },
+      { id: 3, title: 'Reply to design on onboarding copy', project: P.FF, pr: 'low', est: '15m', due: 'Today' },
+      { id: 4, title: 'Finalise role permissions spec', project: P.ML, pr: 'high', est: '1h 30m', major: true, due: 'Today',
+        notes: 'Three roles: super admin, temple admin, content editor. Confirm audit trail needs with engineering.',
+        subs: [{ t: 'Permission matrix', d: true }, { t: 'Review with engineering', d: false }] },
+      { id: 5, title: 'Sign off content moderation flows', project: P.ML, pr: 'med', est: '45m', done: true, due: 'Today' },
+      { id: 6, title: 'Draft Q4 roadmap one-pager', project: P.ST, pr: 'med', est: '1h', major: true, due: 'Today',
+        subs: [{ t: 'Collect themes from last retro', d: false }, { t: 'Rank by impact', d: false }, { t: 'Share draft with leads', d: false }] },
+      { id: 7, title: 'Pricing page feedback', project: P.ST, pr: 'low', est: '25m', done: true, due: 'Today' },
+      { id: 8, title: 'Weekly sync notes', project: P.SG, pr: 'med', est: '45m', done: true, due: 'Today' },
+      { id: 9, title: 'Submit last week’s timesheet', project: P.SG, pr: 'low', est: '10m', due: 'Today' },
+      { id: 10, title: 'Send STAX analytics brief', project: P.ST, pr: 'high', est: '30m', overdue: true, due: 'Mon' },
+      { id: 11, title: 'Update FaithFlow release notes', project: P.FF, pr: 'med', est: '20m', overdue: true, due: 'Tue' },
+      { id: 12, title: 'QA test plan', project: P.FF, pr: 'med', est: '1h', due: 'Next week', later: true },
+      { id: 13, title: 'Audit log requirements', project: P.ML, pr: 'high', est: '1h', due: 'Mon', later: true },
+    ],
+    log: [
+      { from: '14:25', to: '14:45', task: 'Onboarding funnel review', project: P.ST },
+      { from: '13:55', to: '14:20', task: 'Content moderation flows', project: P.ML },
+      { from: '13:00', to: '13:45', task: 'Weekly sync', project: P.SG },
+      { from: '11:40', to: '12:05', task: 'Pricing page feedback', project: P.ST },
+      { from: '10:50', to: '11:30', task: 'Role permissions spec', project: P.ML, manual: true },
+      { from: '10:15', to: '10:40', task: 'Sprint planning notes', project: P.FF },
+      { from: '9:45', to: '10:10', task: 'Admin console review', project: P.FF },
+    ],
+  };
+
+  componentDidMount() {
+    this.iv = setInterval(() => {
+      const s = this.state; if (!s.running) return;
+      if (s.remaining <= 1) { if (s.mode === 'focus') this.endSession(); else this.setState({ remaining: 0, running: false, toast: 'Break’s over — ready when you are' }, this.autoToast); }
+      else this.setState({ remaining: s.remaining - 1 });
+    }, 1000);
+    this.onKey = e => { if (e.key === 'Escape') this.setState({ phOpen: false, npOpen: false, docOpen: false, focusMode: false, logOpen: false, sel: null, dateOpen: false, holOpen: false, clockOutOpen: false }); };
+    window.addEventListener('keydown', this.onKey);
+  }
+  phPatch(o) { this.setState(x => ({ phf: { ...x.phf, ...o }, phErr: '' })); }
+  openPhases() {
+    const s = this.state, p = s.projects.find(x => x.id === s.projId); if (!p) return;
+    const names = p.phases || PHASES;
+    const rows = p.ms.length ? p.ms.map((d, i) => ({ key: 'o' + i, name: names[i], date: npIso(d), orig: i }))
+      : npSpread(npIso(p.start), npIso(p.end)).map((d, i) => ({ key: 'n' + i, name: PHASES[i], date: d, orig: null }));
+    this.setState({ phOpen: true, phErr: '', phf: { rows, end: npIso(p.end), start: npIso(p.start) } });
+  }
+  phMap(p, rows) {
+    const oldLen = p.ms.length || 1, map = [];
+    for (let o = 0; o < oldLen; o++) {
+      let n = rows.findIndex(r => r.orig === o);
+      if (n < 0) { for (let q = o - 1; q >= 0 && n < 0; q--) n = rows.findIndex(r => r.orig === q); if (n < 0) for (let q = o + 1; q < oldLen && n < 0; q++) n = rows.findIndex(r => r.orig === q); if (n < 0) n = 0; }
+      map[o] = n;
+    }
+    return map;
+  }
+  savePhases() {
+    const s = this.state, f = s.phf, rows = f.rows, err = m => this.setState({ phErr: m });
+    if (rows.length < 1) return err('Keep at least one phase.');
+    if (rows.some(r => !r.name.trim())) return err('Every phase needs a name.');
+    for (let i = 0; i < rows.length; i++) { if (!rows[i].date) return err('Pick a start date for ' + rows[i].name + '.'); if (i && rows[i].date <= rows[i - 1].date) return err(rows[i].name + ' must start after ' + rows[i - 1].name + '.'); }
+    if (!f.end || f.end <= rows[rows.length - 1].date) return err('The project has to end after the last phase starts.');
+    const p = s.projects.find(x => x.id === s.projId), map = this.phMap(p, rows);
+    let moved = 0;
+    const remap = it => { const n = map[it.phase] == null ? 0 : map[it.phase]; if (rows[n].orig !== it.phase) moved++; return { ...it, phase: n }; };
+    this.updProj(s.projId, x => ({ ...x, phases: rows.map(r => r.name.trim()), ms: rows.map(r => fromIso(r.date)), start: fromIso(rows[0].date), end: fromIso(f.end), checklist: x.checklist.map(remap), docs: x.docs.map(remap) }));
+    this.setState({ phOpen: false });
+    this.say('Phases updated' + (moved ? ' · ' + moved + ' item' + (moved > 1 ? 's' : '') + ' moved' : ''));
+  }
+  phVals() {
+    const s = this.state, f = s.phf, openPhases = () => this.openPhases();
+    const pcur = s.projects.find(x => x.id === s.projId);
+    const pjOngoing = s.screen === 'project' && !!pcur && !pcur.ms.length;
+    if (!s.phOpen || !f) return { phOpen: false, openPhases, pjOngoing };
+    const p = pcur, rows = f.rows;
+    const total = Math.max(1, (fromIso(f.end) - fromIso(rows[0] ? rows[0].date : f.start)) / 864e5);
+    const wk = n => n < 14 ? Math.round(n) + 'd' : Math.round(n / 7) + ' wk';
+    const setRows = r => this.phPatch({ rows: r });
+    const mid = (a, b) => { const x = fromIso(a), y = fromIso(b); return npIso(new Date((x.getTime() + y.getTime()) / 2)); };
+    const phRows = rows.map((r, i) => {
+      const nxt = i < rows.length - 1 ? rows[i + 1].date : f.end;
+      const dur = r.date && nxt ? Math.max(0, (fromIso(nxt) - fromIso(r.date)) / 864e5) : 0;
+      const h = this.npHol(r.date), dow = r.date ? fromIso(r.date).getDay() : 1;
+      const warn = h ? 'Starts on ' + h.t : (dow === 0 || dow === 6) ? 'Starts on a weekend' : '';
+      const nCk = r.orig == null ? 0 : p.checklist.filter(c => c.phase === r.orig).length, nDoc = r.orig == null ? 0 : p.docs.filter(d => d.phase === r.orig).length;
+      return { num: i + 1, name: r.name, date: r.date, shade: SHADES[i % SHADES.length], dur: wk(dur), pct: (dur / total * 100) + '%', warn, hasWarn: !!warn,
+        meta: r.orig == null ? 'New' : (nCk + ' checks · ' + nDoc + ' docs'), canRemove: rows.length > 1,
+        setName: e => setRows(rows.map((x, j) => j === i ? { ...x, name: e.target.value } : x)),
+        setDate: e => setRows(rows.map((x, j) => j === i ? { ...x, date: e.target.value } : x)),
+        insert: () => { const d = mid(r.date, nxt); const c = [...rows]; c.splice(i + 1, 0, { key: 'n' + Date.now(), name: 'New phase', date: d, orig: null }); setRows(c); },
+        remove: () => setRows(rows.filter((x, j) => j !== i)) };
+    });
+    const map = this.phMap(p, rows), notes = [];
+    (p.ms.length ? (p.phases || PHASES) : []).forEach((name, o) => { if (rows.some(r => r.orig === o)) return; const n = p.checklist.filter(c => c.phase === o).length + p.docs.filter(d => d.phase === o).length; if (n) notes.push('Removing ' + name + ' moves ' + n + ' item' + (n > 1 ? 's' : '') + ' to ' + (rows[map[o]] ? rows[map[o]].name : 'the first phase')); });
+    return { phOpen: true, openPhases, pjOngoing, phf: f, phRows, phNotes: notes, phHasNotes: notes.length > 0,
+      phSetEnd: e => this.phPatch({ end: e.target.value }), phEndLabel: f.end ? fdy(fromIso(f.end)) : '—',
+      phAddEnd: () => { const last = rows[rows.length - 1]; setRows([...rows, { key: 'n' + Date.now(), name: 'New phase', date: last ? mid(last.date, f.end) : f.start, orig: null }]); },
+      phSpread: () => { const sp = npSpread(rows[0] ? rows[0].date : f.start, f.end); const n = rows.length; const a = fromIso(sp[0]), b = fromIso(f.end), days = (b - a) / 864e5;
+        setRows(rows.map((r, i) => { const d = new Date(a.getFullYear(), a.getMonth(), a.getDate() + Math.round(days * i / n)); while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1); return { ...r, date: npIso(d) }; })); },
+      phErr: s.phErr, phHasErr: !!s.phErr, phTitle: p.ms.length ? 'Edit phases' : 'Add phases',
+      closePhases: () => this.setState({ phOpen: false }), savePhases: e => { e.preventDefault(); this.savePhases(); } };
+  }
+  dcfPatch(o) { this.setState(x => ({ dcf: { ...x.dcf, ...o }, dcfErr: '' })); }
+  openDocDlg(idx) {
+    const s = this.state, p = s.projects.find(x => x.id === s.projId); if (!p) return;
+    const d = idx == null ? null : p.docs[idx];
+    let ph = 0; if (p.ms && p.ms.length) p.ms.forEach((m, i) => { if (m <= TODAY) ph = i; });
+    this.setState({ docOpen: true, dcfErr: '', dcf: d
+      ? { idx, t: d.t, phase: String(d.phase), owner: d.owner, due: npIso(d.due), s: d.s, kind: d.url ? 'link' : d.link ? 'file' : 'link', url: d.url || '', file: d.url ? '' : (d.link || ''), gate: d.req !== false }
+      : { idx: null, t: '', phase: String(ph), owner: 'Kalyani', due: npIso(p.end), s: 0, kind: 'link', url: '', file: '', gate: true } });
+  }
+  saveDocDlg() {
+    const s = this.state, f = s.dcf, err = m => this.setState({ dcfErr: m });
+    if (!f.t.trim()) return err('Give the document a name.');
+    if (f.kind === 'link') { if (!f.url.trim()) return err('Paste a link, or choose “Add later”.'); if (!/^(https?:\/\/)?[\w-]+(\.[\w-]+)+/i.test(f.url.trim())) return err('That doesn’t look like a link.'); }
+    if (f.kind === 'file' && !f.file) return err('Choose a file to attach.');
+    if (!f.due) return err('Pick a due date.');
+    const url = f.kind === 'link' ? (/^https?:/i.test(f.url.trim()) ? f.url.trim() : 'https://' + f.url.trim()) : '';
+    const doc = { t: f.t.trim(), phase: Number(f.phase), s: f.s, owner: f.owner.trim() || 'Kalyani', due: fromIso(f.due), link: f.kind === 'link' ? docSrc(url).label : f.kind === 'file' ? f.file : '', url, req: f.gate };
+    this.updProj(s.projId, p => ({ ...p, docs: f.idx == null ? [...p.docs, doc] : p.docs.map((x, j) => j === f.idx ? { ...x, ...doc } : x) }));
+    this.setState({ docOpen: false }); this.say((f.idx == null ? 'Added ' : 'Updated ') + doc.t);
+  }
+  docDlgVals() {
+    const s = this.state, f = s.dcf, openDocNew = () => this.openDocDlg(null);
+    if (!s.docOpen || !f) return { docOpen: false, openDocNew };
+    const p = s.projects.find(x => x.id === s.projId);
+    const set = k => e => this.dcfPatch({ [k]: e.target.value });
+    const src = docSrc(f.url);
+    return { docOpen: true, openDocNew, dcf: f,
+      dcfTitle: f.idx == null ? 'Add document' : 'Edit document', dcfSaveLabel: f.idx == null ? 'Add document' : 'Save changes',
+      dcfSet: { t: set('t'), phase: set('phase'), owner: set('owner'), due: set('due'), url: set('url') },
+      dcfStatuses: DOC_FLOW.map((label, i) => ({ label, ...this.pill(f.s === i), go: () => this.dcfPatch({ s: i }) })),
+      dcfKinds: [['link', 'Paste a link', 'ph-link'], ['file', 'Attach a file', 'ph-paperclip'], ['later', 'Add later', 'ph-clock']].map(([k, label, icon]) => ({ label, icon, ...this.pill(f.kind === k), go: () => this.dcfPatch({ kind: k }) })),
+      dcfIsLink: f.kind === 'link', dcfIsFile: f.kind === 'file', dcfIsLater: f.kind === 'later',
+      dcfHasSrc: !!f.url.trim(), dcfSrc: src.label, dcfSrcIcon: src.icon,
+      dcfFileLabel: f.file || 'Choose a file from your computer', dcfSetFile: e => { const fl = e.target.files && e.target.files[0]; if (fl) this.dcfPatch({ file: fl.name }); },
+      dcfPhaseName: p && p.ms && p.ms.length ? ((p.phases || PHASES)[Number(f.phase)] || 'this phase') : 'the project',
+      dcfToggleGate: () => this.dcfPatch({ gate: !f.gate }), dcfGateTrack: f.gate ? 'var(--color-accent)' : 'var(--color-neutral-400)', dcfGateKnob: f.gate ? '16px' : '2px',
+      dcfErr: s.dcfErr, dcfHasErr: !!s.dcfErr,
+      closeDocDlg: () => this.setState({ docOpen: false }),
+      saveDocDlg: e => { e.preventDefault(); this.saveDocDlg(); } };
+  }
+  npPatch(o) { this.setState(s => ({ np: { ...s.np, ...o }, npError: '' })); }
+  npHol(iso) { if (!iso) return null; const d = fromIso(iso); return this.state.holidays.find(h => d >= h.from && d <= h.to) || null; }
+  npValidate() {
+    const s = this.state, np = s.np;
+    if (s.npStep === 0) {
+      if (!np.name.trim()) return 'Give the project a name.';
+      if (s.projects.some(p => p.name.toLowerCase() === np.name.trim().toLowerCase())) return 'A project with this name already exists.';
+      if (!np.start || !np.end) return 'Pick a start and end date.';
+      if (fromIso(np.end) <= fromIso(np.start)) return 'End date needs to be after the start date.';
+    }
+    if (s.npStep === 1 && !np.ongoing) {
+      if (np.ms[0] < np.start) return 'Discovery can’t start before the project start date.';
+      for (let i = 1; i < 5; i++) if (!np.ms[i] || np.ms[i] <= np.ms[i - 1]) return PHASES[i] + ' must start after ' + PHASES[i - 1] + '.';
+      if (np.ms[4] >= np.end) return 'Handover must start before the end date.';
+    }
+    return '';
+  }
+  npCreate() {
+    const s = this.state, np = s.np, name = np.name.trim();
+    SW[name] = np.color;
+    const ms = np.ongoing ? [] : np.ms.map(fromIso);
+    const proj = { id: 'np' + Date.now(), name, client: np.client.trim(), status: 'On track', cls: 'tag-accent', start: fromIso(np.start), end: fromIso(np.end), tasks: [0, 0], hours: '0h', ms,
+      checklist: np.ck.filter(c => c.on).map(c => ({ phase: c.phase, t: c.t, d: false, meta: '' })),
+      docs: np.docs.filter(d => d.on).map(d => ({ t: d.t, phase: d.phase, s: 0, owner: d.owner, due: fromIso(np.ongoing ? np.end : (np.ms[d.phase + 1] || np.end)), link: '', req: d.gate })),
+      dates: np.kickoff ? [{ t: 'Kickoff', date: fromIso(np.start), type: 'meeting' }] : [] };
+    this.setState({ projects: [...s.projects, proj], npOpen: false, screen: 'project', projId: proj.id, projTab: 'overview', sel: null });
+    this.say('Created ' + name);
+  }
+  npVals() {
+    const s = this.state, np = s.np;
+    const openNewProject = () => this.setState({ npOpen: true, npStep: 0, npError: '', np: { name: '', client: '', color: NP_COLORS[0], start: '2026-11-02', end: '2027-02-19', ongoing: false, ms: npSpread('2026-11-02', '2027-02-19'), msTouched: false, kickoff: true, ckDraft: '', ckPhase: '0', ...npApply('standard') } });
+    if (!s.npOpen || !np) return { npOpen: false, openNewProject };
+    const step = s.npStep, hasPhases = !np.ongoing;
+    const set = k => e => this.npPatch({ [k]: e.target.value });
+    const total = Math.max(1, (fromIso(np.end) - fromIso(np.start)) / 864e5);
+    const wk = n => n < 14 ? Math.round(n) + 'd' : Math.round(n / 7) + ' wk';
+    const warns = [];
+    const phases = PHASES.map((name, i) => {
+      const nxt = i < 4 ? np.ms[i + 1] : np.end;
+      const dur = Math.max(0, (fromIso(nxt) - fromIso(np.ms[i])) / 864e5);
+      const h = this.npHol(np.ms[i]); const dow = np.ms[i] ? fromIso(np.ms[i]).getDay() : 1;
+      const warn = h ? 'Starts on ' + h.t : (dow === 0 || dow === 6) ? 'Starts on a weekend' : '';
+      if (warn) warns.push(name + ': ' + warn.toLowerCase());
+      return { num: i + 1, name, date: np.ms[i], shade: SHADES[i], dur: wk(dur), pct: (dur / total * 100) + '%', warn, dateLabel: np.ms[i] ? fd(fromIso(np.ms[i])) : '—',
+        set: e => { const ms = [...np.ms]; ms[i] = e.target.value; this.npPatch({ ms, msTouched: true }); } };
+    });
+    const endHol = this.npHol(np.end); if (endHol) warns.push('End date falls on ' + endHol.t);
+    const gates = np.docs.filter(d => d.on && d.gate).length;
+    if (!gates && np.docs.length) warns.push('No gate documents: phases can close without sign-off');
+    const box = on => ({ boxBg: on ? 'var(--color-accent)' : 'transparent', boxBorder: on ? 'var(--color-accent)' : 'var(--color-neutral-500)', op: on ? 1 : 0.45, checkOp: on ? 1 : 0 });
+    const ckGroups = PHASES.map((name, phase) => ({ name, items: np.ck.map((c, i) => ({ c, i })).filter(x => x.c.phase === phase).map(({ c, i }) => ({ t: c.t, ...box(c.on),
+      toggle: () => this.npPatch({ ck: np.ck.map((x, j) => j === i ? { ...x, on: !x.on } : x) }) })) })).filter(g => g.items.length);
+    const docs = np.docs.map((d, i) => ({ t: d.t, meta: PHASES[d.phase] + ' · ' + d.owner, ...box(d.on),
+      gateBg: d.gate ? 'var(--color-accent-100)' : 'transparent', gateColor: d.gate ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', gateBorder: d.gate ? 'var(--color-accent-300)' : 'var(--color-neutral-300)', gateLabel: d.gate ? 'Gate' : 'Optional',
+      toggle: () => this.npPatch({ docs: np.docs.map((x, j) => j === i ? { ...x, on: !x.on } : x) }),
+      toggleGate: e => { e.stopPropagation(); this.npPatch({ docs: np.docs.map((x, j) => j === i ? { ...x, gate: !x.gate } : x) }); } }));
+    const ckOn = np.ck.filter(c => c.on).length, docOn = np.docs.filter(d => d.on).length;
+    const track = on => on ? 'var(--color-accent)' : 'var(--color-neutral-400)';
+    return {
+      npOpen: true, openNewProject, np,
+      npClose: () => this.setState({ npOpen: false }),
+      npSet: { name: set('name'), client: set('client'), ckDraft: set('ckDraft'), ckPhase: set('ckPhase') },
+      npSetStart: e => { const v = e.target.value; this.npPatch({ start: v, ...(np.msTouched || !v ? {} : { ms: npSpread(v, np.end) }) }); },
+      npSetEnd: e => { const v = e.target.value; this.npPatch({ end: v, ...(np.msTouched || !v ? {} : { ms: npSpread(np.start, v) }) }); },
+      npColors: NP_COLORS.map(hex => ({ hex, ring: np.color === hex ? '0 0 0 2px var(--color-bg), 0 0 0 4px ' + hex : 'none', go: () => this.npPatch({ color: hex }) })),
+      npToggleOngoing: () => this.npPatch({ ongoing: !np.ongoing }), npOngoingTrack: track(np.ongoing), npOngoingKnob: np.ongoing ? '16px' : '2px',
+      npToggleKickoff: () => this.npPatch({ kickoff: !np.kickoff }), npKickTrack: track(np.kickoff), npKickKnob: np.kickoff ? '16px' : '2px',
+      npSteps: ['Basics', 'Phases', 'Checklist & docs', 'Review'].map((label, i) => ({ num: '0' + (i + 1), label,
+        bar: i <= step ? 'var(--color-accent)' : 'var(--color-neutral-300)', color: i === step ? 'var(--color-text)' : i < step ? 'var(--color-neutral-800)' : 'var(--color-neutral-600)',
+        weight: i === step ? 600 : 400, cursor: i < step ? 'pointer' : 'default', go: () => { if (i < step) this.setState({ npStep: i, npError: '' }); } })),
+      npS0: step === 0, npS1: step === 1, npS2: step === 2, npS3: step === 3, npHasPhases: hasPhases, npOngoingPhases: step === 1 && np.ongoing,
+      npPhases: phases, npSpan: wk(total) + ' (' + fd(fromIso(np.start)) + ' – ' + fdy(fromIso(np.end)) + ')',
+      npSpread: () => this.npPatch({ ms: npSpread(np.start, np.end), msTouched: false }),
+      npEndLabel: fdy(fromIso(np.end)), npStartLabel: fd(fromIso(np.start)),
+      npTpls: Object.keys(NP_TPL).map(k => ({ label: NP_TPL[k].label, sub: NP_TPL[k].sub, ...this.pill(np.tpl === k), go: () => this.npPatch(npApply(k)) })),
+      npCk: ckGroups, npHasCk: ckGroups.length > 0, npDocs: docs, npHasDocs: docs.length > 0,
+      npAddCk: e => { e.preventDefault(); const v = np.ckDraft.trim(); if (!v) return; this.npPatch({ ck: [...np.ck, { phase: Number(np.ckPhase), t: v, on: true }], ckDraft: '' }); },
+      npCkCount: ckOn + ' of ' + np.ck.length, npDocCount: docOn + ' · ' + gates + ' gate',
+      npSummary: [np.client.trim(), np.ongoing ? 'Ongoing from ' + fd(fromIso(np.start)) : fd(fromIso(np.start)) + ' – ' + fdy(fromIso(np.end))].filter(Boolean).join(' · '),
+      npStats: [[ckOn, 'checklist items'], [docOn, docOn === 1 ? 'document' : 'documents'], [np.ongoing ? '—' : 5, 'phases']].map(([n, l]) => ({ n, l })),
+      npWarns: warns, npHasWarn: warns.length > 0, npError: s.npError, npHasError: !!s.npError,
+      npShowBack: step > 0, npNextLabel: step === 3 ? 'Create project' : 'Continue',
+      npBack: () => this.setState({ npStep: step - 1, npError: '' }),
+      npNext: () => { const err = this.npValidate(); if (err) return this.setState({ npError: err }); if (step === 3) return this.npCreate(); this.setState({ npStep: step + 1 }); }
+    };
+  }
+  componentWillUnmount() { clearInterval(this.iv); clearTimeout(this.tt); window.removeEventListener('keydown', this.onKey); }
+  autoToast = () => { clearTimeout(this.tt); this.tt = setTimeout(() => this.setState({ toast: '' }), 2600); };
+  say(msg) { this.setState({ toast: msg }, this.autoToast); }
+  total() { return this.state.focusLen * 60; }
+  breakLen() { return this.state.cycleDone >= 4 ? this.state.longBreak : 5; }
+
+  endSession = () => {
+    const s = this.state; if (s.mode !== 'focus') return;
+    const mins = Math.max(1, Math.round((this.total() - s.remaining) / 60));
+    const cur = s.tasks.find(t => t.id === s.current) || s.tasks[0];
+    const to = toHM(toMin(s.sessionStart) + mins);
+    const cycleDone = s.cycleDone + 1;
+    this.setState({ log: [{ from: s.sessionStart, to, task: cur.title.replace(/^Write /, ''), project: cur.project }, ...s.log], cycleDone, lastLogged: mins,
+      mode: 'break', remaining: (cycleDone >= 4 ? s.longBreak : 5) * 60, running: false, focusMode: true, rating: null });
+  };
+  nextFocus = () => {
+    const s = this.state, last = s.log[0];
+    this.setState({ mode: 'focus', remaining: this.total(), running: false, cycleDone: s.cycleDone >= 4 ? 0 : s.cycleDone,
+      sessionStart: toHM(toMin(last ? last.to : '15:00') + Math.max(0, Math.round((this.breakLen() * 60 - s.remaining) / 60))) });
+  };
+  upd(id, fn) { this.setState(s => ({ tasks: s.tasks.map(t => t.id === id ? fn(t) : t) })); }
+  updProj(pid, fn) { this.setState(s => ({ projects: s.projects.map(p => p.id === pid ? fn(p) : p) })); }
+  subsOf(t) {
+    return (t.subs || []).map((st, i) => ({ title: st.t, done: st.d, color: st.d ? 'var(--color-neutral-600)' : 'var(--color-text)', decoration: st.d ? 'line-through' : 'none',
+      toggle: () => this.upd(t.id, x => ({ ...x, subs: x.subs.map((y, j) => j === i ? { ...y, d: !y.d } : y) })),
+      remove: () => this.upd(t.id, x => ({ ...x, subs: x.subs.filter((_, j) => j !== i) })) }));
+  }
+  subLabel(t) { return t.subs && t.subs.length ? `${t.subs.filter(s => s.d).length}/${t.subs.length}` : ''; }
+  holidayOn(d) { return this.state.holidays.find(h => d >= h.from && d <= h.to); }
+  holDays(h) { return Math.round((h.to - h.from) / 864e5) + 1; }
+  pill(active) { return { border: active ? 'var(--color-accent)' : 'var(--color-divider)', bg: active ? 'var(--color-accent)' : 'transparent', color: active ? '#fff' : 'var(--color-text)' }; }
+  seg(active) { return { bg: active ? 'var(--color-bg)' : 'transparent', color: active ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', shadow: active ? 'var(--shadow-sm)' : 'none' }; }
+
+  projDates(p) {
+    const own = p.dates.map((d, i) => ({ ...d, idx: i }));
+    const ms = p.ms.map((d, i) => ({ t: `${(p.phases || PHASES)[i]} starts`, date: d, type: 'milestone', auto: true }));
+    const hol = this.state.holidays.filter(h => h.from >= p.start && h.from <= p.end).map(h => ({ t: h.t, date: h.from, type: 'holiday', auto: true }));
+    return [...own, ...ms, ...hol].sort((a, b) => a.date - b.date);
+  }
+  projView(p) {
+    const PH = p.phases || PHASES;
+    const ongoing = !p.ms.length;
+    const idx = p.ms.reduce((a, d, i) => d <= TODAY ? i : a, -1);
+    const phase = ongoing ? 'Ongoing support' : idx < 0 ? 'Not started' : `In ${PH[idx]}${idx < PH.length - 1 ? ` · ${PH[idx + 1]} on ${fd(p.ms[idx + 1])}` : ''}`;
+    const ckDone = p.checklist.filter(c => c.d).length, docOk = p.docs.filter(d => d.s === 3).length;
+    const l = frac(p.start), r = frac(p.end), bounds = [...p.ms, p.end];
+    const nd = this.projDates(p).find(d => d.date >= TODAY && d.type !== 'holiday');
+    return {
+      ...p, swatch: SW[p.name], statusClass: p.cls, ongoing, curIdx: Math.max(0, idx), phase, phaseShort: ongoing ? 'Ongoing' : idx < 0 ? 'Not started' : PH[idx],
+      range: ongoing ? 'Jan – Dec 2026' : `${fd(p.start)} – ${fdy(p.end)}`,
+      tasksDone: p.tasks[0], tasksTotal: p.tasks[1], taskPct: `${(p.tasks[0] / (p.tasks[1] || 1)) * 100}%`, taskPctLabel: `${Math.round((p.tasks[0] / (p.tasks[1] || 1)) * 100)}%`,
+      checkLabel: `${ckDone}/${p.checklist.length}`, docLabel: `${docOk}/${p.docs.length}`,
+      checkTicks: p.checklist.map(c => ({ bg: c.d ? 'var(--color-accent)' : 'var(--color-neutral-300)' })),
+      nextDate: nd ? `${fd(nd.date)} · ${nd.t}` : '—',
+      open: () => this.setState({ screen: 'project', projId: p.id, projTab: 'overview', calMonth: 10 }),
+      left: `${l * 100}%`, width: `${(r - l) * 100}%`,
+      segments: ongoing ? [{ width: '100%', bg: 'var(--color-neutral-400)', label: 'Ongoing' }] :
+        p.ms.map((d, i) => ({ width: `${((bounds[i + 1] - d) / (p.end - p.start)) * 100}%`, bg: SHADES[i % SHADES.length], label: `${PH[i]} · ${fd(d)} – ${fd(bounds[i + 1])}` })),
+      milestones: p.ms.map((d, i) => { const off = this.holidayOn(d); return { label: off ? `⚠ ${PH[i]}` : PH[i], date: off ? `${fd(d)} · ${off.t}` : fd(d), left: `${frac(d) * 100}%`,
+        fill: d <= TODAY ? 'var(--color-accent-700)' : 'var(--card)', color: off ? 'var(--color-accent-2-700)' : d <= TODAY ? 'var(--color-neutral-700)' : 'var(--color-text)',
+        dateColor: off ? 'var(--color-accent-2-700)' : 'var(--color-neutral-600)' }; }),
+    };
+  }
+
+  renderVals() {
+    const s = this.state, total = this.total(), rem = s.remaining;
+    const isFocus = s.mode === 'focus', fullLen = isFocus ? total : this.breakLen() * 60;
+    const cur = s.tasks.find(t => t.id === s.current) || s.tasks[0];
+    const focusedMin = s.log.reduce((a, l) => a + toMin(l.to) - toMin(l.from), 0);
+    const th = s.theme === 'dark' ? DARK : LIGHT;
+    const go = k => e => { e && e.preventDefault && e.preventDefault(); this.setState({ screen: k, sel: null }); };
+
+    const row = t => ({
+      ...t, prLabel: PR[t.pr], select: () => this.setState({ sel: t.id, subDraft: '' }),
+      toggle: e => { e && e.stopPropagation(); this.upd(t.id, x => ({ ...x, done: !x.done })); if (!t.done) this.say(`Done: ${t.title}`); },
+      boxBg: t.done ? 'var(--color-accent)' : 'transparent', boxBorder: t.done ? 'var(--color-accent)' : 'var(--color-neutral-500)',
+      checkOpacity: t.done ? 1 : 0, decoration: t.done ? 'line-through' : 'none', titleColor: t.done ? 'var(--color-neutral-600)' : 'var(--color-text)',
+      priorityBg: t.pr === 'high' ? 'var(--color-accent)' : t.pr === 'med' ? 'var(--color-accent-400)' : 'transparent',
+      priorityRing: t.pr === 'low' ? 'inset 0 0 0 1.5px var(--color-neutral-400)' : 'none',
+      major: !!t.major && !t.done, isCurrent: t.id === s.current && !t.done, hasSubs: !!(t.subs && t.subs.length), subLabel: this.subLabel(t),
+      rowBg: t.id === s.sel ? 'var(--color-accent-100)' : 'transparent',
+    });
+    const groups = Object.values(P).map(name => {
+      const all = s.tasks.filter(t => t.project === name && !t.overdue && !t.later);
+      const open = all.filter(t => !t.done), done = all.filter(t => t.done), show = !!s.showDone[name];
+      return { name, swatch: SW[name], meta: open.length ? `${open.length} open` : 'all done', tasks: (show ? [...open, ...done] : open).map(row), hasDone: done.length > 0,
+        doneLabel: show ? 'hide completed' : `+ ${done.length} done`, toggleDone: () => this.setState(x => ({ showDone: { ...x.showDone, [name]: !x.showDone[name] } })) };
+    }).filter(g => g.tasks.length || g.hasDone);
+    const overdue = s.tasks.filter(t => t.overdue && !t.done).map(row);
+    const todayAll = s.tasks.filter(t => !t.overdue && !t.later);
+
+    const selT = s.tasks.find(t => t.id === s.sel);
+    const sel = selT ? { ...selT, prLabel: PR[selT.pr], dueLabel: selT.overdue ? `${selT.due} · overdue` : selT.due, dueColor: selT.overdue ? 'var(--color-accent-2-700)' : 'var(--color-text)',
+      doneLabel: selT.done ? 'Completed' : 'Mark complete', toggle: () => this.upd(selT.id, x => ({ ...x, done: !x.done })),
+      hasNotes: !!selT.notes, subs: this.subsOf(selT), subLabel: selT.subs && selT.subs.length ? `${selT.subs.filter(x => x.d).length} of ${selT.subs.length} done` : 'None yet',
+      addSub: e => { e.preventDefault(); const t = s.subDraft.trim(); if (!t) return; this.upd(selT.id, x => ({ ...x, subs: [...(x.subs || []), { t, d: false }] })); this.setState({ subDraft: '' }); },
+      focus: () => this.setState({ current: selT.id, mode: 'focus', remaining: total, running: true, focusMode: true, sel: null }) } : {};
+    const next = s.tasks.find(t => !t.done && t.id !== cur.id && !t.overdue && t.pr === 'high') || s.tasks.find(t => !t.done && t.id !== cur.id);
+
+    // projects
+    const pviews = s.projects.map(p => this.projView(p));
+    const pv = pviews.find(p => p.id === s.projId) || pviews[0];
+    const praw = s.projects.find(p => p.id === pv.id);
+    const phaseNames = pv.ongoing ? ['Ongoing'] : (praw.phases || PHASES);
+    const allDates = this.projDates(praw);
+    const dateRow = d => { const off = d.type !== 'holiday' && this.holidayOn(d.date); const n = dayDiff(d.date);
+      return { t: d.t, short: fd(d.date), dow: DOW[d.date.getDay()], icon: DTYPE[d.type][1], typeLabel: d.auto && d.type === 'milestone' ? 'Milestone · from timeline' : DTYPE[d.type][0],
+        when: whenLabel(d.date), whenColor: n >= 0 && n <= 3 ? 'var(--color-accent-2-700)' : 'var(--color-neutral-700)',
+        conflict: !!off, conflictText: off ? `Falls on ${off.t} — consider moving` : '', rowBg: d.type === 'holiday' ? 'var(--hol-bg)' : 'transparent',
+        removable: !d.auto, remove: () => this.updProj(pv.id, p => ({ ...p, dates: p.dates.filter((_, j) => j !== d.idx) })) }; };
+    const upcoming = allDates.filter(d => d.date >= TODAY);
+    const pastN = allDates.length - upcoming.length;
+    const docRows = praw.docs.map((d, i) => { const st = DOC_FLOW[d.s];
+      return { ...d, status: st, hasLink: !!d.link, noLink: !d.link, url: d.url || '', hasUrl: !!d.url, edit: () => this.openDocDlg(i), phaseName: phaseNames[d.phase] || '—', icon: d.s === 3 ? 'ph-check-circle' : d.s === 0 ? 'ph-circle-dashed' : 'ph-circle-half',
+        iconColor: d.s === 3 ? 'var(--color-accent-700)' : d.s === 0 ? 'var(--color-accent-2-700)' : 'var(--color-neutral-700)',
+        pillBg: d.s === 3 ? 'var(--color-accent)' : d.s === 2 ? 'var(--color-accent-200)' : 'transparent', pillColor: d.s === 3 ? '#fff' : d.s === 0 ? 'var(--color-accent-2-700)' : 'var(--color-text)',
+        pillBorder: d.s === 0 ? '1.5px dashed var(--color-accent-2-700)' : d.s === 1 ? '1px solid var(--color-neutral-400)' : '1px solid transparent',
+        dueLabel: fd(d.due), dueColor: d.s < 3 && d.due < TODAY ? 'var(--color-accent-2-700)' : 'var(--color-neutral-700)',
+        linkIcon: d.link ? (d.link.includes('.pdf') ? 'ph-file-pdf' : 'ph-link') : 'ph-paperclip', linkLabel: d.link || 'Attach file or link',
+        cycle: () => { this.updProj(pv.id, p => ({ ...p, docs: p.docs.map((x, j) => j === i ? { ...x, s: (x.s + 1) % 4, link: x.link || ((x.s + 1) % 4 > 0 ? 'Google Doc' : '') } : x) })); },
+        remove: () => this.updProj(pv.id, p => ({ ...p, docs: p.docs.filter((_, j) => j !== i) })) }; });
+    const gateDoc = praw.docs.find(d => d.phase === 3 && d.s < 3);
+    const ckGroups = phaseNames.map((name, pi) => {
+      const items = praw.checklist.map((c, i) => ({ ...c, i })).filter(c => c.phase === pi);
+      const key = pv.id + pi, done = items.filter(c => c.d).length, isCur = !pv.ongoing && pi === pv.curIdx;
+      const collapsed = s.collapsed[key] ?? (!pv.ongoing && pi !== pv.curIdx && pi !== pv.curIdx + 1);
+      return { name, isCurrent: isCur, open: !collapsed, caret: collapsed ? 'ph-caret-right' : 'ph-caret-down',
+        color: isCur ? 'var(--color-accent-700)' : 'var(--color-text)', meta: `${done}/${items.length}${items.length && done === items.length ? ' · complete' : ''}`,
+        toggle: () => this.setState(x => ({ collapsed: { ...x.collapsed, [key]: !collapsed } })),
+        items: items.map(c => ({ ...c, color: c.d ? 'var(--color-neutral-600)' : 'var(--color-text)', decoration: c.d ? 'line-through' : 'none',
+          toggle: () => this.updProj(pv.id, p => ({ ...p, checklist: p.checklist.map((x, j) => j === c.i ? { ...x, d: !x.d } : x) })),
+          remove: () => this.updProj(pv.id, p => ({ ...p, checklist: p.checklist.filter((_, j) => j !== c.i) })) })),
+        draft: s.ckDraft[key] || '', placeholder: `Add item to ${name}…`,
+        setDraft: e => { const v = e.target.value; this.setState(x => ({ ckDraft: { ...x.ckDraft, [key]: v } })); },
+        add: e => { e.preventDefault(); const t = (s.ckDraft[key] || '').trim(); if (!t) return;
+          this.updProj(pv.id, p => ({ ...p, checklist: [...p.checklist, { phase: pi, t, d: false, meta: '' }] })); this.setState(x => ({ ckDraft: { ...x.ckDraft, [key]: '' } })); } };
+    });
+    const curItems = praw.checklist.map((c, i) => ({ ...c, i })).filter(c => c.phase === pv.curIdx).map(c => ({ ...c,
+      color: c.d ? 'var(--color-neutral-600)' : 'var(--color-text)', decoration: c.d ? 'line-through' : 'none',
+      toggle: () => this.updProj(pv.id, p => ({ ...p, checklist: p.checklist.map((x, j) => j === c.i ? { ...x, d: !x.d } : x) })) }));
+    const pTasks = s.tasks.filter(t => t.project === pv.name);
+    const cm = s.calMonth, cy = cm > 12 ? 2027 : 2026, cmm = cm > 12 ? cm - 12 : cm;
+    const first = D(cy, cmm, 1), offset = (first.getDay() + 6) % 7, nDays = new Date(cy, cmm, 0).getDate();
+    const cells = [...Array(offset).fill(null), ...Array.from({ length: nDays }, (_, i) => D(cy, cmm, i + 1))].map(d => {
+      if (!d) return { n: '', bg: 'transparent', color: 'inherit', ring: 'none', weight: 400, tip: '' };
+      const ev = allDates.filter(x => sameDay(x.date, d)), off = this.holidayOn(d), isT = sameDay(d, TODAY);
+      const solid = ev.find(x => x.type === 'deadline' || x.type === 'meeting'), mile = ev.find(x => x.type === 'milestone');
+      return { n: d.getDate(), tip: [...ev.map(x => x.t), off ? off.t : ''].filter(Boolean).join(' · '),
+        bg: solid ? 'var(--color-accent)' : off ? 'var(--hol-bg)' : 'transparent', color: solid ? '#fff' : off ? 'var(--hol-text)' : 'var(--color-text)',
+        ring: mile ? 'inset 0 0 0 1.5px var(--color-accent)' : isT ? 'inset 0 0 0 1.5px var(--color-neutral-500)' : 'none', weight: isT || solid ? 600 : 400 };
+    });
+    const pj = { ...pv, hasPhases: !pv.ongoing, hours: pv.hours,
+      stepper: pv.ongoing ? [] : phaseNames.map((n, i) => { const done = i < pv.curIdx, curP = i === pv.curIdx;
+        return { label: n, date: fd(pv.ms[i]), icon: done ? 'ph-check' : curP ? 'ph-circle-notch' : 'ph-circle', lineDisplay: i < 4 ? 'block' : 'none',
+          bg: done ? 'var(--color-accent)' : curP ? 'var(--color-accent-100)' : 'transparent', color: done ? '#fff' : curP ? 'var(--color-accent-700)' : 'var(--color-neutral-700)',
+          ring: curP ? 'inset 0 0 0 1.5px var(--color-accent)' : done ? 'none' : 'inset 0 0 0 1px var(--color-neutral-400)' }; }),
+      curPhaseTitle: pv.ongoing ? 'Checklist' : `${phaseNames[pv.curIdx]} checklist`, curItems,
+      docs: docRows, docSummary: `${docRows.filter(d => d.s === 3).length} approved · ${docRows.filter(d => d.s === 1 || d.s === 2).length} in progress · ${docRows.filter(d => d.s === 0).length} missing`,
+      hasGate: !!gateDoc && !pv.ongoing, gateText: gateDoc ? `QA can’t be marked complete until “${gateDoc.t}” is approved.` : '',
+      phaseOptions: phaseNames.map((n, i) => ({ v: String(i), label: n })),
+      nextDates: upcoming.filter(d => d.type !== 'holiday').slice(0, 4).map(dateRow), upcoming: upcoming.map(dateRow), hasPast: pastN > 0, pastLabel: `${pastN} past date${pastN > 1 ? 's' : ''} hidden`,
+      openTasks: pTasks.filter(t => !t.done).slice(0, 4).map(row), allTasks: pTasks.map(row),
+      ckGroups,
+      focus: () => { const t = pTasks.find(x => !x.done); if (t) this.setState({ current: t.id, mode: 'focus', remaining: total, running: true, focusMode: true }); } };
+    const ptabDefs = [['overview', 'Overview'], ['tasks', `Tasks ${pTasks.length}`], ['checklist', `Checklist ${pv.checkLabel}`], ['docs', `Documents ${pv.docLabel}`], ['dates', `Dates ${allDates.filter(d => d.type !== 'holiday').length}`]];
+
+    // timesheet
+    const thuBy = n => s.log.filter(l => l.project === n).reduce((a, l) => a + toMin(l.to) - toMin(l.from), 0);
+    const fri = this.holidayOn(D(2026, 10, 23));
+    const tsRows = Object.values(P).map(n => { const v = [...WEEK[n], thuBy(n)];
+      return { name: n, swatch: SW[n], total: toHM(v.reduce((a, b) => a + b, 0)),
+        cells: [...v.map((m, i) => ({ v: m ? toHM(m) : '–', bg: i === 3 ? 'var(--color-accent-100)' : 'transparent', color: 'var(--color-text)', size: '15px' })),
+          fri ? { v: fri.t, bg: 'var(--hol-bg)', color: 'var(--hol-text)', size: '13px' } : { v: '–', bg: 'transparent', color: 'var(--color-neutral-500)', size: '15px' }] }; });
+    const dayTot = [0, 1, 2, 3].map(i => Object.values(P).reduce((a, n) => a + (i < 3 ? WEEK[n][i] : thuBy(n)), 0));
+    const spans = [520, 495, 470, 310];
+    const H0 = 9 * 60, HS = 9 * 60, pos = m => `${((m - H0) / HS) * 100}%`;
+    const sorted = [...s.log].sort((a, b) => toMin(a.from) - toMin(b.from));
+    const gaps = [];
+    sorted.forEach((l, i) => { const nx = sorted[i + 1]; if (nx) { const g = toMin(nx.from) - toMin(l.to); if (g >= 30) gaps.push({ from: l.to, to: nx.from, g }); } });
+    const gapRows = gaps.map(g => ({ left: pos(toMin(g.from)), width: `${(g.g / HS) * 100}%`, label: `${fmt12(g.from)} – ${fmt12(g.to)} untracked (${fmtDur(g.g)})`,
+      log: () => this.setState({ logOpen: true, clockOutOpen: false, lf: { ...s.lf, from: g.from.padStart(5, '0'), to: g.to.padStart(5, '0'), task: '' } }) }));
+    const leaveUsed = 8 + s.holidays.filter(h => h.type === 'leave').reduce((a, h) => a + (h.part === 'Full day' ? this.holDays(h) : 0.5), 0);
+    const leaveLeft = `${18 - leaveUsed} of 18 days`;
+
+    // today: coming up
+    const holSoon = s.holidays.find(h => dayDiff(h.from) >= 0 && dayDiff(h.from) <= 2);
+    const coming = s.projects.flatMap(p => p.dates.map(d => ({ ...d, pid: p.id, pname: p.name }))).filter(d => dayDiff(d.date) >= 0 && dayDiff(d.date) <= 7).sort((a, b) => a.date - b.date).slice(0, 3)
+      .map(d => ({ label: `${d.t} · ${d.pname.split(' ')[0]}`, when: `${DOW[d.date.getDay()]} ${fd(d.date)}`, icon: DTYPE[d.type][1], iconColor: 'var(--color-accent)',
+        go: () => this.setState({ screen: 'project', projId: d.pid, projTab: 'dates' }) }));
+    const missingDoc = s.projects.flatMap(p => p.docs.filter(d => d.s < 3 && dayDiff(d.due) >= -3 && dayDiff(d.due) <= 7).map(d => ({ d, p })))[0];
+    if (missingDoc) coming.push({ label: `${missingDoc.d.t} · ${DOC_FLOW[missingDoc.d.s].toLowerCase()}`, when: `due ${fd(missingDoc.d.due)}`, icon: 'ph-file-dashed', iconColor: 'var(--color-accent-2-700)',
+      go: () => this.setState({ screen: 'project', projId: missingDoc.p.id, projTab: 'docs' }) });
+
+    const lf = s.lf, setLf = k => e => this.setState({ lf: { ...s.lf, [k]: e.target.value }, logError: '' });
+    const df = s.df, setDf = k => e => this.setState({ df: { ...s.df, [k]: e.target.value }, dfError: '' });
+    const hf = s.hf, setHf = k => e => this.setState({ hf: { ...s.hf, [k]: e.target.value } });
+    const dfDate = df.date ? fromIso(df.date) : null, dfOff = dfDate && this.holidayOn(dfDate);
+    const hfFrom = hf.from ? fromIso(hf.from) : null, hfTo = hf.to ? fromIso(hf.to) : hfFrom;
+    const hfHits = hfFrom ? s.projects.flatMap(p => p.dates.filter(d => d.date >= hfFrom && d.date <= hfTo).map(d => `${d.t} (${p.name.split(' ')[0]})`)) : [];
+    const navItems = [['today', 'Today', 'ph-sun-horizon'], ['projects', 'Projects', 'ph-folders'], ['timesheet', 'Timesheet', 'ph-table'], ['settings', 'Settings', 'ph-gear-six']];
+    const navKey = s.screen === 'project' ? 'projects' : s.screen;
+    const split = Object.values(P).map(n => ({ n, m: thuBy(n) })).filter(x => x.m);
+
+    return {
+      th, themeIcon: s.theme === 'dark' ? 'ph-sun' : 'ph-moon',
+      toggleTheme: () => this.setState(x => ({ theme: x.theme === 'dark' ? 'light' : 'dark' })),
+      isToday: s.screen === 'today', isProjects: s.screen === 'projects', isProject: s.screen === 'project', isTimesheet: s.screen === 'timesheet', isSettings: s.screen === 'settings',
+      nav: navItems.map(([k, label, icon]) => ({ label, icon, go: go(k), weight: navKey === k ? 600 : 400,
+        color: navKey === k ? 'var(--color-accent-700)' : 'var(--color-neutral-800)', bg: navKey === k ? 'var(--color-accent-100)' : 'transparent' })),
+      projectNav: s.projects.map(p => ({ name: p.name, swatch: SW[p.name], open: s.tasks.filter(t => t.project === p.name && !t.done).length,
+        bg: s.screen === 'project' && s.projId === p.id ? 'var(--color-neutral-200)' : 'transparent',
+        go: e => { e.preventDefault(); this.setState({ screen: 'project', projId: p.id, projTab: 'overview', sel: null }); } })),
+      ...this.npVals(), ...this.docDlgVals(), ...this.phVals(), showMini: s.screen !== 'today',
+      views: [['grid', 'Cards', 'ph-squares-four'], ['timeline', 'Timeline', 'ph-chart-bar-horizontal']].map(([k, label, icon]) => ({ label, icon, ...this.seg(s.projView === k), go: () => this.setState({ projView: k }) })),
+      isGrid: s.projView === 'grid', isTimeline: s.projView === 'timeline',
+      projects: pviews, projSummary: `${s.projects.length} projects · 195h 45m logged`,
+      months: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan ’27'], todayFrac: frac(TODAY).toFixed(4),
+      holBands: s.holidays.map(h => ({ label: h.t, left: `${frac(h.from) * 100}%`, width: `${Math.max(0.4, (frac(new Date(h.to.getTime() + 864e5)) - frac(h.from)) * 100)}%` })),
+      pj, backToProjects: go('projects'), ptabs: ptabDefs.map(([k, label]) => ({ label, go: () => this.setState({ projTab: k }), line: s.projTab === k ? 'var(--color-accent)' : 'transparent',
+        color: s.projTab === k ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', weight: s.projTab === k ? 600 : 400 })),
+      tabTo: Object.fromEntries(['checklist', 'docs', 'dates', 'tasks'].map(k => [k, e => { e.preventDefault(); this.setState({ projTab: k }); }])),
+      tabOverview: s.projTab === 'overview', tabTasks: s.projTab === 'tasks', tabChecklist: s.projTab === 'checklist', tabDocs: s.projTab === 'docs', tabDates: s.projTab === 'dates',
+      docDraft: s.docDraft, setDocDraft: e => this.setState({ docDraft: e.target.value }), docPhase: pv.ongoing ? '0' : s.docPhase, setDocPhase: e => this.setState({ docPhase: e.target.value }),
+      addDoc: e => { e.preventDefault(); const t = s.docDraft.trim(); if (!t) return;
+        this.updProj(pv.id, p => ({ ...p, docs: [...p.docs, { t, phase: Number(pv.ongoing ? 0 : s.docPhase), s: 0, owner: 'Kalyani', due: p.end, link: '' }] })); this.setState({ docDraft: '' }); this.say(`Added “${t}” to required documents`); },
+      cal: { title: `${MON[cmm - 1]} ${cy}`, cells }, calPrev: () => this.setState(x => ({ calMonth: Math.max(7, x.calMonth - 1) })), calNext: () => this.setState(x => ({ calMonth: Math.min(13, x.calMonth + 1) })),
+      openDate: () => this.setState({ dateOpen: true, dfError: '', df: { t: '', date: '2026-10-30', type: 'deadline', remind: '1 day before' } }), closeDate: () => this.setState({ dateOpen: false }),
+      dateOpen: s.dateOpen,
+      df: { ...df, setT: setDf('t'), setDate: setDf('date'),
+        types: [['deadline', 'Deadline'], ['meeting', 'Client meeting'], ['milestone', 'Milestone']].map(([k, label]) => ({ label, ...this.pill(df.type === k), go: () => this.setState({ df: { ...s.df, type: k } }) })),
+        reminds: ['None', '1 day before', '1 week before'].map(k => ({ label: k, ...this.pill(df.remind === k), go: () => this.setState({ df: { ...s.df, remind: k } }) })),
+        hasWarn: !!s.dfError || !!dfOff, warn: s.dfError || (dfOff ? `That’s ${dfOff.t} — a day off.` : '') },
+      saveDate: e => { e.preventDefault(); if (!df.t.trim()) return this.setState({ dfError: 'Give the date a name.' }); if (!df.date) return this.setState({ dfError: 'Pick a date.' });
+        this.updProj(pv.id, p => ({ ...p, dates: [...p.dates, { t: df.t.trim(), date: fromIso(df.date), type: df.type }] })); this.setState({ dateOpen: false, projTab: s.screen === 'project' ? 'dates' : s.projTab }); this.say(`Saved ${df.t.trim()} · ${fd(fromIso(df.date))}`); },
+
+      tsSub: '19 – 23 Oct · week 43', tsViews: [['week', 'Week'], ['day', 'Thu 22 Oct']].map(([k, label]) => ({ label, ...this.seg(s.tsView === k), go: () => this.setState({ tsView: k }) })),
+      tsWeek: s.tsView === 'week', tsDay: s.tsView === 'day', toDayView: () => this.setState({ tsView: 'day' }),
+      tsDays: ['Mon 19', 'Tue 20', 'Wed 21', 'Thu 22', 'Fri 23'].map((l, i) => ({ label: l.split(' ')[0], sub: i === 4 && fri ? `${l.split(' ')[1]} · day off` : l.split(' ')[1], weight: i === 3 ? 600 : 400,
+        color: i === 3 ? 'var(--color-accent-700)' : i === 4 && fri ? 'var(--hol-text)' : 'var(--color-neutral-600)' })),
+      tsRows, tsFocused: [...dayTot.map(toHM), '–'], tsTotal: toHM(dayTot.reduce((a, b) => a + b, 0)), tsSpan: [...spans.map(toHM), '–'], tsTarget: ['8h', '8h', '8h', '8h', fri ? '0h' : '8h'],
+      tsRatio: `${Math.round((dayTot.reduce((a, b) => a + b, 0) / spans.reduce((a, b) => a + b, 0)) * 100)}%`,
+      gapTotal: fmtDur(gaps.reduce((a, g) => a + g.g, 0)) || '0m',
+      submitLabel: s.submitted ? 'Submitted' : 'Submit week', submitIcon: s.submitted ? 'ph-check-circle' : 'ph-paper-plane-tilt', submitClass: s.submitted ? 'btn-secondary' : 'btn-primary',
+      submitWeek: () => { if (s.submitted) return; this.setState({ submitted: true }); this.say('Week 43 submitted for approval'); },
+      hours: ['9', '10', '11', '12', '1', '2', '3', '4', '5'],
+      clockBar: { left: pos(toMin('9:42')), width: `${((toMin('14:52') - toMin('9:42')) / HS) * 100}%` },
+      dayBars: sorted.map(l => ({ left: pos(toMin(l.from)), width: `${((toMin(l.to) - toMin(l.from)) / HS) * 100}%`, bg: SW[l.project], tip: `${fmt12(l.from)} – ${fmt12(l.to)} · ${l.task}` })),
+      gaps: gapRows, legend: Object.values(P).map(n => ({ name: n, swatch: SW[n] })),
+
+      stabs: [['timer', 'Timer', 'ph-timer'], ['appearance', 'Appearance', 'ph-palette'], ['holidays', 'Holidays & leave', 'ph-confetti']].map(([k, label, icon]) => ({ label, icon, go: () => this.setState({ setTab: k }),
+        bg: s.setTab === k ? 'var(--color-accent-100)' : 'transparent', color: s.setTab === k ? 'var(--color-accent-700)' : 'var(--color-neutral-800)', weight: s.setTab === k ? 600 : 400 })),
+      setTimer: s.setTab === 'timer', setAppearance: s.setTab === 'appearance', setHolidays: s.setTab === 'holidays',
+      timerSettings: [
+        { label: 'Focus length', hint: 'Applies from the next session', opts: [25, 50].map(v => ({ label: `${v} min`, ...this.pill(s.focusLen === v), go: () => this.setState(x => ({ focusLen: v, remaining: x.mode === 'focus' && !x.running ? v * 60 : x.remaining })) })) },
+        { label: 'Long break', hint: 'After 4 sessions · short break is 5 min', opts: [10, 15, 20].map(v => ({ label: `${v} min`, ...this.pill(s.longBreak === v), go: () => this.setState({ longBreak: v }) })) },
+      ],
+      toggleRating: () => this.setState(x => ({ askRating: !x.askRating })), ratingTrack: s.askRating ? 'var(--color-accent)' : 'var(--color-neutral-400)', ratingJustify: s.askRating ? 'flex-end' : 'flex-start',
+      themeOpts: [['light', 'Light', 'ph-sun', LIGHT], ['dark', 'Dark', 'ph-moon', DARK]].map(([k, label, icon, p]) => ({ label, icon, border: s.theme === k ? 'var(--color-accent)' : 'var(--color-divider)',
+        prevBg: p.bg, prevSide: p.n2, prevHero: p.a1, prevLine: p.n3, go: () => this.setState({ theme: k }) })),
+      holList: [...s.holidays].sort((a, b) => a.from - b.from).map(h => ({ ...h, dateLabel: sameDay(h.from, h.to) ? `${DOW[h.from.getDay()]} ${fd(h.from)}` : `${fd(h.from)} – ${fd(h.to)}`,
+        typeLabel: h.type === 'public' ? 'Public holiday' : h.type === 'company' ? 'Company off' : `Leave · ${h.part.toLowerCase()}`,
+        pillBg: h.type === 'leave' ? 'var(--color-accent-100)' : 'var(--hol-bg)', pillColor: h.type === 'leave' ? 'var(--color-accent-700)' : 'var(--hol-text)', when: whenLabel(h.from),
+        remove: () => this.setState(x => ({ holidays: x.holidays.filter(y => y.id !== h.id) })) })),
+      leaveLeft, nextOff: (() => { const n = [...s.holidays].sort((a, b) => a.from - b.from).find(h => h.to >= TODAY); return n ? `${DOW[n.from.getDay()]} ${fd(n.from)} · ${n.t}` : '—'; })(),
+      openHol: () => this.setState({ holOpen: true, hf: { t: '', from: '2026-11-20', to: '2026-11-20', type: 'leave', part: 'Full day' } }), closeHol: () => this.setState({ holOpen: false }), holOpen: s.holOpen,
+      hf: { ...hf, setT: setHf('t'), setFrom: e => this.setState({ hf: { ...s.hf, from: e.target.value, to: s.hf.to < e.target.value ? e.target.value : s.hf.to } }), setTo: setHf('to'),
+        types: [['public', 'Public holiday'], ['leave', 'Leave'], ['company', 'Company off']].map(([k, label]) => ({ label, ...this.pill(hf.type === k), go: () => this.setState({ hf: { ...s.hf, type: k } }) })),
+        parts: ['Full day', 'AM half', 'PM half'].map(k => ({ label: k, ...this.pill(hf.part === k), go: () => this.setState({ hf: { ...s.hf, part: k } }) })),
+        hasWarn: hfHits.length > 0, warn: hfHits.length ? `Clashes with ${hfHits.join(', ')}` : '' },
+      saveHol: e => { e.preventDefault(); if (!hf.from) return; const t = hf.t.trim() || (hf.type === 'leave' ? 'Leave' : 'Holiday');
+        this.setState(x => ({ holOpen: false, holidays: [...x.holidays, { id: Date.now(), t, from: fromIso(hf.from), to: fromIso(hf.to || hf.from), type: hf.type, part: hf.part }] })); this.say(`${t} added · shows on timelines and timesheet`); },
+
+      focusedLabel: fmtDur(focusedMin), sessionCount: s.log.length,
+      clockLabel: s.clockedIn ? 'Clock out' : 'Clock in', clockBtnClass: s.clockedIn ? 'btn-secondary' : 'btn-primary',
+      clockSub: s.clockedIn ? 'In since 9:42 AM' : 'Clocked out',
+      clockDot: s.clockedIn ? 'var(--color-accent)' : 'var(--color-bg)',
+      clockAction: () => s.clockedIn ? this.setState({ clockOutOpen: true }) : (this.setState({ clockedIn: true }), this.say('Clocked in at 2:53 PM')),
+      clockOutOpen: s.clockOutOpen, closeClockOut: () => this.setState({ clockOutOpen: false }),
+      projSplit: split.map(x => ({ swatch: SW[x.n], width: `${(x.m / focusedMin) * 100}%`, tip: `${x.n} ${fmtDur(x.m)}` })),
+      bigGaps: gapRows, moveOpen: s.moveOpen, toggleMoveOpen: () => this.setState(x => ({ moveOpen: !x.moveOpen })),
+      openCount: todayAll.filter(t => !t.done).length,
+      confirmClockOut: () => { this.setState({ clockedIn: false, clockOutOpen: false, running: false }); this.say(`Clocked out at 2:52 PM${s.moveOpen ? ' · open tasks moved to Mon (Fri is a holiday)' : ''}`); },
+
+      hasComing: !!holSoon || coming.length > 0, holidaySoon: !!holSoon,
+      holidaySoonLabel: holSoon ? `${dayDiff(holSoon.from) === 1 ? 'Tomorrow' : DOW[holSoon.from.getDay()]} is ${holSoon.t} — day off` : '', comingUp: s.comingOpen ? coming : coming.slice(0, 1), comingHasMore: coming.length > 1, comingMoreLabel: s.comingOpen ? 'Show less' : '+' + (coming.length - 1) + ' more', toggleComing: () => this.setState(x => ({ comingOpen: !x.comingOpen })), holidaySoonShort: holSoon ? holSoon.t + (dayDiff(holSoon.from) === 1 ? ' tomorrow' : ' on ' + DOW[holSoon.from.getDay()]) : '',
+      goTimesheet: go('timesheet'),
+      phaseLabel: isFocus ? `${s.running ? 'Focusing' : rem === total ? 'Ready' : 'Paused'} · session ${Math.min(4, s.cycleDone + 1)} of 4` : `${s.cycleDone >= 4 ? 'Long break' : 'Short break'}${s.running ? '' : ' · paused'}`,
+      miniLabel: isFocus ? `${s.running ? 'Focusing' : 'Paused'} · ${Math.min(4, s.cycleDone + 1)}/4` : 'On a break',
+      timeLabel: `${pad(Math.floor(rem / 60))}:${pad(rem % 60)}`,
+      progressPct: `${((fullLen - rem) / fullLen) * 100}%`, ringOff: 565.5 * rem / fullLen,
+      current: { ...cur, hasSubs: !!(cur.subs && cur.subs.length), subs: this.subsOf(cur) },
+      inFocusRun: isFocus && rem < total, liveRange: `${fmt12(s.sessionStart)} – now`,
+      runLabel: s.running ? 'Pause' : 'Start', runIcon: s.running ? 'ph-pause' : 'ph-play',
+      toggleRun: () => this.setState(x => ({ running: !x.running, remaining: x.remaining || (x.mode === 'focus' ? total : this.breakLen() * 60) })),
+      endSession: this.endSession, nextFocus: this.nextFocus,
+      isFocusPhase: isFocus, isBreakPhase: !isFocus,
+      breakDone: `Session ${s.cycleDone} done · ${s.lastLogged}m logged to ${cur.project}`, breakTitle: s.cycleDone >= 4 ? 'Take a long break' : 'Take a short break',
+      breakRunLabel: s.running ? 'Pause break' : rem === this.breakLen() * 60 ? 'Start break' : 'Resume break',
+      askRating: s.askRating, ratings: ['Distracted', 'Fine', 'Deep focus'].map(k => ({ label: k, ...this.pill(s.rating === k), go: () => this.setState({ rating: k }) })),
+      cycleHint: s.cycleDone >= 3 ? 'Long break after this one' : `${3 - s.cycleDone} more before a long break`,
+      enterFocus: () => this.setState({ focusMode: true }), exitFocus: () => this.setState({ focusMode: false }), focusMode: s.focusMode,
+      upNext: next ? next.title : 'Nothing — enjoy the break',
+      dots: [0, 1, 2, 3].map(i => ({ bg: i < s.cycleDone ? 'var(--color-accent)' : 'transparent', ring: i < s.cycleDone ? 'none' : 'inset 0 0 0 1.5px var(--color-accent-500)' })),
+      openLog: e => { e.preventDefault(); this.setState({ logOpen: true, logError: '' }); },
+      closeLog: () => this.setState({ logOpen: false }), stopProp: e => e.stopPropagation(),
+      lf: { ...lf, setTask: setLf('task'), setProject: setLf('project'), setFrom: setLf('from'), setTo: setLf('to') },
+      quickLogs: [['Last 15 min', 15], ['Last 30 min', 30]].map(([label, m]) => ({ label, go: () => this.setState({ lf: { ...s.lf, from: toHM(toMin('14:52') - m).padStart(5, '0'), to: '14:52' } }) }))
+        .concat(gaps.map(g => ({ label: `Gap ${fmt12(g.from)} – ${fmt12(g.to)}`, go: () => this.setState({ lf: { ...s.lf, from: g.from.padStart(5, '0'), to: g.to.padStart(5, '0') } }) }))),
+      logError: !!s.logError, logErrorText: s.logError,
+      submitLog: e => {
+        e.preventDefault();
+        if (!lf.task.trim()) return this.setState({ logError: 'Add a short description so it reads well on the timesheet.' });
+        if (toMin(lf.to) <= toMin(lf.from)) return this.setState({ logError: '“To” needs to be after “From”.' });
+        const entry = { from: lf.from.replace(/^0/, ''), to: lf.to.replace(/^0/, ''), task: lf.task.trim(), project: lf.project, manual: true };
+        this.setState({ log: [...s.log, entry].sort((a, b) => toMin(b.from) - toMin(a.from)), logOpen: false, lf: { ...lf, task: '' } });
+        this.say(`Logged ${fmtDur(toMin(lf.to) - toMin(lf.from))} to ${lf.project}`);
+      },
+      doneSummary: `${todayAll.filter(t => t.done).length} of ${todayAll.length} done`,
+      draft: s.draft, draftProject: s.draftProject, projectNames: Object.values(P),
+      setDraft: e => this.setState({ draft: e.target.value }), setDraftProject: e => this.setState({ draftProject: e.target.value }),
+      addTask: e => { e.preventDefault(); const title = s.draft.trim(); if (!title) return;
+        this.setState(x => ({ draft: '', tasks: [...x.tasks, { id: Date.now(), title, project: x.draftProject, pr: 'med', est: '30m', due: 'Today' }] })); },
+      groups, overdue, hasOverdue: overdue.length > 0,
+      hasSel: !!selT, sel, closeSel: () => this.setState({ sel: null }),
+      subDraft: s.subDraft, setSubDraft: e => this.setState({ subDraft: e.target.value }),
+      logSummary: `${s.log.length} sessions · ${fmtDur(focusedMin)} focused`,
+      log: s.log.map((l, i) => ({ ...l, range: `${fmt12(l.from)} – ${fmt12(l.to)}`, dur: fmtDur(toMin(l.to) - toMin(l.from)),
+        meta: l.manual ? `${l.project} · added by hand` : l.project, dotBorder: l.manual ? 'var(--color-neutral-400)' : 'var(--color-accent-500)', lineDisplay: i === s.log.length - 1 ? 'none' : 'block' })),
+      logOpen: s.logOpen, hasToast: !!s.toast, toast: s.toast,
+    };
+  }
+}
+</script>
+</body>
+</html>
