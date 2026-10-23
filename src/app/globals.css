@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Studio Mono tokens (design/README.md). Dark is the default; `.light` swaps the palette.
+ * Raw tokens are mapped into Tailwind below (bg-neutral-200, text-accent-700, …) and into
+ * the shadcn semantic names (background, card, primary, border, ring, …).
+ */
+:root,
+.dark {
+  --bg: #0e0e10;
+  --surface: #141416;
+  --card: #141416;
+  --text: #ececef;
+  --divider: #26262b;
+
+  --n-100: #141416;
+  --n-200: #1b1b1f;
+  --n-300: #232327;
+  --n-400: #2e2e34;
+  --n-500: #3d3d45;
+  --n-600: #7a7a83;
+  --n-700: #8f8f98;
+  --n-800: #b8b8c0;
+  --n-900: #ececef;
+
+  --a: #5b5bd6;
+  --a-100: #17172a;
+  --a-200: #20203d;
+  --a-300: #2c2c58;
+  --a-400: #40408a;
+  --a-500: #5b5bd6;
+  --a-600: #6e6ee6;
+  --a-700: #a5a5ff;
+  --a-800: #c9c9ff;
+  --a-900: #e4e4ff;
+
+  --w-100: #2a141e;
+  --w-700: #ef8fb6;
+  --w-800: #f6b8cf;
+
+  --hol-bg: #1d1a10;
+  --hol-text: #e5cd85;
+
+  --shadow-sm: 0 0 0 1px #232327;
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px #2a2a30;
+
+  color-scheme: dark;
+}
+
+.light {
+  --bg: #fafafa;
+  --surface: #f3f3f5;
+  --card: #ffffff;
+  --text: #17171a;
+  --divider: #e6e6ea;
+
+  --n-100: #fafafa;
+  --n-200: #f1f1f4;
+  --n-300: #e6e6ea;
+  --n-400: #d4d4da;
+  --n-500: #b4b4bc;
+  --n-600: #76767f;
+  --n-700: #5c5c65;
+  --n-800: #3c3c44;
+  --n-900: #1f1f24;
+
+  --a: #5b5bd6;
+  --a-100: #f1f1fd;
+  --a-200: #e3e3fa;
+  --a-300: #c9c9f4;
+  --a-400: #9d9dea;
+  --a-500: #7b7be0;
+  --a-600: #4b4bc4;
+  --a-700: #3c3ca8;
+  --a-800: #2e2e85;
+  --a-900: #1f1f5c;
+
+  --w-100: #fdf0f5;
+  --w-700: #b0185e;
+  --w-800: #7c1043;
+
+  --hol-bg: #fbf3d9;
+  --hol-text: #6e5300;
+
+  --shadow-sm: 0 0 0 1px #e6e6ea;
+  --shadow-lg: 0 20px 50px rgba(20, 20, 30, 0.16), 0 0 0 1px #e6e6ea;
+
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
+
+  /* Studio Mono ramps */
+  --color-neutral-100: var(--n-100);
+  --color-neutral-200: var(--n-200);
+  --color-neutral-300: var(--n-300);
+  --color-neutral-400: var(--n-400);
+  --color-neutral-500: var(--n-500);
+  --color-neutral-600: var(--n-600);
+  --color-neutral-700: var(--n-700);
+  --color-neutral-800: var(--n-800);
+  --color-neutral-900: var(--n-900);
+
+  --color-accent: var(--a);
+  --color-accent-100: var(--a-100);
+  --color-accent-200: var(--a-200);
+  --color-accent-300: var(--a-300);
+  --color-accent-400: var(--a-400);
+  --color-accent-500: var(--a-500);
+  --color-accent-600: var(--a-600);
+  --color-accent-700: var(--a-700);
+  --color-accent-800: var(--a-800);
+  --color-accent-900: var(--a-900);
+
+  --color-warning-100: var(--w-100);
+  --color-warning-700: var(--w-700);
+  --color-warning-800: var(--w-800);
+
+  --color-holiday-bg: var(--hol-bg);
+  --color-holiday-text: var(--hol-text);
+
+  --color-surface: var(--surface);
+  --color-divider: var(--divider);
+
+  /* shadcn semantic names */
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-card: var(--card);
+  --color-card-foreground: var(--text);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--text);
+  --color-primary: var(--a);
+  --color-primary-foreground: #fff; /* text on solid accent is always white */
+  --color-muted: var(--n-200);
+  --color-muted-foreground: var(--n-700);
+  --color-destructive: var(--w-700);
+  --color-border: var(--divider);
+  --color-input: var(--divider);
+  --color-ring: var(--a);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+
+  --shadow-hairline: var(--shadow-sm);
+  --shadow-dialog: var(--shadow-lg);
+
+  --animate-screen-in: screen-in 0.25s ease;
+
+  @keyframes screen-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-optical-sizing: none;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-size: 14px;
+    line-height: 1.45;
+    /* Tabular numbers for all times. */
+    font-variant-numeric: tabular-nums;
+  }
+  :focus-visible {
+    outline: 2px solid var(--a);
+    outline-offset: 2px;
+  }
+}
