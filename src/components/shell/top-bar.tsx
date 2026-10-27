@@ -16,9 +16,10 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
-import { formatCountdown, formatTime } from "@/lib/time";
-import type { ActiveTimer, Theme } from "@/lib/types";
-import { useNow } from "@/lib/use-now";
+import { useWorkdayOptional } from "@/components/workday/workday-provider";
+import { useTimerView } from "@/components/workday/use-timer-view";
+import { formatTime } from "@/lib/time";
+import type { Theme } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { saveTheme } from "./actions";
 
@@ -29,19 +30,9 @@ const NAV: { href: string; label: string; icon: Icon }[] = [
   { href: "/settings", label: "Settings", icon: GearSix },
 ];
 
-export function TopBar({
-  savedTheme,
-  clockedInSince = null,
-  timer = null,
-  live = false,
-}: {
-  savedTheme?: Theme;
-  clockedInSince?: string | null;
-  timer?: ActiveTimer | null;
-  /** false while the user's data is still loading */
-  live?: boolean;
-}) {
+export function TopBar({ savedTheme, live = false }: { savedTheme?: Theme; live?: boolean }) {
   const pathname = usePathname();
+  const workday = useWorkdayOptional();
 
   return (
     <header className="sticky top-0 z-20 flex h-16 items-center gap-7 border-b border-neutral-300 bg-background px-9">
@@ -60,9 +51,7 @@ export function TopBar({
               aria-current={active ? "page" : undefined}
               className={cn(
                 "flex items-center gap-3 whitespace-nowrap rounded-md px-3 py-1.5 text-sm no-underline transition-colors",
-                active
-                  ? "bg-accent-100 font-semibold text-accent-700"
-                  : "text-neutral-800 hover:bg-neutral-200",
+                active ? "bg-accent-100 font-semibold text-accent-700" : "text-neutral-800 hover:bg-neutral-200",
               )}
             >
               <Icon weight="duotone" className="size-4" />
@@ -72,12 +61,12 @@ export function TopBar({
         })}
       </nav>
 
-      {timer && pathname !== "/today" && <MiniTimer timer={timer} />}
+      {workday && pathname !== "/today" && <MiniTimer />}
 
       <div className="ml-auto flex items-center gap-3.5">
-        {live && (
+        {live && workday && (
           <span className="whitespace-nowrap text-[13px] text-neutral-700">
-            {clockedInSince ? `In since ${formatTime(clockedInSince)}` : "Clocked out"}
+            {workday.openSession ? `In since ${formatTime(workday.openSession.clock_in)}` : "Clocked out"}
           </span>
         )}
         <ThemeToggle savedTheme={savedTheme} />
@@ -86,19 +75,13 @@ export function TopBar({
   );
 }
 
-/** Remaining seconds, always derived from ends_at (running) or paused_remaining_seconds. */
-function useRemaining(timer: ActiveTimer) {
-  const now = useNow();
-  if (!timer.ends_at) return timer.paused_remaining_seconds ?? 0;
-  if (now === null) return null;
-  return Math.max(0, (new Date(timer.ends_at).getTime() - now) / 1000);
-}
+/** Live timer pill, shown off the Today screen while a session or break is under way. */
+function MiniTimer() {
+  const view = useTimerView();
+  if (view.phase === "ready" && view.isFocus) return null;
 
-function MiniTimer({ timer }: { timer: ActiveTimer }) {
-  const remaining = useRemaining(timer);
-  const focusing = timer.mode === "focus";
-  const label = focusing
-    ? `${timer.ends_at ? "Focusing" : "Paused"} · ${Math.min(4, timer.cycle_done + 1)}/4`
+  const label = view.isFocus
+    ? `${view.phase === "running" ? "Focusing" : "Paused"} · ${view.sessionNumber}/4`
     : "On a break";
 
   // Focus mode arrives in Phase 4; until then the pill takes you back to Today.
@@ -111,9 +94,7 @@ function MiniTimer({ timer }: { timer: ActiveTimer }) {
         <Timer weight="duotone" className="size-3.5" />
         {label}
       </span>
-      <span className="text-sm font-medium leading-none tabular-nums text-accent-800">
-        {remaining === null ? "–:––" : formatCountdown(remaining)}
-      </span>
+      <span className="text-sm font-medium leading-none tabular-nums text-accent-800">{view.timeLabel}</span>
     </Link>
   );
 }
