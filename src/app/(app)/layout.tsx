@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
-import { TopBar } from "@/components/shell/top-bar";
+import { TopBar, TopBarFallback } from "@/components/shell/top-bar";
 import { TabTitle } from "@/components/workday/use-timer-view";
 import { WorkdayProvider, type CurrentTask, type Entry } from "@/components/workday/workday-provider";
 import { createClient } from "@/lib/supabase/server";
@@ -11,7 +11,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-dvh">
       {/* The bar's frame renders instantly; the user's day streams in. */}
-      <Suspense fallback={<TopBar />}>
+      <Suspense fallback={<TopBarFallback />}>
         <Workday>{children}</Workday>
       </Suspense>
     </div>

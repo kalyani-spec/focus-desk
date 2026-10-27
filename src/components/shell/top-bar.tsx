@@ -30,16 +30,43 @@ const NAV: { href: string; label: string; icon: Icon }[] = [
   { href: "/settings", label: "Settings", icon: GearSix },
 ];
 
+/** Static frame shown while the user's data loads (no route hooks, so it can be prerendered). */
+export function TopBarFallback() {
+  return (
+    <header className="sticky top-0 z-20 flex h-16 items-center gap-7 border-b border-neutral-300 bg-background px-9">
+      <Brand />
+      <nav className="flex gap-0.5">
+        {NAV.map(({ href, label, icon: Icon }) => (
+          <Link
+            key={href}
+            href={href}
+            className="flex items-center gap-3 whitespace-nowrap rounded-md px-3 py-1.5 text-sm text-neutral-800 no-underline"
+          >
+            <Icon weight="duotone" className="size-4" />
+            <span>{label}</span>
+          </Link>
+        ))}
+      </nav>
+    </header>
+  );
+}
+
+function Brand() {
+  return (
+    <Link href="/today" className="flex items-center gap-2.5 text-foreground no-underline">
+      <Coffee weight="duotone" className="size-[18px] text-accent-700" />
+      <span className="whitespace-nowrap text-sm font-semibold">Focus Desk</span>
+    </Link>
+  );
+}
+
 export function TopBar({ savedTheme, live = false }: { savedTheme?: Theme; live?: boolean }) {
   const pathname = usePathname();
   const workday = useWorkdayOptional();
 
   return (
     <header className="sticky top-0 z-20 flex h-16 items-center gap-7 border-b border-neutral-300 bg-background px-9">
-      <Link href="/today" className="flex items-center gap-2.5 text-foreground no-underline">
-        <Coffee weight="duotone" className="size-[18px] text-accent-700" />
-        <span className="whitespace-nowrap text-sm font-semibold">Focus Desk</span>
-      </Link>
+      <Brand />
 
       <nav className="flex gap-0.5">
         {NAV.map(({ href, label, icon: Icon }) => {
