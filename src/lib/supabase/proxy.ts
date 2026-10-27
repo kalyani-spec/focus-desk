@@ -6,6 +6,14 @@ const PUBLIC_PATHS = ["/login", "/auth"];
 
 /** Refreshes the auth session on every request and sends signed-out visitors to /login. */
 export async function updateSession(request: NextRequest) {
+  // A magic link whose redirect isn't allow-listed lands on the Site URL root (`/?code=…`).
+  // Send it on to /auth/confirm so the sign-in still completes.
+  if (request.nextUrl.searchParams.has("code") && !request.nextUrl.pathname.startsWith("/auth/")) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/auth/confirm";
+    return NextResponse.redirect(url);
+  }
+
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
